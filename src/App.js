@@ -1,17 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import Menu from "./components/Menu";
+import Page from "./components/Page";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Under construction
-        </p>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [page, setPage] = useState("menu")
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                {page === "menu" && <Menu setPage={setPage} />}
+                {page === "page" && <Page setPage={setPage} />}
+            </header>
+        </div>
+    );
 }
 
 export default App;

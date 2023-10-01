@@ -1,0 +1,45 @@
+.games-list-box {
+  width: 40rem;
+
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+
+  .buttons {
+    margin: 1.5rem;
+  }
+
+  .games-list {
+    height: 100%;
+    overflow: scroll;
+
+    .game-card {
+      margin: 0.5rem 1rem;
+
+      .game-avatar {
+        display: flex;
+        justify-content: center;
+        height: 4.5rem;
+        width: 4.5rem;
+        cursor: pointer;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .modal-image {
+    max-height: 30rem;
+    max-width: 30rem;
+    object-fit: contain;
+  }
+}

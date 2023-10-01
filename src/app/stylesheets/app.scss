@@ -1,0 +1,28 @@
+//@import 'antd/dist/antd.css';
+@import 'games-list.scss';
+@import 'game-info.scss';
+
+html, body, .main-app {
+  // Make sure the whole screen is filled
+  margin: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  // Position of children
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.main-box {
+  margin: 1rem;
+
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px gray;
+
+  display: flex;
+}

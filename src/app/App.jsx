@@ -1,7 +1,7 @@
 import './stylesheets/App.css';
 import {useState} from "react";
-import Menu from "./components/Menu";
-import Page from "./components/Page";
+import Menu from "./components/navigation/Menu";
+import Page from "./components/navigation/Page";
 import Boardgames from "./pages/Boardgames";
 
 const App = () => {

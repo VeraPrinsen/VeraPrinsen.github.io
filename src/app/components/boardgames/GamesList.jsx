@@ -7,15 +7,14 @@ const GamesList = ({games, clickAction, clickIcon, exchangeRate}) => {
         image: {}
     })
 
-    const handleClickImage = (imageData) => {
+    const handleClickImage = (game) => {
         setImageModal({
             show: true,
-            image: imageData
+            image: game.image
         })
     }
 
     const handleCloseModal = () => {
-        console.log("TEST")
         setImageModal({
             show: false,
             image: {}
@@ -39,13 +38,12 @@ const GamesList = ({games, clickAction, clickIcon, exchangeRate}) => {
                         >
                             <List.Item.Meta
                                 avatar={<div onClick={() => handleClickImage(game)}><Avatar
-                                    src={game.thumb_url}
+                                    src={game.thumbnail}
                                     shape='square'
                                     size='large'
                                     className='game-avatar'
                                 /></div>}
                                 title={game.name}
-                                description={`€ ${(Math.round(game.msrp / exchangeRate * 100) / 100).toFixed(2)}`}
                             />
                         </List.Item>
                         <Modal
@@ -60,7 +58,7 @@ const GamesList = ({games, clickAction, clickIcon, exchangeRate}) => {
                             <div className='modal'>
                                 <Image
                                     className='modal-image'
-                                    src={imageModal.image.image_url}
+                                    src={imageModal.image}
                                     preview={false}
                                 />
                             </div>

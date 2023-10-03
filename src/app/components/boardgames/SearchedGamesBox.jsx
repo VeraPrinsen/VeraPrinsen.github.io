@@ -1,19 +1,20 @@
 import React, { useState, useCallback } from 'react'
-import {searchBoardGame} from "../api/search-game-api";
+import {search} from "../../api/boardgames/search-game-api";
 import { Button, Input, Space } from 'antd'
 import {DoubleRightOutlined} from "@ant-design/icons";
 import GamesList from "./GamesList";
+import {getNode} from "../../util/xmlUtil";
 
 const SearchedGamesBox = ({
     selectedGames,
     exchangeRate,
     addGame
 }) => {
-    const [requestedGames, setRequestedGames] = useState({})
+    const [requestedGames, setRequestedGames] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
     const getRequest = useCallback( () => {
-        searchBoardGame(searchTerm)
+        search(searchTerm)
             .then(response => setRequestedGames(response))
     }, [searchTerm])
 
@@ -27,8 +28,8 @@ const SearchedGamesBox = ({
     }
 
     let requestedGamesToShow;
-    if (requestedGames && requestedGames.games) {
-        requestedGamesToShow = requestedGames.games.filter(game => !selectedGamesIds.includes(game.id))
+    if (requestedGames.length > 0) {
+        requestedGamesToShow = requestedGames.filter(game => !selectedGamesIds.includes(game.id))
     } else {
         requestedGamesToShow = []
     }

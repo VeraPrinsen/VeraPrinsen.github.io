@@ -1,5 +1,5 @@
 import { get } from './api'
-import {xmlToBoardgamesList} from "../../util/xmlToBoardgameConverter";
+import {xmlToBoardgamesList} from "../util/xmlToBoardgameConverter";
 
 export function search(searchTerm) {
     return get(`https://boardgamegeek.com/xmlapi2/search?query=${searchTerm}`)

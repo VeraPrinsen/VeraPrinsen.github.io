@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react'
-import {search} from "../../api/boardgames/search-game-api";
+import {search} from "../api/search-game-api";
 import { Button, Input, Space } from 'antd'
 import {DoubleRightOutlined} from "@ant-design/icons";
 import GamesList from "./GamesList";
-import {getNode} from "../../util/xmlUtil";
+import {getNode} from "../util/xmlUtil";
 
 const SearchedGamesBox = ({
     selectedGames,

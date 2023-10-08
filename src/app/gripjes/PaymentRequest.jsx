@@ -1,5 +1,5 @@
-import "./stylesheets/PaymentRequest.css"
-import logo from "./pluumke-logo.jpeg"
+import "./PaymentRequest.css"
+import logo from './pluumke-logo.jpeg'
 
 const PaymentRequest = () => {
     const openInNewTab = (url) => {
@@ -8,9 +8,11 @@ const PaymentRequest = () => {
 
     return (
         <div className="main">
-            <div className="logo">
-                <img src={logo} />
-            </div>
+            <img src={logo} />
+            <p className="text">
+                Gripjes voor €1,- per stuk. <br/>
+                Bedrag in betaalverzoek kan aangepast worden.
+            </p>
             <button className="button" onClick={() => openInNewTab("https://betaalverzoek.rabobank.nl/betaalverzoek/?id=nhbnMrYkQMKje6uc1xwHaQ")}>Betaal gripje(s)</button>
         </div>
     )

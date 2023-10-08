@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './app/stylesheets/index.css';
+import './app/boardgames/stylesheets/index.css';
 import reportWebVitals from './reportWebVitals';
 import {HashRouter} from "react-router-dom";
 import App from "./app/App";

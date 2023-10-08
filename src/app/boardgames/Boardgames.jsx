@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import SearchedGamesBox from '../components/boardgames/SearchedGamesBox'
-import '../stylesheets/app.scss'
-import SelectedGamesBox from '../components/boardgames/SelectedGamesBox'
-import GameInfoBox from '../components/boardgames/GameInfoBox'
-import {exchangeRate} from "../api/boardgames/price-api";
+import SearchedGamesBox from './components/SearchedGamesBox'
+import './stylesheets/app.scss'
+import SelectedGamesBox from './components/SelectedGamesBox'
+import GameInfoBox from './components/GameInfoBox'
+import {exchangeRate} from "./api/price-api";
 
 const Boardgames = () => {
     const [selectedGames, setSelectedGames] = useState([])

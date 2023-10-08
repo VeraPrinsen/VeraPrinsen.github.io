@@ -1,8 +1,8 @@
-import './stylesheets/App.css';
+import './boardgames/stylesheets/App.css';
 import {useState} from "react";
-import Menu from "./components/navigation/Menu";
-import Page from "./components/navigation/Page";
-import Boardgames from "./pages/Boardgames";
+import Menu from "./navigation/Menu";
+import Page from "./navigation/Page";
+import Boardgames from "./boardgames/Boardgames";
 
 const Homepage = () => {
     const [currentPage, setPage] = useState("menu")

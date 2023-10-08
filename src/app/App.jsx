@@ -1,6 +1,6 @@
-import './stylesheets/App.css';
+import './boardgames/stylesheets/App.css';
 import { Route, Routes } from "react-router-dom";
-import PaymentRequest from "./PaymentRequest";
+import PaymentRequest from "./gripjes/PaymentRequest";
 import Homepage from "./Homepage";
 
 const App = () => {

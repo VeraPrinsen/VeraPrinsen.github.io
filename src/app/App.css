@@ -1,0 +1,24 @@
+:root {
+  --raspberry-rose: #B8336A;
+  --space-cadet: #1B264F;
+  --azure: #4C7FE6;
+  --sandy-brown: #FFA552;
+  --black: #000000;
+  --white: #FFFFFF;
+  --vista-blue: #80A4ED;
+
+  --background: var(--space-cadet);
+  --card-top: var(--vista-blue);
+  --card-bottom: var(--azure);
+  --card-shadow: var(--black);
+  --card-title: var(--raspberry-rose);
+  --card-border-hover: var(--sandy-brown);
+}
+
+.main-frame {
+  background-color: var(--background);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}

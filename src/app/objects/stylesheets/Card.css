@@ -1,0 +1,10 @@
+.card {
+    background-image: linear-gradient(var(--card-top), var(--card-bottom));
+    border-radius: 12px;
+    box-shadow: 5px 5px 20px var(--card-shadow);
+}
+
+.card:hover {
+    border: 3px solid var(--card-border-hover);
+    cursor: pointer;
+}

@@ -1,8 +1,8 @@
 import React, {useMemo, useRef} from 'react'
 import "../stylesheets/GamesBox.scss"
-import { Button, Space } from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 import GamesList from "./GamesList";
+import Button from "../../objects/components/Button";
 
 const SelectedGamesBox = ({
     selectedGames,
@@ -35,20 +35,18 @@ const SelectedGamesBox = ({
     return (
         <div className='main-box games-list-box'>
             <div className='buttons'>
-                <Space align='center'>
-                    <>
-                        <Button type='primary' onClick={handleClick}>Load</Button>
-                        <input
-                            id='file-upload'
-                            type='file'
-                            ref={hiddenFileInput}
-                            accept='.json'
-                            onChange={e => save(e.target.files[0])}
-                            style={{display: 'none'}}
-                        />
-                    </>
-                    <Button type='primary' href={file.dataUri} download={file.fileName}>Save</Button>
-                </Space>
+                <>
+                    <Button text="Load" onClick={handleClick} />
+                    <input
+                        id='file-upload'
+                        type='file'
+                        ref={hiddenFileInput}
+                        accept='.json'
+                        onChange={e => save(e.target.files[0])}
+                        style={{display: 'none'}}
+                    />
+                </>
+                <Button text="Save" type='primary' href={file.dataUri} download={file.fileName} />
             </div>
             <GamesList
                 games={selectedGames}

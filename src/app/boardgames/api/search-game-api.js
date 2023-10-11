@@ -4,7 +4,6 @@ import {xmlToBoardgamesList} from "../util/xmlToBoardgameConverter";
 export function search(searchTerm) {
     return get(`https://boardgamegeek.com/xmlapi2/search?query=${searchTerm}`)
         .then(xml => {
-            debugger
             let allItems = xml.children[0]
             let itemIds = []
             for (let i = 0; i < allItems.getAttribute("total"); i++) {

@@ -6,19 +6,23 @@
   --black: #000000;
   --white: #FFFFFF;
   --vista-blue: #80A4ED;
+  --raisin-black: #1F2433;
+  --rich-black: #0A0F1E;
+  --gray: #777777;
 
   --background: var(--space-cadet);
+  --hub: var(--rich-black);
   --card-top: var(--vista-blue);
   --card-bottom: var(--azure);
   --card-shadow: var(--black);
   --card-title: var(--raspberry-rose);
   --card-border-hover: var(--sandy-brown);
+  --button: var(--azure);
+  --button-hover: var(--vista-blue);
 }
 
 .main-frame {
   background-color: var(--background);
   min-height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
 }

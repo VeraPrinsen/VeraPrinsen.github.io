@@ -5,28 +5,10 @@
   justify-content: flex-start;
 
   .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 1.5rem;
-  }
-
-  .games-list {
-    height: 100%;
-    overflow: scroll;
-
-    .game-card {
-      margin: 0.5rem 1rem;
-
-      .game-avatar {
-        display: flex;
-        justify-content: center;
-        height: 4.5rem;
-        width: 4.5rem;
-        cursor: pointer;
-
-        img {
-          object-fit: contain;
-        }
-      }
-    }
   }
 }
 

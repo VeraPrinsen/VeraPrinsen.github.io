@@ -1,71 +1,50 @@
-import React, {useState} from 'react'
-import { Avatar, List, Modal, Image } from "antd";
+import React from "react"
+import "../stylesheets/GamesBox.scss"
+import List from "../../objects/components/List";
 
-const GamesList = ({games, clickAction, clickIcon, exchangeRate}) => {
-    const [imageModal, setImageModal] = useState({
-        show: false,
-        image: {}
-    })
+const GamesList = ({ games, onClickAction, onClickIcon }) => {
+    // const [imageModal, setImageModal] = useState({
+    //     show: false,
+    //     image: {}
+    // })
+    //
+    // const handleClickImage = (game) => {
+    //     setImageModal({
+    //         show: true,
+    //         image: game.image
+    //     })
+    // }
+    //
+    // const handleCloseModal = () => {
+    //     setImageModal({
+    //         show: false,
+    //         image: {}
+    //     })
+    // }
 
-    const handleClickImage = (game) => {
-        setImageModal({
-            show: true,
-            image: game.image
-        })
+    const handleOnClick = (game) => {
+        onClickAction(game)
     }
 
-    const handleCloseModal = () => {
-        setImageModal({
-            show: false,
-            image: {}
+    const gamesToItems = games => {
+        if (games.length > 0) {
+            debugger
+        }
+        return games.map(game => {
+            return {
+                id: game.name,
+                title: game.name,
+                description: game.yearPublished,
+                thumbnail: game.thumbnail,
+                image: game.image,
+                action: React.createElement(onClickIcon, { onClick: () => handleOnClick(game) })
+            }
         })
-    }
-
-    const handleClick = (game) => {
-        clickAction(game)
     }
 
     return (
         <div className='games-list'>
-            <List
-                itemLayout='horizontal'
-                dataSource={games}
-                renderItem={(game) => (
-                    <div>
-                        <List.Item
-                            actions={[React.createElement(clickIcon, { onClick: () => handleClick(game) })]}
-                            className='game-card'
-                        >
-                            <List.Item.Meta
-                                avatar={<div onClick={() => handleClickImage(game)}><Avatar
-                                    src={game.thumbnail}
-                                    shape='square'
-                                    size='large'
-                                    className='game-avatar'
-                                /></div>}
-                                title={game.name}
-                            />
-                        </List.Item>
-                        <Modal
-                            visible={imageModal.show}
-                            width={"35rem"}
-                            footer={null}
-                            onCancel={handleCloseModal}
-                            destroyOnClose={true}
-                            mask={false}
-                            bodyStyle={{ height: "35rem"}}
-                        >
-                            <div className='modal'>
-                                <Image
-                                    className='modal-image'
-                                    src={imageModal.image}
-                                    preview={false}
-                                />
-                            </div>
-                        </Modal>
-                    </div>
-                )}>
-            </List>
+            <List items={gamesToItems(games)} />
         </div>
     )
 }

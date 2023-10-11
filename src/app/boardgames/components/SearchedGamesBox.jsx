@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from 'react'
+import "../stylesheets/GamesBox.scss"
 import {search} from "../api/search-game-api";
-import { Button, Input, Space } from 'antd'
-import {DoubleRightOutlined} from "@ant-design/icons";
+import { Space } from 'antd'
+import { DoubleRightOutlined } from "@ant-design/icons";
 import GamesList from "./GamesList";
-import {getNode} from "../util/xmlUtil";
+import Button from "../../objects/components/Button";
+import TextInput from "../../objects/components/TextInput";
 
 const SearchedGamesBox = ({
     selectedGames,
-    exchangeRate,
     addGame
 }) => {
     const [requestedGames, setRequestedGames] = useState([])
@@ -37,17 +38,14 @@ const SearchedGamesBox = ({
     return (
         <div className='main-box games-list-box'>
             <div className='buttons'>
-                <Space align='center'>
-                    <Input onChange={handleInputOnChange} value={searchTerm} />
-                    <Button type='primary' onClick={getRequest}>Search</Button>
-                </Space>
+                <TextInput onChange={handleInputOnChange} value={searchTerm} />
+                <Button text="Search" onClick={getRequest} />
             </div>
             <GamesList
                 games={requestedGamesToShow}
-                clickAction={addGame}
-                clickIcon={DoubleRightOutlined}
-                exchangeRate={exchangeRate
-                }/>
+                onClickAction={addGame}
+                onClickIcon={DoubleRightOutlined}
+            />
         </div>
     )
 }

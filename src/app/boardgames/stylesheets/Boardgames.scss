@@ -1,0 +1,14 @@
+.boardgames-main-app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.main-box {
+  margin: 1rem;
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px gray;
+  display: flex;
+}

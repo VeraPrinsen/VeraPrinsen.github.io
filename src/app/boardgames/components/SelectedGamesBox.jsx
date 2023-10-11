@@ -1,4 +1,5 @@
 import React, {useMemo, useRef} from 'react'
+import "../stylesheets/GamesBox.scss"
 import { Button, Space } from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 import GamesList from "./GamesList";
@@ -6,7 +7,6 @@ import GamesList from "./GamesList";
 const SelectedGamesBox = ({
     selectedGames,
     setSelectedGames,
-    exchangeRate,
     removeGame
 }) => {
     const hiddenFileInput = useRef(null)
@@ -52,9 +52,8 @@ const SelectedGamesBox = ({
             </div>
             <GamesList
                 games={selectedGames}
-                clickAction={removeGame}
-                clickIcon={DeleteOutlined}
-                exchangeRate={exchangeRate}
+                onClickAction={removeGame}
+                onClickIcon={DeleteOutlined}
             />
         </div>
     )

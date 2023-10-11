@@ -40,7 +40,6 @@ export const xmlToBoardgamesList = xml => {
 }
 
 const xmlGameToObject = xmlGame => {
-    debugger
     const nameElements = xmlGame.getElementsByTagName("name")
     let name
     [].slice.call(nameElements).forEach(nameElement => {

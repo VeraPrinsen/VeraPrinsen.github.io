@@ -38,7 +38,9 @@ const GamesSearch = ({
         <div className='main-box games-list-box'>
             <div className='buttons'>
                 <TextInput onChange={handleInputOnChange} value={searchTerm} />
-                <Button text="Search" onClick={getRequest} />
+                <Button>
+                    <div onClick={getRequest}>Search</div>
+                </Button>
             </div>
             <GamesList
                 games={requestedGamesToShow}

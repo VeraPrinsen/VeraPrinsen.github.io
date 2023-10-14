@@ -36,7 +36,9 @@ const SelectedGames = ({
         <div className='main-box games-list-box'>
             <div className='buttons'>
                 <>
-                    <Button text="Load" onClick={handleClick} />
+                    <Button>
+                        <div onClick={handleClick}>Load</div>
+                    </Button>
                     <input
                         id='file-upload'
                         type='file'
@@ -46,7 +48,9 @@ const SelectedGames = ({
                         style={{display: 'none'}}
                     />
                 </>
-                <Button text="Save" type='primary' href={file.dataUri} download={file.fileName} />
+                <Button>
+                    <a className="save-button" href={file.dataUri} download={file.fileName}>Save</a>
+                </Button>
             </div>
             <GamesList
                 games={selectedGames}

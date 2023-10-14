@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './stylesheets/Boardgames.scss'
-import SearchedGamesBox from './components/SearchedGamesBox'
-import SelectedGamesBox from './components/SelectedGamesBox'
+import GamesSearch from './components/GamesSearch'
+import SelectedGames from './components/SelectedGames'
+import GamesAnalytics from "./components/GamesAnalytics";
 
 const Boardgames = () => {
     const [selectedGames, setSelectedGames] = useState([])
@@ -16,15 +17,16 @@ const Boardgames = () => {
 
     return (
         <div className="boardgames-main-app">
-            <SearchedGamesBox
+            <GamesSearch
                 selectedGames={selectedGames}
                 addGame={addGame}
             />
-            <SelectedGamesBox
+            <SelectedGames
                 selectedGames={selectedGames}
                 setSelectedGames={setSelectedGames}
                 removeGame={removeGame}
             />
+            <GamesAnalytics selectedGames={selectedGames} />
         </div>
     )
 }

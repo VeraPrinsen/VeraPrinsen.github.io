@@ -47,6 +47,10 @@ $actions-size: 3rem;
       align-items: flex-end;
       width: $actions-size;
       padding-right: 0.5rem;
+
+      .li-action-icon {
+        cursor: pointer;
+      }
     }
   }
 }

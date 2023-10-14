@@ -27,9 +27,6 @@ const GamesList = ({ games, onClickAction, onClickIcon }) => {
     }
 
     const gamesToItems = games => {
-        if (games.length > 0) {
-            debugger
-        }
         return games.map(game => {
             return {
                 id: game.name,
@@ -37,7 +34,7 @@ const GamesList = ({ games, onClickAction, onClickIcon }) => {
                 description: game.yearPublished,
                 thumbnail: game.thumbnail,
                 image: game.image,
-                action: React.createElement(onClickIcon, { onClick: () => handleOnClick(game) })
+                action: React.createElement(onClickIcon, { className: "li-action-icon", onClick: () => handleOnClick(game) })
             }
         })
     }

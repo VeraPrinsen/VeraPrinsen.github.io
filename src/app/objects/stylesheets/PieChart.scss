@@ -1,0 +1,19 @@
+.pie {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  
+  .legend-box {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .legend-label {
+    padding-left: 1rem;
+  }
+}

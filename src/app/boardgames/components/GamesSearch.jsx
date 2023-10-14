@@ -1,13 +1,12 @@
 import React, { useState, useCallback } from 'react'
 import "../stylesheets/GamesBox.scss"
 import {search} from "../api/search-game-api";
-import { Space } from 'antd'
-import { DoubleRightOutlined } from "@ant-design/icons";
+import { AiOutlineDoubleRight } from "react-icons/ai"
 import GamesList from "./GamesList";
 import Button from "../../objects/components/Button";
 import TextInput from "../../objects/components/TextInput";
 
-const SearchedGamesBox = ({
+const GamesSearch = ({
     selectedGames,
     addGame
 }) => {
@@ -44,10 +43,10 @@ const SearchedGamesBox = ({
             <GamesList
                 games={requestedGamesToShow}
                 onClickAction={addGame}
-                onClickIcon={DoubleRightOutlined}
+                onClickIcon={AiOutlineDoubleRight}
             />
         </div>
     )
 }
 
-export default SearchedGamesBox
+export default GamesSearch

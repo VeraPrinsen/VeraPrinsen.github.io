@@ -1,10 +1,10 @@
 import React, {useMemo, useRef} from 'react'
 import "../stylesheets/GamesBox.scss"
-import {DeleteOutlined} from "@ant-design/icons";
+import { AiOutlineDelete } from "react-icons/ai"
 import GamesList from "./GamesList";
 import Button from "../../objects/components/Button";
 
-const SelectedGamesBox = ({
+const SelectedGames = ({
     selectedGames,
     setSelectedGames,
     removeGame
@@ -51,10 +51,10 @@ const SelectedGamesBox = ({
             <GamesList
                 games={selectedGames}
                 onClickAction={removeGame}
-                onClickIcon={DeleteOutlined}
+                onClickIcon={AiOutlineDelete}
             />
         </div>
     )
 }
 
-export default SelectedGamesBox
+export default SelectedGames

@@ -16,7 +16,10 @@ const GamesSearch = ({
 
     const getRequest = useCallback( () => {
         search(searchTerm)
-            .then(response => setRequestedGames(response))
+            .then(response => {
+                debugger
+                setRequestedGames(response)
+            })
     }, [searchTerm])
 
     const handleInputOnChange = e => {

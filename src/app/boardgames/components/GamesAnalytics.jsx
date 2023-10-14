@@ -1,6 +1,6 @@
 import "../stylesheets/GamesAnalytics.scss"
 import React, {useEffect, useState} from "react";
-import PieChart from "../../objects/components/PieChart";
+import BarChart from "../../objects/components/BarChart";
 
 const GamesAnalytics = ({
     selectedGames,
@@ -9,7 +9,26 @@ const GamesAnalytics = ({
 
     useEffect(() => {
         if (selectedGames) {
+            let earliestYear = 9999
+            let latestYear = 0
+            selectedGames.forEach(game => {
+                if (game.yearPublished < earliestYear) {
+                    earliestYear = game.yearPublished
+                }
+                if (game.yearPublished > latestYear) {
+                    latestYear = game.yearPublished
+                }
+            })
+
+            debugger
+
             let newData = new Map()
+            let currentYear = earliestYear
+            while (currentYear <= latestYear) {
+                newData.set(currentYear, 0)
+                currentYear = currentYear + 1
+            }
+
             selectedGames.forEach(game => {
                 let yearPublished = game.yearPublished
                 if (!newData.get(yearPublished)) {
@@ -24,7 +43,7 @@ const GamesAnalytics = ({
 
     return (
             <div className="main-box game-info-main">
-                <PieChart data={data} />
+                <BarChart data={data} />
             </div>
         )
 }

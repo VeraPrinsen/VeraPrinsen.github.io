@@ -53,7 +53,7 @@ const xmlGameToObject = xmlGame => {
         id: xmlGame.getAttribute("id"),
         name: name,
         description: xmlGame.getElementsByTagName("description").length > 0 ? xmlGame.getElementsByTagName("description")[0].textContent : "",
-        yearPublished: xmlGame.getElementsByTagName("yearpublished").length > 0 ? xmlGame.getElementsByTagName("yearpublished")[0].getAttribute("value") : "",
+        yearPublished: xmlGame.getElementsByTagName("yearpublished").length > 0 ? parseInt(xmlGame.getElementsByTagName("yearpublished")[0].getAttribute("value")) : null,
         thumbnail: xmlGame.getElementsByTagName("thumbnail").length > 0 ? xmlGame.getElementsByTagName("thumbnail")[0].textContent : "",
         image: xmlGame.getElementsByTagName("image").length > 0 ? xmlGame.getElementsByTagName("image")[0].textContent : ""
     }

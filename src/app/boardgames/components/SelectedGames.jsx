@@ -7,7 +7,8 @@ import Button from "../../objects/components/Button";
 const SelectedGames = ({
     selectedGames,
     setSelectedGames,
-    removeGame
+    removeGame,
+    showImages
 }) => {
     const hiddenFileInput = useRef(null)
 
@@ -56,6 +57,7 @@ const SelectedGames = ({
                 games={selectedGames}
                 onClickAction={removeGame}
                 onClickIcon={AiOutlineDelete}
+                showImages={showImages}
             />
         </div>
     )

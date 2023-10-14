@@ -1,8 +1,10 @@
 .games-list-box {
   width: 25%;
-
+  display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
+  overflow-y: scroll;
+  scroll-behavior: auto;
 
   .buttons {
     display: flex;

@@ -8,7 +8,8 @@ import TextInput from "../../objects/components/TextInput";
 
 const GamesSearch = ({
     selectedGames,
-    addGame
+    addGame,
+    showImages
 }) => {
     const [requestedGames, setRequestedGames] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
@@ -46,6 +47,7 @@ const GamesSearch = ({
                 games={requestedGamesToShow}
                 onClickAction={addGame}
                 onClickIcon={AiOutlineDoubleRight}
+                showImages={showImages}
             />
         </div>
     )

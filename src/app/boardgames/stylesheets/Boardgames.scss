@@ -1,13 +1,33 @@
 .boardgames-main-app {
   height: 100%;
   width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+
+  .title {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--card-title);
+    padding: 1rem;
+  }
+
+  .options {
+    padding: 1rem;
+  }
+}
+
+.content {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
 }
 
 .main-box {
-  height: 85vh;
+  height: 80vh;
   margin: 1rem;
   border: 1px solid black;
   box-shadow: 5px 5px 5px gray;

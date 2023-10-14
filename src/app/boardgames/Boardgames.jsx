@@ -6,6 +6,7 @@ import GamesAnalytics from "./components/GamesAnalytics";
 
 const Boardgames = () => {
     const [selectedGames, setSelectedGames] = useState([])
+    const [showImages, setShowImages] = useState(false)
 
     const addGame = gameToAdd => {
         setSelectedGames(oldArray => [...oldArray, gameToAdd]);
@@ -15,18 +16,33 @@ const Boardgames = () => {
         setSelectedGames(selectedGames.filter(game => game.id !== gameToRemove.id));
     }
 
+    const onChangeShowImages = () => {
+        setShowImages(prevState => !prevState)
+    }
+
     return (
         <div className="boardgames-main-app">
-            <GamesSearch
-                selectedGames={selectedGames}
-                addGame={addGame}
-            />
-            <SelectedGames
-                selectedGames={selectedGames}
-                setSelectedGames={setSelectedGames}
-                removeGame={removeGame}
-            />
-            <GamesAnalytics selectedGames={selectedGames} />
+            <div className="header">
+                <div className="title">BOARDGAMES</div>
+                <div className="options">
+                    <input type="checkbox" checked={showImages} name="show-images" onChange={onChangeShowImages} />
+                    <label htmlFor="show-images">Show Images</label>
+                </div>
+            </div>
+            <div className="content">
+                <GamesSearch
+                    selectedGames={selectedGames}
+                    addGame={addGame}
+                    showImages={showImages}
+                />
+                <SelectedGames
+                    selectedGames={selectedGames}
+                    setSelectedGames={setSelectedGames}
+                    removeGame={removeGame}
+                    showImages={showImages}
+                />
+                <GamesAnalytics selectedGames={selectedGames} />
+            </div>
         </div>
     )
 }

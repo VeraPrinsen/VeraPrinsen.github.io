@@ -2,7 +2,7 @@ import React from "react"
 import "../stylesheets/GamesBox.scss"
 import List from "../../objects/components/List";
 
-const GamesList = ({ games, onClickAction, onClickIcon }) => {
+const GamesList = ({ games, onClickAction, onClickIcon, showImages }) => {
     // const [imageModal, setImageModal] = useState({
     //     show: false,
     //     image: {}
@@ -32,8 +32,8 @@ const GamesList = ({ games, onClickAction, onClickIcon }) => {
                 id: game.name,
                 title: game.name,
                 description: game.yearPublished,
-                thumbnail: game.thumbnail,
-                image: game.image,
+                thumbnail: showImages ? game.thumbnail : "",
+                image: showImages ? game.image : "",
                 action: React.createElement(onClickIcon, { className: "li-action-icon", onClick: () => handleOnClick(game) })
             }
         })

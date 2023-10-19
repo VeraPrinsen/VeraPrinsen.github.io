@@ -4,7 +4,6 @@ import {search} from "../api/search-game-api";
 import { AiOutlineDoubleRight } from "react-icons/ai"
 import GamesList from "./GamesList";
 import Button from "../../objects/components/Button";
-import TextInput from "../../objects/components/TextInput";
 
 const GamesSearch = ({
     selectedGames,
@@ -17,7 +16,6 @@ const GamesSearch = ({
     const getRequest = useCallback( () => {
         search(searchTerm)
             .then(response => {
-                debugger
                 setRequestedGames(response)
             })
     }, [searchTerm])
@@ -41,7 +39,7 @@ const GamesSearch = ({
     return (
         <div className='main-box games-list-box'>
             <div className='buttons'>
-                <TextInput onChange={handleInputOnChange} value={searchTerm} />
+                <input onChange={handleInputOnChange} value={searchTerm} />
                 <Button>
                     <div onClick={getRequest}>Search</div>
                 </Button>

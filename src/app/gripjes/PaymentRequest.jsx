@@ -1,4 +1,4 @@
-import "./PaymentRequest.css"
+import "./PaymentRequest.scss"
 import logo from './pluumke-logo.jpeg'
 
 const PaymentRequest = () => {

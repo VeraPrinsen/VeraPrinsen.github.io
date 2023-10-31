@@ -2,6 +2,7 @@ import "./GameOfLife.scss"
 import {useEffect, useState} from "react";
 import Cell from "./Cell";
 import {amountOfAliveNeighbours} from "./util";
+import Hub from "../navigation/components/Hub";
 
 const GameOfLife = () => {
     const [rows, setRows] = useState(10)
@@ -117,30 +118,33 @@ const GameOfLife = () => {
     }
 
     return (
-        <div className="game-of-life">
-            <div className="gol-grid">
-                {drawGrid()}
+        <>
+            <Hub title="Game of Life" />
+            <div className="game-of-life">
+                <div className="gol-grid">
+                    {drawGrid()}
+                </div>
+                <div className="gol-buttons">
+                    <div className="gol-button">
+                        <div className="label">Rows</div>
+                        <input type="number" value={rows} min={5} max={30} onChange={e => setRows(+e.target.value)} />
+                    </div>
+                    <div className="gol-button">
+                        <div className="label">Columns</div>
+                        <input type="number" value={columns} min={5} max={30} onChange={e => setColumns(+e.target.value)} />
+                    </div>
+                    <div className="gol-button">
+                        <button onClick={onStep}>Step ></button>
+                    </div>
+                    <div className="gol-button">
+                        <button onClick={onPlay}>{playOn ? "Stop" : "Play"}</button>
+                    </div>
+                    <div className="gol-button">
+                        <button onClick={onClear}>Clear</button>
+                    </div>
+                </div>
             </div>
-            <div className="gol-buttons">
-                <div className="gol-button">
-                    <div className="label">Rows</div>
-                    <input type="number" value={rows} min={5} max={30} onChange={e => setRows(+e.target.value)} />
-                </div>
-                <div className="gol-button">
-                    <div className="label">Columns</div>
-                    <input type="number" value={columns} min={5} max={30} onChange={e => setColumns(+e.target.value)} />
-                </div>
-                <div className="gol-button">
-                    <button onClick={onStep}>Step ></button>
-                </div>
-                <div className="gol-button">
-                    <button onClick={onPlay}>{playOn ? "Stop" : "Play"}</button>
-                </div>
-                <div className="gol-button">
-                    <button onClick={onClear}>Clear</button>
-                </div>
-            </div>
-        </div>
+        </>
     )
 }
 

@@ -16,3 +16,10 @@
     cursor: pointer;
     color: var(--white);
 }
+
+.hub-title {
+    color: var(--baby-powder);
+    font-size: 2em;
+    font-weight: bold;
+    padding-left: 2em;
+}

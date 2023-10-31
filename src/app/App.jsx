@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom"
 import PaymentRequest from "./gripjes/PaymentRequest"
 import Homepage from "./navigation/components/Homepage"
 import Boardgames from "./boardgames/Boardgames"
-import Hub from "./navigation/components/Hub";
 import GameOfLife from "./gameOfLife/GameOfLife";
 
 export const REACHABLE_PAGES = [
@@ -22,7 +21,6 @@ export const REACHABLE_PAGES = [
 const App = () => {
     return (
         <div>
-            <Hub />
             <Routes>
                 {/*Homepage*/}
                 <Route exact path="/" element={<Homepage />} />

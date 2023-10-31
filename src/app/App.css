@@ -9,14 +9,20 @@
   --raisin-black: #1F2433;
   --rich-black: #0A0F1E;
   --gray: #777777;
+  --night: #0A0A0A;
+  --light-night: #222222;
+  --baby-powder: #FBFEF9;
+  --paynes-gray: #56667A;
+  --penn-red: #92140C;
+  --engineering-orange: #BF0603;
 
-  --background: var(--space-cadet);
-  --hub: var(--rich-black);
-  --card-top: var(--vista-blue);
-  --card-bottom: var(--azure);
+  --background: var(--light-night);
+  --hub: var(--light-night);
+  --card-top: var(--baby-powder);
+  --card-bottom: var(--baby-powder);
   --card-shadow: var(--black);
-  --card-title: var(--raspberry-rose);
-  --card-border-hover: var(--sandy-brown);
+  --card-title: var(--penn-red);
+  --card-border-hover: var(--engineering-orange);
   --button: var(--azure);
   --button-hover: var(--vista-blue);
 }

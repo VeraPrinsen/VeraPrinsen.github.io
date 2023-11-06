@@ -1,4 +1,5 @@
 import {INITIAL_SUDOKU_GRID} from "./SudokuContext";
+import {NOTES_OFF} from "../util/constants";
 
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
@@ -45,12 +46,14 @@ const keyPressAction = (state, action) => {
     if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
-        if (key > 0 && key <= 9) {
-            newGrid[activeCell[0]][activeCell[1]] = key
-            return { ...state, grid: newGrid }
-        } else if (key === "Backspace") {
-            newGrid[activeCell[0]][activeCell[1]] = null
-            return { ...state, grid: newGrid }
+        if (state.mode === NOTES_OFF) {
+            if (key > 0 && key <= 9) {
+                newGrid[activeCell[0]][activeCell[1]] = key
+                return { ...state, grid: newGrid }
+            } else if (key === "Backspace") {
+                newGrid[activeCell[0]][activeCell[1]] = null
+                return { ...state, grid: newGrid }
+            }
         }
     }
     return state

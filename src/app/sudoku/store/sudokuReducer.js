@@ -1,3 +1,5 @@
+import {INITIAL_SUDOKU_GRID} from "./SudokuContext";
+
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
     KEY_PRESS: "KEY_PRESS"
@@ -22,6 +24,8 @@ const cellClickAction = (state, action) => {
     let newActiveCell
     if (row === null || column === null) {
         newActiveCell = null
+    } else if (INITIAL_SUDOKU_GRID[row][column] !== null) {
+        return state
     } else if (!state.activeCell) {
         newActiveCell = [row, column]
     } else if (state.activeCell[0] === row && state.activeCell[1] === column) {
@@ -38,7 +42,7 @@ const cellClickAction = (state, action) => {
 const keyPressAction = (state, action) => {
     const key = action.payload.key
     const activeCell = state.activeCell
-    if (activeCell && state.initialGrid[activeCell[0]][activeCell[1]] === null) {
+    if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
         if (key > 0 && key <= 9) {

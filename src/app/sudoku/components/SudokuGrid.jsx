@@ -1,20 +1,24 @@
 import '../stylesheets/SudokuGrid.scss'
-import { useContext } from "react";
-import { SudokuContext } from "../store/SudokuContext";
+import { useContext, useEffect, useCallback } from "react";
+import {INITIAL_SUDOKU_GRID, SudokuContext} from "../store/SudokuContext";
 
 const SudokuGrid = () => {
-    const { initialGrid, grid, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
+    const { grid, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
 
     const handleCellClick = (e, rIndex, cIndex) => {
         e.stopPropagation()
         onCellClick(rIndex, cIndex)
     }
 
-    document.body.addEventListener('keydown', event => {
+    const keyPress = useCallback(event => {
         let key = event.key
-        debugger
+        console.log("RUN KEYPRESS FOR: " + key)
         onKeyPress(key)
-    })
+    }, [onKeyPress])
+    useEffect(() => {
+        document.addEventListener('keydown', keyPress)
+        return () => document.removeEventListener("keydown", keyPress)
+    }, [keyPress])
 
     return (
         <div className="sudoku-grid">
@@ -32,7 +36,7 @@ const SudokuGrid = () => {
                             if (cIndex % 3 === 2) {
                                 classes += " cell-bottom-border-bold"
                             }
-                            if (initialGrid[rIndex][cIndex] !== null) {
+                            if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== null) {
                                 classes += " cell-initial-number"
                             }
                             return (

@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 import { ACTIONS, sudokuReducer } from "./sudokuReducer";
 
-const INITIAL_SUDOKU_GRID = [
+export const INITIAL_SUDOKU_GRID = [
     [5, 3, null, null, 7, null, null, null, null],
     [6, null, null, 1, 9, 5, null, null, null],
     [null, 9, 8, null, null, null, null, 6, null],
@@ -14,7 +14,6 @@ const INITIAL_SUDOKU_GRID = [
 ]
 
 const INITIAL_STATE = {
-    initialGrid: INITIAL_SUDOKU_GRID,
     grid: INITIAL_SUDOKU_GRID,
     activeCell: null
 }
@@ -49,7 +48,6 @@ const SudokuContextProvider = ({ children }) => {
 
     // Creating the Context
     const contextValue = {
-        initialGrid: INITIAL_SUDOKU_GRID,
         grid: state.grid,
         activeCell: state.activeCell,
         onCellClick: handleCellClick,

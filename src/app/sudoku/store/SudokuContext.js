@@ -3,7 +3,7 @@ import { ACTIONS, sudokuReducer } from "./sudokuReducer";
 import {NOTES_OFF} from "../util/constants";
 
 export const INITIAL_SUDOKU_GRID = [
-    [5, 3, null, null, 7, null, null, null, null],
+    [5, 3, [1,2], null, 7, null, null, null, null],
     [6, null, null, 1, 9, 5, null, null, null],
     [null, 9, 8, null, null, null, null, 6, null],
     [8, null, null, null, 6, null, null, null, 3],

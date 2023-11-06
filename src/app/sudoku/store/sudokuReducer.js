@@ -1,5 +1,5 @@
 import {INITIAL_SUDOKU_GRID} from "./SudokuContext";
-import {NOTES_OFF} from "../util/constants";
+import {NOTES_OFF, NOTES_ON} from "../util/constants";
 
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
@@ -46,6 +46,7 @@ const keyPressAction = (state, action) => {
     if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
+
         if (state.mode === NOTES_OFF) {
             if (key > 0 && key <= 9) {
                 newGrid[activeCell[0]][activeCell[1]] = key
@@ -54,6 +55,10 @@ const keyPressAction = (state, action) => {
                 newGrid[activeCell[0]][activeCell[1]] = null
                 return { ...state, grid: newGrid }
             }
+        }
+
+        if (state.mode === NOTES_ON) {
+
         }
     }
     return state

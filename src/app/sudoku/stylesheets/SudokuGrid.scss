@@ -1,4 +1,4 @@
-$cell-size: 3rem;
+$cell-size: 4rem;
 
 .sudoku-grid {
   display: flex;
@@ -16,7 +16,7 @@ $cell-size: 3rem;
 
       height: $cell-size;
       width: $cell-size;
-      font-size: 2rem;
+      font-size: (2/3) * $cell-size;
       border: 1px solid black;
     }
 
@@ -34,6 +34,23 @@ $cell-size: 3rem;
 
     .cell-initial-number {
       font-weight: 900;
+    }
+
+    .cell-notes-grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cell-notes-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .cell-notes-cell {
+      font-size: $cell-size/4;
+      font-weight: 500;
+      height: $cell-size/4;
+      width: $cell-size/4;
     }
   }
 }

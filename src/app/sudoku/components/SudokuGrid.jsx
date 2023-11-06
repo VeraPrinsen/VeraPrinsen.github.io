@@ -20,12 +20,42 @@ const SudokuGrid = () => {
         return () => document.removeEventListener("keydown", keyPress)
     }, [keyPress])
 
+    const renderNotesCell = cell => {
+        const cellGrid = []
+        for (let row = 0; row < 3; row++) {
+            const rowDiv = []
+            for (let column = 0; column < 3; column++) {
+                const number = row*3 + column + 1
+                if (cell.includes(number)) {
+                    rowDiv.push(<div className="cell-notes-cell">{number}</div>)
+                } else {
+                    rowDiv.push(<div className="cell-notes-cell"></div>)
+                }
+            }
+            cellGrid.push(<div className="cell-notes-row">{rowDiv}</div>)
+        }
+        return <div className="cell-notes-grid">{cellGrid}</div>
+
+
+        // const cellGrid = [
+        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>],
+        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>],
+        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>]
+        // ]
+        // cell.forEach(cellNumber => {
+        //     const row = Math.floor((cellNumber - 1)/3)
+        //     const column = (cellNumber % 3) - 1
+        //     cellGrid[row][column] = <div className="cell-notes">{cellNumber}</div>
+        // })
+        // return cellGrid
+    }
+
     return (
         <div className="sudoku-grid">
             {grid.map((row, rIndex) => {
                 return (
                     <div key={rIndex} className="sudoku-grid-row">
-                        {row.map((column, cIndex) => {
+                        {row.map((cell, cIndex) => {
                             let classes = "sudoku-grid-cell"
                             if (activeCell && activeCell[0] === rIndex && activeCell[1] === cIndex) {
                                 classes += " active-cell"
@@ -39,14 +69,26 @@ const SudokuGrid = () => {
                             if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== null) {
                                 classes += " cell-initial-number"
                             }
-                            return (
-                                <div key={rIndex + "," + cIndex}
-                                     className={classes}
-                                     onClick={(e) => handleCellClick(e, rIndex, cIndex)}
-                                >
-                                    {column}
-                                </div>
-                            )
+
+                            if (Array.isArray(cell)) {
+                                return (
+                                    <div key={rIndex + "," + cIndex}
+                                         className={classes}
+                                         onClick={(e) => handleCellClick(e, rIndex, cIndex)}
+                                    >
+                                        {renderNotesCell(cell)}
+                                    </div>
+                                )
+                            } else {
+                                return (
+                                    <div key={rIndex + "," + cIndex}
+                                         className={classes}
+                                         onClick={(e) => handleCellClick(e, rIndex, cIndex)}
+                                    >
+                                        {cell}
+                                    </div>
+                                )
+                            }
                         })}
                     </div>
                 )

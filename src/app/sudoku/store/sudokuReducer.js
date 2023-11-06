@@ -38,7 +38,10 @@ const cellClickAction = (state, action) => {
 const keyPressAction = (state, action) => {
     const key = action.payload.key
     const activeCell = state.activeCell
-    if (activeCell && key > 0 && key <= 9) {
+    if (activeCell &&
+        key > 0 &&
+        key <= 9 &&
+        state.initialGrid[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
         newGrid[activeCell[0]][activeCell[1]] = key

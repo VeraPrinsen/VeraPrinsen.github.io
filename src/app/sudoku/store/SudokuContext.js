@@ -14,6 +14,7 @@ const INITIAL_SUDOKU_GRID = [
 ]
 
 const INITIAL_STATE = {
+    initialGrid: INITIAL_SUDOKU_GRID,
     grid: INITIAL_SUDOKU_GRID,
     activeCell: null
 }
@@ -48,6 +49,7 @@ const SudokuContextProvider = ({ children }) => {
 
     // Creating the Context
     const contextValue = {
+        initialGrid: INITIAL_SUDOKU_GRID,
         grid: state.grid,
         activeCell: state.activeCell,
         onCellClick: handleCellClick,

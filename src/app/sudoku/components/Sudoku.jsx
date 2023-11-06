@@ -1,6 +1,6 @@
 import SudokuGrid from "./SudokuGrid";
 import {useContext} from "react";
-import {SudokuContext} from "../store/SudokuContext";
+import { SudokuContext } from "../store/SudokuContext";
 
 import "../stylesheets/Sudoku.scss"
 

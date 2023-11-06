@@ -21,13 +21,19 @@ const SudokuGrid = () => {
                 return (
                     <div key={rIndex} className="sudoku-grid-row">
                         {row.map((column, cIndex) => {
-                            let backgroundColor = ""
+                            let classes = "sudoku-grid-cell"
                             if (activeCell && activeCell[0] === rIndex && activeCell[1] === cIndex) {
-                                backgroundColor = "active-cell"
+                                classes += " active-cell"
+                            }
+                            if (rIndex % 3 === 2) {
+                                classes += " cell-right-border-bold"
+                            }
+                            if (cIndex % 3 === 2) {
+                                classes += " cell-bottom-border-bold"
                             }
                             return (
                                 <div key={rIndex + "," + cIndex}
-                                     className={`sudoku-grid-cell ${backgroundColor}`}
+                                     className={classes}
                                      onClick={(e) => handleCellClick(e, rIndex, cIndex)}
                                 >
                                     {column}

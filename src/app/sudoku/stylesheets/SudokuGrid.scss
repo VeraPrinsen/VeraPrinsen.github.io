@@ -22,5 +22,13 @@ $cell-size: 2rem;
     .active-cell {
       background-color: #4C7FE6;
     }
+
+    .cell-bottom-border-bold {
+      border-bottom: 2px solid black;
+    }
+
+    .cell-right-border-bold {
+      border-right: 2px solid black;
+    }
   }
 }

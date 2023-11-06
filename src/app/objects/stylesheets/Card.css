@@ -1,11 +1,15 @@
 .card {
     background-image: linear-gradient(var(--card-top), var(--card-bottom));
-    border: 1px solid var(--black);
+    border: 3px solid var(--black);
     border-radius: 12px;
     box-shadow: 5px 5px 20px var(--card-shadow);
 }
 
 .card:hover {
-    border: 1px solid var(--card-border-hover);
+    border: 3px solid var(--card-border-hover);
     cursor: pointer;
+}
+
+a, a:hover, a:active {
+    text-decoration: none;
 }

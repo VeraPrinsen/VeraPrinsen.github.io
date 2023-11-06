@@ -1,11 +1,14 @@
 import "../stylesheets/Card.css"
+import {Link} from "react-router-dom";
 
-const Card = ({ children, className, onClick }) => {
+const Card = ({ children, className, path }) => {
     let classes = className + " card"
     return (
-        <div className={classes} onClick={onClick}>
-            {children}
-        </div>
+        <Link to={path}>
+            <div className={classes}>
+                {children}
+            </div>
+        </Link>
     )
 }
 

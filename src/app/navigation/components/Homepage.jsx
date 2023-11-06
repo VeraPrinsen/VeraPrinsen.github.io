@@ -6,7 +6,7 @@ const Homepage = () => {
     return (
         <div className="main-frame">
             <div className="homepage">
-                {REACHABLE_PAGES.map(page => <ApplicationCard title={page.title} path={page.path} />)}
+                {REACHABLE_PAGES.map(page => <ApplicationCard key={page.title} title={page.title} path={page.path} />)}
             </div>
         </div>
     )

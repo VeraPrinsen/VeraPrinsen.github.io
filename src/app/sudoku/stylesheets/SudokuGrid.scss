@@ -1,0 +1,26 @@
+$cell-size: 2rem;
+
+.sudoku-grid {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+
+  .sudoku-grid-row {
+    display: flex;
+    flex-direction: column;
+
+    .sudoku-grid-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: $cell-size;
+      width: $cell-size;
+      border: 1px solid black;
+    }
+
+    .active-cell {
+      background-color: #4C7FE6;
+    }
+  }
+}

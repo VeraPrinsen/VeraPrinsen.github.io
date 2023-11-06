@@ -4,6 +4,7 @@ import PaymentRequest from "./gripjes/PaymentRequest"
 import Homepage from "./navigation/components/Homepage"
 import Boardgames from "./boardgames/Boardgames"
 import GameOfLife from "./gameOfLife/GameOfLife";
+import SudokuPage from "./sudoku/SudokuPage";
 
 export const REACHABLE_PAGES = [
     {
@@ -15,6 +16,11 @@ export const REACHABLE_PAGES = [
         title: "Game of Life",
         path: "/game-of-life",
         element: <GameOfLife />
+    },
+    {
+        title: "SudokuPage",
+        path: "/sudoku",
+        element: <SudokuPage />
     }
 ]
 

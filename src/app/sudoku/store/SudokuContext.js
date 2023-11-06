@@ -22,6 +22,7 @@ const INITIAL_STATE = {
 const HANDLERS = {
     onCellClick: () => {},
     onKeyPress: () => {},
+    onModeToggle: () => {}
 }
 export const SudokuContext = createContext({ ...INITIAL_STATE, ...HANDLERS })
 
@@ -48,11 +49,18 @@ const SudokuContextProvider = ({ children }) => {
         })
     }
 
+    const handleModeToggle = () => {
+        dispatch({
+            type: ACTIONS.MODE_TOGGLE,
+        })
+    }
+
     // Creating the Context
     const contextValue = {
         ...state,
         onCellClick: handleCellClick,
-        onKeyPress: handleKeyPress
+        onKeyPress: handleKeyPress,
+        onModeToggle: handleModeToggle
     }
 
     return (

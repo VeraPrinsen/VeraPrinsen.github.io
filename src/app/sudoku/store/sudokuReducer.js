@@ -3,7 +3,8 @@ import {NOTES_OFF, NOTES_ON} from "../util/constants";
 
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
-    KEY_PRESS: "KEY_PRESS"
+    KEY_PRESS: "KEY_PRESS",
+    MODE_TOGGLE: "MODE_TOGGLE"
 }
 
 export const sudokuReducer = (state, action) => {
@@ -12,6 +13,8 @@ export const sudokuReducer = (state, action) => {
             return cellClickAction(state, action)
         case ACTIONS.KEY_PRESS:
             return keyPressAction(state, action)
+        case ACTIONS.MODE_TOGGLE:
+            return modeToggleAction(state)
     }
 }
 
@@ -49,7 +52,8 @@ const keyPressAction = (state, action) => {
 
         if (state.mode === NOTES_OFF) {
             if (key > 0 && key <= 9) {
-                newGrid[activeCell[0]][activeCell[1]] = key
+                newGrid[activeCell[0]][activeCell[1]] = parseInt(key)
+                debugger
                 return { ...state, grid: newGrid }
             } else if (key === "Backspace") {
                 newGrid[activeCell[0]][activeCell[1]] = null
@@ -58,8 +62,24 @@ const keyPressAction = (state, action) => {
         }
 
         if (state.mode === NOTES_ON) {
-
+            if (!Array.isArray(newGrid[activeCell[0]][activeCell[1]])) {
+                newGrid[activeCell[0]][activeCell[1]] = []
+            }
+            if (key > 0 && key <= 9) {
+                newGrid[activeCell[0]][activeCell[1]].push(parseInt(key))
+                debugger
+                return { ...state, grid: newGrid }
+            }
         }
+    }
+    return state
+}
+
+const modeToggleAction = (state) => {
+    if (state.mode === NOTES_OFF) {
+        return { ...state, mode: NOTES_ON }
+    } else if (state.mode === NOTES_ON) {
+        return { ...state, mode: NOTES_OFF }
     }
     return state
 }

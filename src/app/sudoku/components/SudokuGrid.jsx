@@ -35,19 +35,6 @@ const SudokuGrid = () => {
             cellGrid.push(<div className="cell-notes-row">{rowDiv}</div>)
         }
         return <div className="cell-notes-grid">{cellGrid}</div>
-
-
-        // const cellGrid = [
-        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>],
-        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>],
-        //     [<div className="cell-notes"></div>, <div className="cell-notes"></div>, <div className="cell-notes"></div>]
-        // ]
-        // cell.forEach(cellNumber => {
-        //     const row = Math.floor((cellNumber - 1)/3)
-        //     const column = (cellNumber % 3) - 1
-        //     cellGrid[row][column] = <div className="cell-notes">{cellNumber}</div>
-        // })
-        // return cellGrid
     }
 
     return (

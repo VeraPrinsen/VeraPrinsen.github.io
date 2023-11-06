@@ -1,4 +1,4 @@
-$cell-size: 2rem;
+$cell-size: 3rem;
 
 .sudoku-grid {
   display: flex;
@@ -16,6 +16,7 @@ $cell-size: 2rem;
 
       height: $cell-size;
       width: $cell-size;
+      font-size: 2rem;
       border: 1px solid black;
     }
 
@@ -32,7 +33,7 @@ $cell-size: 2rem;
     }
 
     .cell-initial-number {
-      font-weight: bold;
+      font-weight: 900;
     }
   }
 }

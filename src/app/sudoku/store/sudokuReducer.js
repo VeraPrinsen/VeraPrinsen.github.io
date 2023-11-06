@@ -45,6 +45,11 @@ const cellClickAction = (state, action) => {
  */
 const keyPressAction = (state, action) => {
     const key = action.payload.key
+
+    if (key === " ") {
+       return modeToggleAction(state)
+    }
+
     const activeCell = state.activeCell
     if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid

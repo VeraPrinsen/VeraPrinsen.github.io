@@ -30,5 +30,9 @@ $cell-size: 2rem;
     .cell-right-border-bold {
       border-right: 2px solid black;
     }
+
+    .cell-initial-number {
+      font-weight: bold;
+    }
   }
 }

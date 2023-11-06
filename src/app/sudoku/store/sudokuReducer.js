@@ -38,14 +38,16 @@ const cellClickAction = (state, action) => {
 const keyPressAction = (state, action) => {
     const key = action.payload.key
     const activeCell = state.activeCell
-    if (activeCell &&
-        key > 0 &&
-        key <= 9 &&
-        state.initialGrid[activeCell[0]][activeCell[1]] === null) {
+    if (activeCell && state.initialGrid[activeCell[0]][activeCell[1]] === null) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
-        newGrid[activeCell[0]][activeCell[1]] = key
-        return { ...state, grid: newGrid }
+        if (key > 0 && key <= 9) {
+            newGrid[activeCell[0]][activeCell[1]] = key
+            return { ...state, grid: newGrid }
+        } else if (key === "Backspace") {
+            newGrid[activeCell[0]][activeCell[1]] = null
+            return { ...state, grid: newGrid }
+        }
     }
     return state
 }

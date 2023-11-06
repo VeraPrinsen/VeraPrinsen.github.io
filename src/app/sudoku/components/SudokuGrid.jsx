@@ -3,15 +3,16 @@ import { useContext } from "react";
 import { SudokuContext } from "../store/SudokuContext";
 
 const SudokuGrid = () => {
-    const { grid, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
+    const { initialGrid, grid, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
 
     const handleCellClick = (e, rIndex, cIndex) => {
         e.stopPropagation()
         onCellClick(rIndex, cIndex)
     }
 
-    document.body.addEventListener('keypress', event => {
+    document.body.addEventListener('keydown', event => {
         let key = event.key
+        debugger
         onKeyPress(key)
     })
 
@@ -30,6 +31,9 @@ const SudokuGrid = () => {
                             }
                             if (cIndex % 3 === 2) {
                                 classes += " cell-bottom-border-bold"
+                            }
+                            if (initialGrid[rIndex][cIndex] !== null) {
+                                classes += " cell-initial-number"
                             }
                             return (
                                 <div key={rIndex + "," + cIndex}

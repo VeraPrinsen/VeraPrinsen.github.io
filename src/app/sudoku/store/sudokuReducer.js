@@ -71,8 +71,12 @@ const keyPressAction = (state, action) => {
                 newGrid[activeCell[0]][activeCell[1]] = []
             }
             if (key > 0 && key <= 9) {
-                newGrid[activeCell[0]][activeCell[1]].push(parseInt(key))
-                debugger
+                if (newGrid[activeCell[0]][activeCell[1]].includes(parseInt(key))) {
+                    debugger
+                    newGrid[activeCell[0]][activeCell[1]] = newGrid[activeCell[0]][activeCell[1]].filter(i => i !== parseInt(key))
+                } else {
+                    newGrid[activeCell[0]][activeCell[1]].push(parseInt(key))
+                }
                 return { ...state, grid: newGrid }
             }
         }

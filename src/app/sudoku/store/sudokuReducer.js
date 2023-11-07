@@ -10,15 +10,18 @@ export const ACTIONS = {
 }
 
 export const sudokuReducer = (state, action) => {
+    // Remove all errors after each action
+    const newState = { ...state, errors: "", gridErrors: [] }
+
     switch (action.type) {
         case ACTIONS.CELL_CLICK:
-            return cellClickAction(state, action)
+            return cellClickAction(newState, action)
         case ACTIONS.KEY_PRESS:
-            return keyPressAction(state, action)
+            return keyPressAction(newState, action)
         case ACTIONS.MODE_TOGGLE:
-            return modeToggleAction(state)
+            return modeToggleAction(newState)
         case ACTIONS.VALIDATE:
-            return validateAction(state, action)
+            return validateAction(newState, action)
     }
 }
 

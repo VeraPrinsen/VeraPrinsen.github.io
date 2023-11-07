@@ -12,7 +12,6 @@ const SudokuGrid = () => {
 
     const keyPress = useCallback(event => {
         let key = event.key
-        console.log("RUN KEYPRESS FOR: " + key)
         onKeyPress(key)
     }, [onKeyPress])
     useEffect(() => {

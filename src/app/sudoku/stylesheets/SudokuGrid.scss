@@ -1,13 +1,13 @@
-$cell-size: 3.5rem;
+@import "./variables.scss";
 
 .sudoku-grid {
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
+  flex-direction: column;
+  border: 0.1*$cell-size solid black;
 
   .sudoku-grid-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     .sudoku-grid-cell {
       display: flex;
@@ -17,7 +17,7 @@ $cell-size: 3.5rem;
       height: $cell-size;
       width: $cell-size;
       font-size: (2/3) * $cell-size;
-      border: 1px solid black;
+      border: 0.02*$cell-size solid black;
     }
 
     .active-cell {
@@ -25,11 +25,11 @@ $cell-size: 3.5rem;
     }
 
     .cell-bottom-border-bold {
-      border-bottom: 2px solid black;
+      border-bottom: 0.1*$cell-size solid black;
     }
 
     .cell-right-border-bold {
-      border-right: 2px solid black;
+      border-right: 0.1*$cell-size solid black;
     }
 
     .cell-initial-number {
@@ -48,7 +48,7 @@ $cell-size: 3.5rem;
 
     .cell-notes-cell {
       font-size: $cell-size/4;
-      font-weight: 500;
+      font-weight: 150*$cell-size;
       height: $cell-size/4;
       width: $cell-size/4;
     }

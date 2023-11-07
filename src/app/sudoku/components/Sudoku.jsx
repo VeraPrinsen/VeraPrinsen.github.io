@@ -6,7 +6,7 @@ import "../stylesheets/Sudoku.scss"
 import {NOTES_OFF, NOTES_ON} from "../util/constants";
 
 const Sudoku = () => {
-    const { mode, onCellClick, onModeToggle } = useContext(SudokuContext)
+    const { mode, errors, onCellClick, onModeToggle, onValidate } = useContext(SudokuContext)
 
     const handleScreenClick = e => {
         e.stopPropagation()
@@ -15,6 +15,10 @@ const Sudoku = () => {
 
     const handleButtonClick = () => {
         onModeToggle()
+    }
+
+    const handleValidateClick = () => {
+        onValidate()
     }
 
     let modeText
@@ -28,8 +32,11 @@ const Sudoku = () => {
         <div className="sudoku-main" onClick={handleScreenClick}>
             <SudokuGrid />
             <div className="actions">
-                <button onClick={handleButtonClick}>Notes</button>
-                {modeText}
+                <span><button onClick={handleButtonClick}>Notes</button>{modeText}</span>
+                <span><button onClick={handleValidateClick}>Validate</button></span>
+            </div>
+            <div className="errors">
+                {errors}
             </div>
         </div>
     )

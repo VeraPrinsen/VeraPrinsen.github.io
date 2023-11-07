@@ -16,13 +16,16 @@ export const INITIAL_SUDOKU_GRID = [
 
 const INITIAL_STATE = {
     grid: INITIAL_SUDOKU_GRID,
+    gridErrors: new Map(),
+    errors: "",
     activeCell: null,
     mode: NOTES_OFF
 }
 const HANDLERS = {
     onCellClick: () => {},
     onKeyPress: () => {},
-    onModeToggle: () => {}
+    onModeToggle: () => {},
+    onValidate: () => {}
 }
 export const SudokuContext = createContext({ ...INITIAL_STATE, ...HANDLERS })
 
@@ -55,12 +58,22 @@ const SudokuContextProvider = ({ children }) => {
         })
     }
 
+    const handleValidate = () => {
+        dispatch({
+            type: ACTIONS.VALIDATE,
+            payload: {
+                grid: state.grid
+            }
+        })
+    }
+
     // Creating the Context
     const contextValue = {
         ...state,
         onCellClick: handleCellClick,
         onKeyPress: handleKeyPress,
-        onModeToggle: handleModeToggle
+        onModeToggle: handleModeToggle,
+        onValidate: handleValidate
     }
 
     return (

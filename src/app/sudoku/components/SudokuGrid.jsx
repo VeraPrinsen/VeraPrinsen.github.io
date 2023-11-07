@@ -47,11 +47,11 @@ const SudokuGrid = () => {
                             if (activeCell && activeCell[0] === rIndex && activeCell[1] === cIndex) {
                                 classes += " active-cell"
                             }
-                            if (rIndex % 3 === 2) {
-                                classes += " cell-right-border-bold"
-                            }
-                            if (cIndex % 3 === 2) {
+                            if (rIndex !== 8 && rIndex % 3 === 2) {
                                 classes += " cell-bottom-border-bold"
+                            }
+                            if (cIndex !== 8 && cIndex % 3 === 2) {
+                                classes += " cell-right-border-bold"
                             }
                             if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== null) {
                                 classes += " cell-initial-number"

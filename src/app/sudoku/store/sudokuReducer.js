@@ -1,10 +1,12 @@
 import {INITIAL_SUDOKU_GRID} from "./SudokuContext";
 import {NOTES_OFF, NOTES_ON} from "../util/constants";
+import {validate} from "../util/sudokuSolver";
 
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
     KEY_PRESS: "KEY_PRESS",
-    MODE_TOGGLE: "MODE_TOGGLE"
+    MODE_TOGGLE: "MODE_TOGGLE",
+    VALIDATE: "VALIDATE"
 }
 
 export const sudokuReducer = (state, action) => {
@@ -15,6 +17,8 @@ export const sudokuReducer = (state, action) => {
             return keyPressAction(state, action)
         case ACTIONS.MODE_TOGGLE:
             return modeToggleAction(state)
+        case ACTIONS.VALIDATE:
+            return validateAction(state, action)
     }
 }
 
@@ -90,4 +94,13 @@ const modeToggleAction = (state) => {
         return { ...state, mode: NOTES_OFF }
     }
     return state
+}
+
+const validateAction = (state, action) => {
+    try {
+        const errors = validate(INITIAL_SUDOKU_GRID, action.payload.grid)
+        return { ...state, gridErrors: errors }
+    } catch (error) {
+        return { ...state, errors: error }
+    }
 }

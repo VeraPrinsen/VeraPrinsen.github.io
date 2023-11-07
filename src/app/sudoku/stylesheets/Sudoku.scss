@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .sudoku-main {
   height: 90vh;
   width: 100%;
@@ -11,10 +13,16 @@
 .actions {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 9*$cell-size;
 
   padding: 1rem;
 
   button {
     margin-right: 1rem;
   }
+}
+
+.errors {
+  color: red;
 }

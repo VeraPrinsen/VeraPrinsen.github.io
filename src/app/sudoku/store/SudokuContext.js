@@ -3,20 +3,20 @@ import { ACTIONS, sudokuReducer } from "./sudokuReducer";
 import {NOTES_OFF} from "../util/constants";
 
 export const INITIAL_SUDOKU_GRID = [
-    [5, 3, null, null, 7, null, null, null, null],
-    [6, null, null, 1, 9, 5, null, null, null],
-    [null, 9, 8, null, null, null, null, 6, null],
-    [8, null, null, null, 6, null, null, null, 3],
-    [4, null, null, 8, null, 3, null, null, 1],
-    [7, null, null, null, 2, null, null, null, 6],
-    [null, 6, null, null, null, null, 2, 8, null],
-    [null, null, null, 4, 1, 9, null, null, 5],
-    [null, null, null, null, 8, null, null, 7, 9],
+    [null, null, 7, 1, 5, 4, 3, 9, 6],
+    [9, 6, 5, 3, 2, 7, 1, 4, 8],
+    [3, 4, 1, 6, 8, 9, 7, 5, 2],
+    [5, 9, 3, 4, 6, 8, 2, 7, 1],
+    [4, 7, 2, 5, 1, 3, 6, 8, 9],
+    [6, 1, 8, 9, 7, 2, 4, 3, 5],
+    [7, 8, 6, 2, 3, 5, 9, 1, 4],
+    [1, 5, 4, 7, 9, 6, 8, 2, 3],
+    [2, 3, 9, 8, 4, 1, 5, 6, 7],
 ]
 
 const INITIAL_STATE = {
     grid: INITIAL_SUDOKU_GRID,
-    gridErrors: new Map(),
+    gridErrors: [],
     errors: "",
     activeCell: null,
     mode: NOTES_OFF

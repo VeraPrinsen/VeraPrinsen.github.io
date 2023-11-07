@@ -62,7 +62,6 @@ const keyPressAction = (state, action) => {
         if (state.mode === NOTES_OFF) {
             if (key > 0 && key <= 9) {
                 newGrid[activeCell[0]][activeCell[1]] = parseInt(key)
-                debugger
                 return { ...state, grid: newGrid }
             } else if (key === "Backspace") {
                 newGrid[activeCell[0]][activeCell[1]] = null

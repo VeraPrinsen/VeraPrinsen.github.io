@@ -6,7 +6,7 @@ import "../stylesheets/Sudoku.scss"
 import {NOTES_OFF, NOTES_ON} from "../util/constants";
 
 const Sudoku = () => {
-    const { mode, errors, onCellClick, onModeToggle, onValidate } = useContext(SudokuContext)
+    const { mode, gridErrors, errors, onCellClick, onModeToggle, onValidate } = useContext(SudokuContext)
 
     const handleScreenClick = e => {
         e.stopPropagation()
@@ -27,6 +27,8 @@ const Sudoku = () => {
     } else if (mode === NOTES_OFF) {
         modeText = "off"
     }
+
+    console.log(gridErrors)
 
     return (
         <div className="sudoku-main" onClick={handleScreenClick}>

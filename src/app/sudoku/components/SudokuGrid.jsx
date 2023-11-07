@@ -3,7 +3,7 @@ import { useContext, useEffect, useCallback } from "react";
 import {INITIAL_SUDOKU_GRID, SudokuContext} from "../store/SudokuContext";
 
 const SudokuGrid = () => {
-    const { grid, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
+    const { grid, gridErrors, activeCell, onCellClick, onKeyPress } = useContext(SudokuContext)
 
     const handleCellClick = (e, rIndex, cIndex) => {
         e.stopPropagation()
@@ -55,6 +55,9 @@ const SudokuGrid = () => {
                             }
                             if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== null) {
                                 classes += " cell-initial-number"
+                            }
+                            if (gridErrors.filter(error => error[0] === rIndex && error[1] === cIndex).length > 0) {
+                                classes += " error"
                             }
 
                             if (Array.isArray(cell)) {

@@ -1,73 +1,100 @@
-import {INITIAL_SUDOKU_GRID} from "../store/SudokuContext";
-
-/**
- * Returns a List of errors: [row, column]
- */
-export const validate = (initialGrid, solvedGrid) => {
-    // Check if solvedGrid has empty cells, then it cannot be validated yet
-    if (hasEmptyCells(solvedGrid)) {
-        throw "Cannot validate grid with empty cells"
-    }
-
-    const solutions = solve(initialGrid)
-    if (!solutions || solutions.length === 0) {
-        throw "There are no solutions for this Sudoku"
-    }
-
-    // Check which solution has the most similarity to the given grid
-    const solution = chooseMostSimilarSolution(solutions, solvedGrid)
-
-    // Compare solution with the solvedGrid and add errors for each cell that is wrong
-    const errors = []
-    solution.forEach((row, rIndex) => {
-        row.forEach((cell, cIndex) => {
-            if (cell !== solvedGrid[rIndex][cIndex]) {
-                errors.push([rIndex, cIndex])
-            }
-        })
-    })
-    return errors
-}
-
 /**
  * Returns a list of all solutions for the given sudoku grid
  * List is capped at x results (x = 100 for example)
  */
-const solve = grid => {
-    const solution = JSON.parse(JSON.stringify(INITIAL_SUDOKU_GRID))
-    solution[0][0] = 8
-    solution[0][1] = 2
-    return [solution]
-}
+export const solve = initialGrid => {
+    const grid = JSON.parse(JSON.stringify(initialGrid))
+    let row = 0
+    let column = 0
+    let solutions = []
+    while (row >= 0 && row < 9 && column >= 0 && column < 9) {
+        // Only edit cells if they are 0 in the initialGrid
+        if (initialGrid[row][column] === 0) {
+            grid[row][column]++
 
-const hasEmptyCells = grid => {
-    return grid.some(row => row.some(cell => cell === null))
-}
+            // If a cell was changed to 10, change it back to zero and go back to the previous cell
+            // Of we are at the first cell of the row, change the column back to 8 and go back to the previous row
+            if (grid[row][column] > 9) {
+                grid[row][column] = 0
+                column--
+                if (column < 0) {
+                    column = 8
+                    row--
+                }
+                while (initialGrid[row][column] !== 0) {
+                    column--
+                    if (column < 0) {
+                        column = 8
+                        row--
+                    }
+                }
 
-const chooseMostSimilarSolution = (solutions, solvedGrid) => {
-    if (solutions.length !== 1) {
-        let bestSolution
-        let bestSolutionSimilarities = 0
-        solutions.forEach(solution => {
-            let similarities = similarCells(solution, solvedGrid)
-            if (similarities > bestSolutionSimilarities) {
-                bestSolution = solution
-                bestSolutionSimilarities = similarities
+            } else
+
+            // Check if the new change is still valid, if so, go to the next cell
+            if (isValidGrid(grid)) {
+                column++
+                // If this is the last cell of the row, set column to zero and go to the next row
+                if (column >= 9) {
+                    column = 0
+                    row++
+                }
             }
-        })
-        return bestSolution
+
+        // If this is a cell from the initialGrid, go to the next cell
+        } else {
+            column++
+            if (column >= 9) {
+                column = 0
+                row++
+            }
+        }
     }
-    return solutions[0]
+    solutions.push(grid)
+    return solutions
 }
 
-const similarCells = (solution, solvedGrid) => {
-    let similarities = 0
-    solution.forEach((row, rIndex) => {
-        row.forEach((cell, cIndex) => {
-            if (cell === solvedGrid[rIndex][cIndex]) {
-                similarities++
+const isValidGrid = grid => {
+    // Check rows
+    for (let row = 0; row < 9; row++) {
+        let rowNumbers = []
+        for (let column = 0; column < 9; column++) {
+            if (grid[row][column] !== 0) {
+                rowNumbers.push(grid[row][column])
             }
-        })
-    })
-    return similarities
+        }
+        if (rowNumbers.filter((item, index) => rowNumbers.indexOf(item) !== index).length > 0) {
+            return false
+        }
+    }
+
+    // Check columns
+    for (let column = 0; column < 9; column++) {
+        let columnNumbers = []
+        for (let row = 0; row < 9; row++) {
+            if (grid[row][column] !== 0) {
+                columnNumbers.push(grid[row][column])
+            }
+        }
+        if (columnNumbers.filter((item, index) => columnNumbers.indexOf(item) !== index).length > 0) {
+            return false
+        }
+    }
+
+    // Check sections
+    for (let section = 0; section < 9; section++) {
+        let sectionNumbers = []
+        for (let cell = 0; cell < 9; cell++) {
+            let row = (3 * Math.floor(section/3)) + Math.floor(cell / 3)
+            let column = (3 * (section % 3)) + (cell % 3)
+            if (grid[row][column] !== 0) {
+                sectionNumbers.push(grid[row][column])
+            }
+        }
+        if (sectionNumbers.filter((item, index) => sectionNumbers.indexOf(item) !== index).length > 0) {
+            return false
+        }
+    }
+
+    return true;
 }

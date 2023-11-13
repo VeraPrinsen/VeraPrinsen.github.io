@@ -5,6 +5,7 @@ import Homepage from "./navigation/components/Homepage"
 import Boardgames from "./boardgames/Boardgames"
 import GameOfLife from "./gameOfLife/GameOfLife";
 import SudokuPage from "./sudoku/SudokuPage";
+import {INITIAL_SUDOKU_GRID} from "./sudoku/store/SudokuContext";
 
 export const REACHABLE_PAGES = [
     {

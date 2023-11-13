@@ -1,12 +1,13 @@
 import SudokuGrid from "./SudokuGrid";
 import {useContext} from "react";
-import { SudokuContext } from "../store/SudokuContext";
+import {INITIAL_SUDOKU_GRID, SudokuContext} from "../store/SudokuContext";
 
 import "../stylesheets/Sudoku.scss"
 import {NOTES_OFF, NOTES_ON} from "../util/constants";
+import {solve} from "../util/sudokuSolver";
 
 const Sudoku = () => {
-    const { mode, errors, onCellClick, onModeToggle, onValidate } = useContext(SudokuContext)
+    const { mode, errors, messages, onCellClick, onModeToggle, onValidate } = useContext(SudokuContext)
 
     const handleScreenClick = e => {
         e.stopPropagation()
@@ -39,6 +40,9 @@ const Sudoku = () => {
             </div>
             <div className="errors">
                 {errors}
+            </div>
+            <div className="messages">
+                {messages}
             </div>
         </div>
     )

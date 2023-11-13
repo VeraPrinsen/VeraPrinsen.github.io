@@ -52,7 +52,7 @@ const SudokuGrid = () => {
                             if (cIndex !== 8 && cIndex % 3 === 2) {
                                 classes += " cell-right-border-bold"
                             }
-                            if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== null) {
+                            if (INITIAL_SUDOKU_GRID[rIndex][cIndex] !== 0) {
                                 classes += " cell-initial-number"
                             }
                             if (gridErrors.filter(error => error[0] === rIndex && error[1] === cIndex).length > 0) {
@@ -74,7 +74,7 @@ const SudokuGrid = () => {
                                          className={classes}
                                          onClick={(e) => handleCellClick(e, rIndex, cIndex)}
                                     >
-                                        {cell}
+                                        {cell === 0 ? "" : cell}
                                     </div>
                                 )
                             }

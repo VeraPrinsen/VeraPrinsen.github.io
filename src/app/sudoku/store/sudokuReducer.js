@@ -1,6 +1,6 @@
 import {INITIAL_SUDOKU_GRID} from "./SudokuContext";
 import {NOTES_OFF, NOTES_ON} from "../util/constants";
-import {validate} from "../util/sudokuSolver";
+import {validate} from "../util/sudokuValidator";
 
 export const ACTIONS = {
     CELL_CLICK: "CELL_CLICK",
@@ -11,7 +11,7 @@ export const ACTIONS = {
 
 export const sudokuReducer = (state, action) => {
     // Remove all errors after each action
-    const newState = { ...state, errors: "", gridErrors: [] }
+    const newState = { ...state, errors: "", gridErrors: [], messages: "" }
 
     switch (action.type) {
         case ACTIONS.CELL_CLICK:
@@ -34,8 +34,8 @@ const cellClickAction = (state, action) => {
     const column = action.payload.cIndex
     let newActiveCell
     if (row === null || column === null) {
-        newActiveCell = null
-    } else if (INITIAL_SUDOKU_GRID[row][column] !== null) {
+        newActiveCell = 0
+    } else if (INITIAL_SUDOKU_GRID[row][column] !== 0) {
         return state
     } else if (!state.activeCell) {
         newActiveCell = [row, column]
@@ -58,7 +58,7 @@ const keyPressAction = (state, action) => {
     }
 
     const activeCell = state.activeCell
-    if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === null) {
+    if (activeCell && INITIAL_SUDOKU_GRID[activeCell[0]][activeCell[1]] === 0) {
         const prevGrid = state.grid
         const newGrid = JSON.parse(JSON.stringify(prevGrid))
 
@@ -67,7 +67,7 @@ const keyPressAction = (state, action) => {
                 newGrid[activeCell[0]][activeCell[1]] = parseInt(key)
                 return { ...state, grid: newGrid }
             } else if (key === "Backspace") {
-                newGrid[activeCell[0]][activeCell[1]] = null
+                newGrid[activeCell[0]][activeCell[1]] = 0
                 return { ...state, grid: newGrid }
             }
         }
@@ -101,6 +101,9 @@ const modeToggleAction = (state) => {
 const validateAction = (state, action) => {
     try {
         const errors = validate(INITIAL_SUDOKU_GRID, action.payload.grid)
+        if (errors.length === 0) {
+            return { ...state, messages: "CONGRATULATIONS!" }
+        }
         return { ...state, gridErrors: errors }
     } catch (error) {
         return { ...state, errors: error }

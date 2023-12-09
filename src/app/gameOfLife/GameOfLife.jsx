@@ -1,8 +1,8 @@
-import "./GameOfLife.scss"
-import {useEffect, useState} from "react";
-import Cell from "./Cell";
-import {amountOfAliveNeighbours} from "./util";
-import Hub from "../navigation/components/Hub";
+import './GameOfLife.scss'
+import {useEffect, useState} from 'react'
+import Cell from './Cell'
+import {amountOfAliveNeighbours} from './util'
+import Hub from '../navigation/components/Hub'
 
 const GameOfLife = () => {
     const [rows, setRows] = useState(10)
@@ -43,17 +43,17 @@ const GameOfLife = () => {
         if (grid && grid.length > 0 &&
             rows >= 5 && rows <= 30 &&
             columns >= 5 && columns <= 30) {
-            const height = 30/rows;
-            const width = 30/columns;
+            const height = 30/rows
+            const width = 30/columns
 
             return grid.map((column, cIndex) => {
                 const columnToDraw = column.map((row, rIndex) => {
                     return (
                         <Cell
-                            key={cIndex + "," + rIndex}
+                            key={cIndex + ',' + rIndex}
                             className="gol-grid-cell"
-                            height={height + "rem"}
-                            width={width + "rem"}
+                            height={height + 'rem'}
+                            width={width + 'rem'}
                             alive={grid[cIndex][rIndex]}
                             onClick={() => onCellClick(cIndex,rIndex)}
                         />
@@ -97,10 +97,10 @@ const GameOfLife = () => {
             if (playOn) {
                 onStep()
             }
-        }, 500);
+        }, 500)
 
-        return () => clearInterval(interval);
-    }, [playOn]);
+        return () => clearInterval(interval)
+    }, [playOn])
 
     const onPlay = () => {
         setPlayOn(prevState => !prevState)
@@ -134,10 +134,10 @@ const GameOfLife = () => {
                         <input type="number" value={columns} min={5} max={30} onChange={e => setColumns(+e.target.value)} />
                     </div>
                     <div className="gol-button">
-                        <button onClick={onStep}>Step ></button>
+                        <button onClick={onStep}>{'Step >'}</button>
                     </div>
                     <div className="gol-button">
-                        <button onClick={onPlay}>{playOn ? "Stop" : "Play"}</button>
+                        <button onClick={onPlay}>{playOn ? 'Stop' : 'Play'}</button>
                     </div>
                     <div className="gol-button">
                         <button onClick={onClear}>Clear</button>

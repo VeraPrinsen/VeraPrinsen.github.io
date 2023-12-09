@@ -28,7 +28,7 @@ const BarChart = ({ data }) => {
         <div className="barchart">
             {Array.from(data.keys()).map(dataPointLabel => {
                 return (
-                    <div className="barchart-datapoint">
+                    <div className="barchart-datapoint" key={dataPointLabel}>
                         <div
                             className="barchart-bar"
                             style={{

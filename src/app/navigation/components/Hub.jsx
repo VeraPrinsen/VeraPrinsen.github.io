@@ -1,12 +1,12 @@
-import "../stylesheets/Hub.css"
-import { AiFillHome } from "react-icons/ai"
-import {useNavigate} from "react-router-dom";
+import '../stylesheets/Hub.css'
+import { AiFillHome } from 'react-icons/ai'
+import {useNavigate} from 'react-router-dom'
 
 const Hub = ({ title }) => {
 
     const navigate = useNavigate()
     const handleOnClick = () => {
-        navigate("/")
+        navigate('/')
     }
 
     return (

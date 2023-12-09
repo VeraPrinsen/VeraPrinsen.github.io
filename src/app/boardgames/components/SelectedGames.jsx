@@ -1,6 +1,6 @@
-import "../stylesheets/GamesBox.scss"
-import { AiOutlineDelete } from "react-icons/ai"
-import GamesList from "./GamesList";
+import '../stylesheets/GamesBox.scss'
+import { AiOutlineDelete } from 'react-icons/ai'
+import GamesList from './GamesList'
 
 const SelectedGames = ({
     selectedGames,

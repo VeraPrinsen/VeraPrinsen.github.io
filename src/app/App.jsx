@@ -1,19 +1,19 @@
 import './App.css'
-import { Route, Routes } from "react-router-dom"
-import PaymentRequest from "./gripjes/PaymentRequest"
-import Homepage from "./navigation/components/Homepage"
-import Boardgames from "./boardgames/Boardgames"
-import GameOfLife from "./gameOfLife/GameOfLife";
+import { Route, Routes } from 'react-router-dom'
+import PaymentRequest from './gripjes/PaymentRequest'
+import Homepage from './navigation/components/Homepage'
+import Boardgames from './boardgames/Boardgames'
+import GameOfLife from './gameOfLife/GameOfLife'
 
 export const REACHABLE_PAGES = [
     {
-        title: "Boardgames",
-        path: "/boardgames",
+        title: 'Boardgames',
+        path: '/boardgames',
         element: <Boardgames />
     },
     {
-        title: "Game of Life",
-        path: "/game-of-life",
+        title: 'Game of Life',
+        path: '/game-of-life',
         element: <GameOfLife />
     }
 ]

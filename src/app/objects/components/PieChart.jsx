@@ -1,13 +1,13 @@
-import React from "react";
-import "../stylesheets/PieChart.scss"
+import React from 'react'
+import '../stylesheets/PieChart.scss'
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
+    var letters = '0123456789ABCDEF'
+    var color = '#'
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)]
     }
-    return color;
+    return color
 }
 
 // data is a map with labels as keys and numbers as amounts
@@ -38,9 +38,9 @@ const PieChart = ({ data }) => {
     })
 
     let pieChartPieces = formattedData.map(dataPoint => {
-        return dataPoint.color + " " + dataPoint.fromPercentage + "deg " + dataPoint.toPercentage + "deg"
+        return dataPoint.color + ' ' + dataPoint.fromPercentage + 'deg ' + dataPoint.toPercentage + 'deg'
     })
-    let pieChartStyling = "conic-gradient(" + pieChartPieces.join(", ") + ")"
+    let pieChartStyling = 'conic-gradient(' + pieChartPieces.join(', ') + ')'
 
     return (
         <div>

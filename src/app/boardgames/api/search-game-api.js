@@ -1,14 +1,14 @@
 import { get } from './api'
-import {xmlToBoardgamesList} from "../util/xmlToBoardgameConverter";
+import {xmlToBoardgamesList} from '../util/xmlToBoardgameConverter'
 
 export function search(searchTerm) {
     return get(`https://boardgamegeek.com/xmlapi2/search?query=${searchTerm}`)
         .then(xml => {
             let allItems = xml.children[0]
             let itemIds = []
-            for (let i = 0; i < allItems.getAttribute("total"); i++) {
+            for (let i = 0; i < allItems.getAttribute('total'); i++) {
                 let item = allItems.children[i]
-                if (item.getAttribute("type") === "boardgame") {
+                if (item.getAttribute('type') === 'boardgame') {
                     itemIds.push(item.id)
                 }
             }
@@ -19,6 +19,6 @@ export function search(searchTerm) {
 }
 
 export function searchBoardGames(ids) {
-    return get(`https://boardgamegeek.com/xmlapi2/thing?id=${ids.join(",")}`)
+    return get(`https://boardgamegeek.com/xmlapi2/thing?id=${ids.join(',')}`)
         .then(xml => xmlToBoardgamesList(xml.children[0]))
 }

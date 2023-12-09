@@ -1,6 +1,6 @@
-import "../stylesheets/GamesAnalytics.scss"
-import React, {useEffect, useState} from "react";
-import BarChart from "../../objects/components/BarChart";
+import '../stylesheets/GamesAnalytics.scss'
+import React, {useEffect, useState} from 'react'
+import BarChart from '../../objects/components/BarChart'
 
 const GamesAnalytics = ({
     selectedGames,

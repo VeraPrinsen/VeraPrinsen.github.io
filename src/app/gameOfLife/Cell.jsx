@@ -1,7 +1,7 @@
 const Cell = ({ height, width, alive, onClick }) => {
-    let color = "white"
+    let color = 'white'
     if (alive) {
-        color = "red"
+        color = 'red'
     }
 
     return (

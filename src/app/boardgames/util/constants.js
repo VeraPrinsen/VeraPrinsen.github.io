@@ -1,1 +1,1 @@
-export const SELECTED_GAMES = "selectedGames"
+export const SELECTED_GAMES = 'selectedGames'

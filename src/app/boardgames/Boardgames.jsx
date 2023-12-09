@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import './stylesheets/Boardgames.scss'
 import GamesSearch from './components/GamesSearch'
 import SelectedGames from './components/SelectedGames'
-import GamesAnalytics from "./components/GamesAnalytics";
-import Hub from "../navigation/components/Hub";
-import Header from "./components/Header";
-import {SELECTED_GAMES} from "./util/constants";
+import GamesAnalytics from './components/GamesAnalytics'
+import Hub from '../navigation/components/Hub'
+import Header from './components/Header'
+import {SELECTED_GAMES} from './util/constants'
 
 const Boardgames = () => {
     const [selectedGames, setSelectedGames] = useState(localStorage.getItem(SELECTED_GAMES) ? JSON.parse(localStorage.getItem(SELECTED_GAMES)) : [])

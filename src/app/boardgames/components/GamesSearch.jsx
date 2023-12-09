@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react'
-import "../stylesheets/GamesBox.scss"
-import {search} from "../api/search-game-api";
-import { AiOutlineDoubleRight } from "react-icons/ai"
-import GamesList from "./GamesList";
-import Button from "../../objects/components/Button";
+import '../stylesheets/GamesBox.scss'
+import {search} from '../api/search-game-api'
+import { AiOutlineDoubleRight } from 'react-icons/ai'
+import GamesList from './GamesList'
+import Button from '../../objects/components/Button'
 
 const GamesSearch = ({
     selectedGames,
@@ -11,7 +11,7 @@ const GamesSearch = ({
     showImages
 }) => {
     const [requestedGames, setRequestedGames] = useState([])
-    const [searchTerm, setSearchTerm] = useState("")
+    const [searchTerm, setSearchTerm] = useState('')
 
     const getRequest = useCallback( () => {
         search(searchTerm)
@@ -24,12 +24,12 @@ const GamesSearch = ({
         setSearchTerm(e.target.value)
     }
 
-    let selectedGamesIds;
+    let selectedGamesIds
     if (selectedGames && !selectedGames.isEmpty) {
         selectedGamesIds = selectedGames.map(game => game.id)
     }
 
-    let requestedGamesToShow;
+    let requestedGamesToShow
     if (requestedGames.length > 0) {
         requestedGamesToShow = requestedGames.filter(game => !selectedGamesIds.includes(game.id))
     } else {

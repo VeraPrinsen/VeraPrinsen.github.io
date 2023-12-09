@@ -5,7 +5,7 @@ const matrix = (nRows, nCols) => {
     let colEnd = nCols
 
     let currentIndex = 1
-    let direction = "E" // N, E, S, W
+    let direction = 'E' // N, E, S, W
     let currentRow = 1
     let currentCol = 1
 
@@ -16,46 +16,46 @@ const matrix = (nRows, nCols) => {
         output.push(currentIndex)
 
         switch (direction) {
-            case "E":
+            case 'E':
                 currentIndex = currentIndex + 1
                 currentCol = currentCol + 1
 
                 if (currentCol >= colEnd) {
-                    direction = "S"
+                    direction = 'S'
                     colEnd = colEnd - 1
                 }
-                break;
-            case "S":
+                break
+            case 'S':
                 currentIndex = currentIndex + nCols
                 currentRow = currentRow + 1
 
                 if (currentRow >= rowEnd) {
-                    direction = "W"
+                    direction = 'W'
                     rowEnd = rowEnd - 1
                 }
-                break;
-            case "W":
+                break
+            case 'W':
                 currentIndex = currentIndex - 1
                 currentCol = currentCol - 1
 
                 if (currentCol <= colStart) {
-                    direction = "N"
+                    direction = 'N'
                     colStart = colStart + 1
                 }
-                break;
-            case "N":
+                break
+            case 'N':
                 currentIndex = currentIndex - nCols
                 currentRow = currentRow - 1
 
                 if (currentRow <= rowStart) {
-                    direction = "E"
+                    direction = 'E'
                     rowStart = rowStart + 1
                 }
-                break;
+                break
         }
         currentNumbers = currentNumbers + 1
     }
-    console.log(output.join(" "))
+    console.log(output.join(' '))
 }
 
 export default matrix

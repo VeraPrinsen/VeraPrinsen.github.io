@@ -29,22 +29,22 @@ const SNAKES_OR_LADDERS = new Map([
 const play = () => {
     let playerLocation = 1
     while (playerLocation < 25) {
-        console.log("Player location: " + playerLocation)
+        console.log('Player location: ' + playerLocation)
         let diceRoll = Math.floor(Math.random() * 5) + 1
-        console.log("Diceroll: " + diceRoll)
+        console.log('Diceroll: ' + diceRoll)
         playerLocation = playerLocation + diceRoll
         let snakeOrLadderLocation =  SNAKES_OR_LADDERS.get(playerLocation)
         if (playerLocation !== snakeOrLadderLocation) {
-            console.log("Player location: " + playerLocation)
+            console.log('Player location: ' + playerLocation)
             if (snakeOrLadderLocation > playerLocation) {
-                console.log("LADDER :)")
+                console.log('LADDER :)')
             } else {
-                console.log("SNAKE :(")
+                console.log('SNAKE :(')
             }
             playerLocation = snakeOrLadderLocation
         }
     }
-    console.log("YOU WON!")
+    console.log('YOU WON!')
 }
 
 export default play

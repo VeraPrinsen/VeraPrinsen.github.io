@@ -40,21 +40,21 @@ export const xmlToBoardgamesList = xml => {
 }
 
 const xmlGameToObject = xmlGame => {
-    const nameElements = xmlGame.getElementsByTagName("name")
+    const nameElements = xmlGame.getElementsByTagName('name')
     let name
     [].slice.call(nameElements).forEach(nameElement => {
-        if (nameElement.getAttribute("type") && nameElement.getAttribute("type") === "primary") {
-            name = nameElement.getAttribute("value")
+        if (nameElement.getAttribute('type') && nameElement.getAttribute('type') === 'primary') {
+            name = nameElement.getAttribute('value')
             return
         }
     })
 
     return {
-        id: xmlGame.getAttribute("id"),
+        id: xmlGame.getAttribute('id'),
         name: name,
-        description: xmlGame.getElementsByTagName("description").length > 0 ? xmlGame.getElementsByTagName("description")[0].textContent : "",
-        yearPublished: xmlGame.getElementsByTagName("yearpublished").length > 0 ? parseInt(xmlGame.getElementsByTagName("yearpublished")[0].getAttribute("value")) : null,
-        thumbnail: xmlGame.getElementsByTagName("thumbnail").length > 0 ? xmlGame.getElementsByTagName("thumbnail")[0].textContent : "",
-        image: xmlGame.getElementsByTagName("image").length > 0 ? xmlGame.getElementsByTagName("image")[0].textContent : ""
+        description: xmlGame.getElementsByTagName('description').length > 0 ? xmlGame.getElementsByTagName('description')[0].textContent : '',
+        yearPublished: xmlGame.getElementsByTagName('yearpublished').length > 0 ? parseInt(xmlGame.getElementsByTagName('yearpublished')[0].getAttribute('value')) : null,
+        thumbnail: xmlGame.getElementsByTagName('thumbnail').length > 0 ? xmlGame.getElementsByTagName('thumbnail')[0].textContent : '',
+        image: xmlGame.getElementsByTagName('image').length > 0 ? xmlGame.getElementsByTagName('image')[0].textContent : ''
     }
 }

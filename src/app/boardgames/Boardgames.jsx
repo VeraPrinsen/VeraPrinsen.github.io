@@ -2,35 +2,40 @@ import React, { useState } from 'react'
 import './stylesheets/Boardgames.scss'
 import GamesSearch from './components/GamesSearch'
 import SelectedGames from './components/SelectedGames'
-import GamesAnalytics from "./components/GamesAnalytics";
-import Hub from "../navigation/components/Hub";
+import GamesAnalytics from './components/GamesAnalytics'
+import Hub from '../navigation/components/Hub'
+import Header from './components/Header'
+import {SELECTED_GAMES} from './util/constants'
 
 const Boardgames = () => {
-    const [selectedGames, setSelectedGames] = useState([])
+    const [selectedGames, setSelectedGames] = useState(localStorage.getItem(SELECTED_GAMES) ? JSON.parse(localStorage.getItem(SELECTED_GAMES)) : [])
     const [showImages, setShowImages] = useState(false)
 
     const addGame = gameToAdd => {
-        setSelectedGames(oldArray => [...oldArray, gameToAdd]);
+        setSelectedGames(currentSelectedGames => {
+            const newSelectedGames = [...currentSelectedGames, gameToAdd]
+            localStorage.setItem(SELECTED_GAMES, JSON.stringify(newSelectedGames))
+            return newSelectedGames
+        })
     }
 
     const removeGame = gameToRemove => {
-        setSelectedGames(selectedGames.filter(game => game.id !== gameToRemove.id));
+        setSelectedGames(currentSelectedGames => {
+            const newSelectedGames = currentSelectedGames.filter(game => game.id !== gameToRemove.id)
+            localStorage.setItem(SELECTED_GAMES, JSON.stringify(newSelectedGames))
+            return newSelectedGames
+        })
     }
 
     const onChangeShowImages = () => {
-        setShowImages(prevState => !prevState)
+        setShowImages(currentShowImages => !currentShowImages)
     }
 
     return (
         <>
             <Hub title="Boardgames" />
             <div className="boardgames-main-app">
-                <div className="header">
-                    <div className="options">
-                        <input type="checkbox" checked={showImages} name="show-images" onChange={onChangeShowImages} />
-                        <label htmlFor="show-images">Show Images</label>
-                    </div>
-                </div>
+                <Header showImages={showImages} onChangeShowImages={onChangeShowImages} />
                 <div className="content">
                     <GamesSearch
                         selectedGames={selectedGames}
@@ -39,7 +44,6 @@ const Boardgames = () => {
                     />
                     <SelectedGames
                         selectedGames={selectedGames}
-                        setSelectedGames={setSelectedGames}
                         removeGame={removeGame}
                         showImages={showImages}
                     />

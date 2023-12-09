@@ -1,6 +1,6 @@
-import "../stylesheets/ApplicationCard.css"
-import Card from "../../objects/components/Card";
-import { useNavigate } from "react-router-dom";
+import '../stylesheets/ApplicationCard.css'
+import Card from '../../objects/components/Card'
+import { useNavigate } from 'react-router-dom'
 
 const ApplicationCard = ({title, path}) => {
     const navigate = useNavigate()

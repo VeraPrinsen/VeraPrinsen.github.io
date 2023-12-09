@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "github-actions-deploy": "npm run deploy -- -m \"Deploy React app to GitHub Pages\""
+    "github-actions-deploy": "npm run deploy -- -m \"Deploy React app to GitHub Pages\"",
+    "eslint": "eslint --ext .js,.jsx ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.55.0",
     "gh-pages": "^6.0.0"
   }
 }

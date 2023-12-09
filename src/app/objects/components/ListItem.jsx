@@ -1,8 +1,8 @@
-import "../stylesheets/List.scss"
+import '../stylesheets/List.scss'
 
 const ListItem = ({ item }) => {
-    let title = item.title ? item.title : "Title"
-    let description = item.description ? item.description : ""
+    let title = item.title ? item.title : 'Title'
+    let description = item.description ? item.description : ''
     let thumbnail = item.thumbnail ? item.thumbnail : null
     let image = item.image ? item.image : null
     let action = item.action ? item.action : null

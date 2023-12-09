@@ -1,13 +1,13 @@
-import "../stylesheets/BarChart.scss"
-import React from "react";
+import '../stylesheets/BarChart.scss'
+import React from 'react'
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
+    var letters = '0123456789ABCDEF'
+    var color = '#'
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)]
     }
-    return color;
+    return color
 }
 
 // data is a map with labels as keys and numbers as amounts
@@ -22,7 +22,7 @@ const BarChart = ({ data }) => {
             barChartMaxValue = data.get(dataPointLabel)
         }
     })
-    let remPerPoint = 100 / barChartMaxValue;
+    let remPerPoint = 100 / barChartMaxValue
 
     return (
         <div className="barchart">

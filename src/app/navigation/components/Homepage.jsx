@@ -1,6 +1,6 @@
-import '../stylesheets/Homepage.css';
-import { REACHABLE_PAGES } from "../../App";
-import ApplicationCard from "./ApplicationCard";
+import '../stylesheets/Homepage.css'
+import { REACHABLE_PAGES } from '../../App'
+import ApplicationCard from './ApplicationCard'
 
 const Homepage = () => {
     return (
@@ -12,4 +12,4 @@ const Homepage = () => {
     )
 }
 
-export default Homepage;
+export default Homepage

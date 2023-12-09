@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './stylesheets/Boardgames.scss'
 import GamesSearch from './components/GamesSearch'
 import SelectedGames from './components/SelectedGames'

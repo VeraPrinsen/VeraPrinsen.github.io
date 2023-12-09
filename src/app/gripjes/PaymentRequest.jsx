@@ -13,7 +13,7 @@ const PaymentRequest = () => {
                 Gripjes voor €1,- per stuk. <br/>
                 Bedrag in betaalverzoek kan aangepast worden.
             </p>
-            <button className="button" onClick={() => openInNewTab("https://betaalverzoek.rabobank.nl/betaalverzoek/?id=nhbnMrYkQMKje6uc1xwHaQ")}>Betaal gripje(s)</button>
+            <button className="button" onClick={() => openInNewTab("https://betaalverzoek.rabobank.nl/betaalverzoek/?id=qXu1ATdnSIWx8biG4eEeWA")}>Betaal gripje(s)</button>
         </div>
     )
 }

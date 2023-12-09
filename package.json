@@ -33,12 +33,6 @@
     "github-actions-deploy": "npm run deploy -- -m \"Deploy React app to GitHub Pages\"",
     "eslint": "eslint --ext .js,.jsx ./src"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

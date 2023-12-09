@@ -20,8 +20,6 @@ const GamesAnalytics = ({
                 }
             })
 
-            debugger
-
             let newData = new Map()
             let currentYear = earliestYear
             while (currentYear <= latestYear) {
@@ -39,7 +37,7 @@ const GamesAnalytics = ({
             })
             setData(newData)
         }
-    }, [selectedGames])
+    }, [selectedGames, data])
 
     return (
             <div className="main-box game-info-main">

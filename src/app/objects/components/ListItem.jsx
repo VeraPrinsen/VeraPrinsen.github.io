@@ -8,12 +8,10 @@ const ListItem = ({ item }) => {
 
     return (
         <div className="list-item">
-            <div className="li-icon">
-                {thumbnail && <img className="li-icon-img" src={thumbnail} />}
-            </div>
+            {thumbnail && <div className="li-icon"><img className="li-icon-img" src={thumbnail} /></div>}
             <div className="li-content">
                 <div className="li-content-title">{title}</div>
-                <div className="li-content-description">{description}</div>
+                {description && <div className="li-content-description">{description}</div>}
             </div>
             <div className="li-action">
                 {action}

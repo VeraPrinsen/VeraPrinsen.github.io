@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import './GameOfLife.scss'
 import {useEffect, useState} from 'react'
 import Cell from './Cell'

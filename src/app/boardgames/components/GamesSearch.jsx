@@ -8,6 +8,7 @@ import Button from '../../objects/components/Button'
 const GamesSearch = ({
     selectedGames,
     addGame,
+    showDetails,
     showImages
 }) => {
     const [requestedGames, setRequestedGames] = useState([])
@@ -48,6 +49,7 @@ const GamesSearch = ({
                 games={requestedGamesToShow}
                 onClickAction={addGame}
                 onClickIcon={AiOutlineDoubleRight}
+                showDetails={showDetails}
                 showImages={showImages}
             />
         </div>

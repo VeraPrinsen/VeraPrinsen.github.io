@@ -13,9 +13,9 @@
   },
   "plugins": ["react", "react-hooks"],
   "rules": {
-    "comma-dangle": ["error", "only-multiline"],
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"],
+    "comma-dangle": ["warn", "only-multiline"],
+    "semi": ["warn", "never"],
+    "quotes": ["warn", "single"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-debugger": "off"

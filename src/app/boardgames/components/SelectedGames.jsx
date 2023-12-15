@@ -5,6 +5,7 @@ import GamesList from './GamesList'
 const SelectedGames = ({
     selectedGames,
     removeGame,
+    showDetails,
     showImages
 }) => {
     return (
@@ -13,6 +14,7 @@ const SelectedGames = ({
                 games={selectedGames}
                 onClickAction={removeGame}
                 onClickIcon={AiOutlineDelete}
+                showDetails={showDetails}
                 showImages={showImages}
             />
         </div>

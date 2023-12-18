@@ -8,6 +8,7 @@ import Hub from '../navigation/components/Hub'
 import Header from './components/Header'
 import {SELECTED_GAMES} from './util/constants'
 import SubMenu from "./components/navigation/SubMenu";
+import FilterOptions from "./components/FilterOptions";
 
 const TABS = [
     {
@@ -26,9 +27,12 @@ const TABS = [
 
 const Boardgames = () => {
     const [activeTab, setActiveTab] = useState(TABS[0].id)
-    const [selectedGames, setSelectedGames] = useState(localStorage.getItem(SELECTED_GAMES) ? JSON.parse(localStorage.getItem(SELECTED_GAMES)) : [])
     const [showDetails, setShowDetails] = useState(false)
     const [showImages, setShowImages] = useState(false)
+
+    const [selectedGames, setSelectedGames] = useState(localStorage.getItem(SELECTED_GAMES) ? JSON.parse(localStorage.getItem(SELECTED_GAMES)) : [])
+
+    const filteredGames = selectedGames;
 
     const addGame = gameToAdd => {
         setSelectedGames(currentSelectedGames => {
@@ -59,7 +63,7 @@ const Boardgames = () => {
             case TABS[0].id:
                 return [renderGamesSearch(), renderSelectedGames()]
             case TABS[1].id:
-                return [renderSelectedGames()]
+                return [renderFilteredGames(), renderFilterOptions()]
             case TABS[2].id:
                 return [renderAnalytics()]
             default:
@@ -83,6 +87,22 @@ const Boardgames = () => {
             <SelectedGames
                 selectedGames={selectedGames}
                 removeGame={removeGame}
+                showDetails={showDetails}
+                showImages={showImages}
+            />
+        )
+    }
+
+    const renderFilterOptions = () => {
+        return (
+            <FilterOptions />
+        )
+    }
+
+    const renderFilteredGames = () => {
+        return (
+            <SelectedGames
+                selectedGames={filteredGames}
                 showDetails={showDetails}
                 showImages={showImages}
             />

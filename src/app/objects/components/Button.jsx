@@ -1,8 +1,8 @@
 import '../stylesheets/Button.scss'
 
-const Button = ({ children }) => {
+const Button = ({ children, onClick }) => {
     return (
-        <div className="button">
+        <div className="button" onClick={onClick}>
             {children}
         </div>
     )

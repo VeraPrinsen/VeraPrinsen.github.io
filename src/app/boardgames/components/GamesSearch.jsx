@@ -3,7 +3,7 @@ import '../stylesheets/GamesBox.scss'
 import {search} from '../api/search-game-api'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 import GamesList from './GamesList'
-import Button from '../../objects/components/Button'
+import Button from "../../objects/components/Button";
 
 const GamesSearch = ({
     selectedGames,
@@ -39,11 +39,9 @@ const GamesSearch = ({
 
     return (
         <div className='main-box games-list-box'>
-            <div className='buttons'>
+            <div className='games-header'>
                 <input onChange={handleInputOnChange} value={searchTerm} />
-                <Button>
-                    <div onClick={getRequest}>Search</div>
-                </Button>
+                <Button onClick={getRequest}>Search</Button>
             </div>
             <GamesList
                 games={requestedGamesToShow}

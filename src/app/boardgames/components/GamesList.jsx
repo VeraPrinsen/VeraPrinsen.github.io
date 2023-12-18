@@ -16,7 +16,7 @@ const GamesList = ({ games, onClickAction, onClickIcon, showDetails, showImages 
                 description: showDetails ? game.yearPublished : '',
                 thumbnail: showImages ? game.thumbnail : '',
                 image: showImages ? game.image : '',
-                action: React.createElement(onClickIcon, { className: 'li-action-icon', onClick: () => handleOnClick(game) })
+                action: (onClickAction && onClickIcon)? React.createElement(onClickIcon, { className: 'li-action-icon', onClick: () => handleOnClick(game) }) : null
             }
         })
     }

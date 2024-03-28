@@ -5,6 +5,7 @@ import BarChart from '../../objects/components/BarChart'
 const GamesAnalytics = ({
     selectedGames,
 }) => {
+    // eslint-disable-next-line
     const [data, setData] = useState(new Map())
 
     useEffect(() => {
@@ -35,7 +36,6 @@ const GamesAnalytics = ({
                     newData.set(yearPublished, data.get(yearPublished) + 1)
                 }
             })
-            setData(newData)
         }
     }, [selectedGames, data])
 

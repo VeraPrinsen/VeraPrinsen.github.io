@@ -108,7 +108,9 @@ const GameOfLife = () => {
 
     const onClear = () => {
         setGrid(prevState => {
+                // eslint-disable-next-line
                 return prevState.map((column, cIndex) => {
+                    // eslint-disable-next-line
                     return column.map((row, rIndex) => {
                         return false
                     })

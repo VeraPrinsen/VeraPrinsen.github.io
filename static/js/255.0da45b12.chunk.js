@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[255],{255:function(e){e.exports=JSON.parse('[{"jinx":false,"interaction":"There is not really something interesting between these 2...."}]')}}]);

@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from "react"
+import React, {useCallback, useEffect, useState} from "react"
 import {loadCharacters} from "./characters/functions/loadCharacters";
+import {loadInteractions} from "./characters/functions/loadInteractions";
 import './BloodOnTheClocktowerInteractions.scss'
 import CharacterList from "./characters/CharacterList";
 import {AiOutlineDelete} from "react-icons/ai";
@@ -8,7 +9,7 @@ import {AiOutlineDoubleRight} from "react-icons/ai";
 const BloodOnTheClocktowerInteractions = () => {
     const [allCharacters, setAllCharacters] = useState([])
     const [selectedCharacters, setSelectedCharacters] = useState([])
-    const [interactions, setInteractions] = useState([])
+    const [interactions, setInteractions] = useState(["Test", "Test2"])
 
     const handleCharacterSelect = (character) => {
         setSelectedCharacters(prevState => {
@@ -34,12 +35,22 @@ const BloodOnTheClocktowerInteractions = () => {
             .then(data => setAllCharacters(data))
     }, [])
 
+    const interactionsFnc = useCallback((characters) => {
+        if (characters.length !== 2) {
+            return
+        }
+        loadInteractions(characters[0], characters[1])
+            .then(data => setInteractions(data))
+    }, [setInteractions])
+
+
     // Based on the characters selected, load the interactions
     // eslint-disable-next-line no-unused-vars
-    const loadInteractions = (character1, character2) => {
-        loadInteractions(character1, character2)
-            .then(data => setInteractions(data))
-    }
+    useEffect(() => {
+        if (selectedCharacters.length === 2) {
+            interactionsFnc(selectedCharacters)
+        }
+    }, [selectedCharacters, interactionsFnc])
 
     const notSelectedCharactersList = allCharacters.filter(character => !selectedCharacters.includes(character.name)).map(character => {
         return {

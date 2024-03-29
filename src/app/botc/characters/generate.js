@@ -59,7 +59,7 @@ const addInteractionToFile = async (data) => {
     console.log("INFO: Add interaction for " + characters.join(" & "))
 
     // Open the data of the file, or create a new file
-    const filePath = "resources/" + characters.join("_") + ".json"
+    const filePath = "interactions/" + characters.join("_") + ".json"
     let interactionFileContent
     try {
         console.log("INFO: Try to open the file for " + characters.join(" & "))

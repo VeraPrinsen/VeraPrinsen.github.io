@@ -1,8 +1,8 @@
-export const loadCharacters = async (character1, character2) => {
+export const loadInteractions = async (character1, character2) => {
     const characters = [character1, character2]
     characters.sort()
 
-    const data = await import(`./resources/${characters.join("_")}.json`)
+    const data = await import(`./interactions/${characters.join("_")}.json`)
         .then(module => module.default)
 
     const interactions = []

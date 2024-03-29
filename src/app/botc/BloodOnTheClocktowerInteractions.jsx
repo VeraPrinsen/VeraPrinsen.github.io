@@ -3,16 +3,26 @@ import {loadCharacters} from "./characters/functions/loadCharacters";
 import './BloodOnTheClocktowerInteractions.scss'
 import CharacterList from "./characters/CharacterList";
 import {AiOutlineDelete} from "react-icons/ai";
+import {AiOutlineDoubleRight} from "react-icons/ai";
 
 const BloodOnTheClocktowerInteractions = () => {
-    const [characters, setCharacters] = useState([])
+    const [allCharacters, setAllCharacters] = useState([])
     const [selectedCharacters, setSelectedCharacters] = useState([])
     const [interactions, setInteractions] = useState([])
 
-    const handleCharacterClick = (character) => {
+    const handleCharacterSelect = (character) => {
         setSelectedCharacters(prevState => {
             if (prevState.length < 2) {
-                return [...prevState, character.name]
+                return [...prevState, character]
+            }
+            return prevState
+        })
+    }
+
+    const handleCharacterDelete = (character) => {
+        setSelectedCharacters(prevState => {
+            if (prevState.includes(character)) {
+                return prevState.filter(item => item !== character)
             }
             return prevState
         })
@@ -20,8 +30,8 @@ const BloodOnTheClocktowerInteractions = () => {
 
     // Load characters when loading the page
     useEffect(() => {
-        loadCharacters(handleCharacterClick)
-            .then(data => setCharacters(data))
+        loadCharacters()
+            .then(data => setAllCharacters(data))
     }, [])
 
     // Based on the characters selected, load the interactions
@@ -31,18 +41,29 @@ const BloodOnTheClocktowerInteractions = () => {
             .then(data => setInteractions(data))
     }
 
-    console.log(selectedCharacters)
-    const notSelectedCharacters = characters.filter(character => !selectedCharacters.includes(character.title))
-    const selectedCharactersItems = characters.filter(character => selectedCharacters.includes(character.title))
-    selectedCharactersItems.forEach(item => {
-        item.action = React.createElement(AiOutlineDelete, { className: 'li-action-icon', onClick: () => {} })
+    const notSelectedCharactersList = allCharacters.filter(character => !selectedCharacters.includes(character.name)).map(character => {
+        return {
+            id: character.name,
+            title: character.name,
+            action: React.createElement(AiOutlineDoubleRight, { className: 'li-action-icon', onClick: () => handleCharacterSelect(character.name) })
+        }
     })
+
+    const selectedCharactersList = allCharacters.filter(character => selectedCharacters.includes(character.name)).map(character => {
+        return {
+            id: character.name,
+            title: character.name,
+            action: React.createElement(AiOutlineDelete, { className: 'li-action-icon', onClick: () => handleCharacterDelete(character.name) })
+        }
+    })
+
+    console.log(selectedCharactersList)
 
     return (
         <div className="main">
-            <CharacterList characters={notSelectedCharacters} />
+            <CharacterList characters={notSelectedCharactersList} />
             <div className="interactions">
-                <div><CharacterList characters={selectedCharactersItems} /></div>
+                <div><CharacterList characters={selectedCharactersList} /></div>
                 <div>{interactions.map(item => <div key={item}>{item}</div>)}</div>
             </div>
         </div>

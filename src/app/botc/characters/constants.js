@@ -11,3 +11,6 @@ export const VIRGIN = "Virgin"
 export const SLAYER = "Slayer"
 export const SOLDIER = "Soldier"
 export const MAYOR = "Mayor"
+export const RECLUSE = "Recluse"
+export const SAINT = "Saint"
+

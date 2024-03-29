@@ -49,6 +49,8 @@ const BloodOnTheClocktowerInteractions = () => {
     useEffect(() => {
         if (selectedCharacters.length === 2) {
             interactionsFnc(selectedCharacters)
+        } else {
+            setInteractions([])
         }
     }, [selectedCharacters, interactionsFnc])
 

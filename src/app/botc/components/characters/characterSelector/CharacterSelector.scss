@@ -1,0 +1,58 @@
+.character-selector {
+  margin: 2rem;
+  width: 20%;
+
+  background-color: var(--dark-purple);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .filter {
+    height: 20%;
+    width: 90%;
+    border: 1px solid black;
+  }
+
+  .search-bar {
+    height: 5%;
+    width: 90%;
+    border: 1px solid black;
+  }
+
+  .character-list {
+    height: 70%;
+    width: 90%;
+    border: 1px solid black;
+    overflow: auto;
+    background-color: var(--parchment);
+
+    .character {
+      height: 1.5rem;
+      padding: 0.5rem;
+    }
+
+    .selectable {
+
+    }
+
+    .selectable:hover {
+      cursor: pointer;
+      background-color: var(--dark-parchment);
+    }
+
+    .selected {
+      background-color: var(--selected-blue);
+    }
+
+    .selected:hover {
+      background-color: var(--hover-blue);
+    }
+  }
+
+  .actions {
+    height: 5%;
+    width: 90%;
+    border: 1px solid black;
+  }
+}

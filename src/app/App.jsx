@@ -4,7 +4,7 @@ import PaymentRequest from './gripjes/PaymentRequest'
 import Homepage from './navigation/components/Homepage'
 import Boardgames from './boardgames/Boardgames'
 import GameOfLife from './gameOfLife/GameOfLife'
-import BloodOnTheClocktowerInteractions from './botc/BloodOnTheClocktowerInteractions'
+import BOTC from './botc/BOTC'
 
 export const REACHABLE_PAGES = [
     {
@@ -31,7 +31,7 @@ const App = () => {
 
                 {/*'Invisible' pages*/}
                 <Route path='/gripjes' element={<PaymentRequest />} />
-                <Route path='/botc-interactions' element={<BloodOnTheClocktowerInteractions />} />
+                <Route path='/botc-interactions' element={<BOTC />} />
             </Routes>
         </div>
     )

@@ -25,6 +25,15 @@
   --card-border-hover: var(--engineering-orange);
   --button: var(--azure);
   --button-hover: var(--vista-blue);
+
+  /*BOTC*/
+  --dark-purple: #1A141D;
+  --light-purple: #9C94C7;
+
+  --parchment: #F1EEDD;
+  --dark-parchment: #E2D4B7;
+  --selected-blue: #C1D3DD;
+  --hover-blue: #91ACBA;
 }
 
 body {

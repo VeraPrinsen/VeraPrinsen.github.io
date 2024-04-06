@@ -26,6 +26,11 @@
       height: 100%;
       margin: 0 2rem;
       background-color: var(--parchment);
+      overflow: auto;
+
+      .interaction {
+        margin: 1rem;
+      }
     }
   }
 }

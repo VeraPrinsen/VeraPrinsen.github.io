@@ -2,7 +2,9 @@ const ShowInteractions = ({ interactions }) => {
     return (
         <div className="show-interactions-main">
             <div className="show-interactions">
-                {interactions.map(interaction => <div>{interaction}</div>)}
+                <ul>
+                    {interactions.map(interaction => <li className="interaction">{interaction}</li>)}
+                </ul>
             </div>
         </div>
     )

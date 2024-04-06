@@ -61,7 +61,10 @@ const BOTC = () => {
                 onCharacterAdd={handleCharacterAdd}
                 onCharacterDelete={handleCharacterDelete}
             />
-            <Interactions selectedCharacterNames={selectedCharacters} />
+            <Interactions
+                selectedCharacterNames={selectedCharacters}
+                interactions={interactions}
+            />
         </div>
     )
 }

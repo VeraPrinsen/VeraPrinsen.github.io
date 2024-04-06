@@ -7,13 +7,25 @@
   flex-direction: column;
 
   .selected-characters {
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 2rem;
     color: var(--parchment);
     font-family: "Brush Script MT", "cursive";
     font-size: 3rem;
+  }
+
+  .show-interactions-main {
+    height: 100%;
+    width: 100%;
+    padding: 0 0 2rem;
+
+    .show-interactions {
+      height: 100%;
+      margin: 0 2rem;
+      background-color: var(--parchment);
+    }
   }
 }

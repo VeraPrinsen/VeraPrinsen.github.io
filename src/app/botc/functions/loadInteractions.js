@@ -3,7 +3,7 @@ export const loadInteractions = async (character1, character2) => {
     characters.sort()
 
     try {
-        const data = await import(`./../interactions/${characters.join("_")}.json`)
+        const data = await import(`./../storage/interactions/${characters.join("_")}.json`)
             .then(module => module.default)
         const interactions = []
         data.forEach(item => {

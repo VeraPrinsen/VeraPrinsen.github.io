@@ -1,5 +1,5 @@
 import List from "../../objects/components/List";
-import './../BloodOnTheClocktowerInteractions.scss'
+import '../BOTC.scss'
 
 const CharacterList = ({ characters }) => {
     return (

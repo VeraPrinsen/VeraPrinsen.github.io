@@ -1,9 +1,11 @@
 .main {
-  height: 90vh;
+  height: 95vh;
   width: 100vw;
 
   display: flex;
   flex-direction: row;
+
+  font-family: "Nanum Gothic";
 
   .character-list {
     width: 30%;

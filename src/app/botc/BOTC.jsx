@@ -1,16 +1,25 @@
-import React, {useCallback, useEffect, useState} from "react"
-import {loadCharacters} from "./characters/functions/loadCharacters";
-import {loadInteractions} from "./characters/functions/loadInteractions";
-import './BloodOnTheClocktowerInteractions.scss'
-import CharacterList from "./characters/CharacterList";
-import {AiOutlineDelete} from "react-icons/ai";
+import React, {useEffect, useState} from "react"
+import {loadCharacters} from "./functions/loadCharacters";
+import {loadInteractions} from "./functions/loadInteractions";
+import './BOTC.scss'
+import CharacterList from "./components/CharacterList";
+import {RxCross2} from "react-icons/rx";
 import {AiOutlineDoubleRight} from "react-icons/ai";
+import SelectedCharacters from "./components/SelectedCharacters";
 
-const BloodOnTheClocktowerInteractions = () => {
+const BOTC = () => {
     const [allCharacters, setAllCharacters] = useState([])
     const [selectedCharacters, setSelectedCharacters] = useState([])
-    const [interactions, setInteractions] = useState(["Test", "Test2"])
+    const [interactions, setInteractions] = useState([])
 
+    // Load all characters when loading the page
+    // TODO: Filter
+    useEffect(() => {
+        loadCharacters()
+            .then(data => setAllCharacters(data))
+    }, [])
+    
+    // When selecting a character, add it to the list, if there are not already 2 characters in the list
     const handleCharacterSelect = (character) => {
         setSelectedCharacters(prevState => {
             if (prevState.length < 2) {
@@ -20,6 +29,7 @@ const BloodOnTheClocktowerInteractions = () => {
         })
     }
 
+    // When deleting a character, delete it from the selectedCharacters list
     const handleCharacterDelete = (character) => {
         setSelectedCharacters(prevState => {
             if (prevState.includes(character)) {
@@ -29,31 +39,24 @@ const BloodOnTheClocktowerInteractions = () => {
         })
     }
 
-    // Load characters when loading the page
-    useEffect(() => {
-        loadCharacters()
-            .then(data => setAllCharacters(data))
-    }, [])
-
-    const interactionsFnc = useCallback((characters) => {
-        if (characters.length !== 2) {
-            return
-        }
-        loadInteractions(characters[0], characters[1])
-            .then(data => setInteractions(data))
-    }, [setInteractions])
-
-
     // Based on the characters selected, load the interactions
     // eslint-disable-next-line no-unused-vars
     useEffect(() => {
         if (selectedCharacters.length === 2) {
-            interactionsFnc(selectedCharacters)
+            loadInteractions(selectedCharacters[0], selectedCharacters[1])
+                .then(data => {
+                    if (data.length === 0) {
+                        setInteractions(["There is not data"])
+                    } else {
+                        setInteractions(data)
+                    }
+                })
         } else {
             setInteractions([])
         }
-    }, [selectedCharacters, interactionsFnc])
+    }, [selectedCharacters, setInteractions])
 
+    // Make a list of the characters that are not selected
     const notSelectedCharactersList = allCharacters.filter(character => !selectedCharacters.includes(character.name)).map(character => {
         return {
             id: character.name,
@@ -62,25 +65,23 @@ const BloodOnTheClocktowerInteractions = () => {
         }
     })
 
+    // List of the selected characters
     const selectedCharactersList = allCharacters.filter(character => selectedCharacters.includes(character.name)).map(character => {
         return {
-            id: character.name,
-            title: character.name,
-            action: React.createElement(AiOutlineDelete, { className: 'li-action-icon', onClick: () => handleCharacterDelete(character.name) })
+            name: character.name,
+            action: React.createElement(RxCross2, { className: 'li-action-icon', onClick: () => handleCharacterDelete(character.name) })
         }
     })
-
-    console.log(selectedCharactersList)
 
     return (
         <div className="main">
             <CharacterList characters={notSelectedCharactersList} />
             <div className="interactions">
-                <div><CharacterList characters={selectedCharactersList} /></div>
+                <div><SelectedCharacters characters={selectedCharactersList} /></div>
                 <div>{interactions.map(item => <div key={item}>{item}</div>)}</div>
             </div>
         </div>
     )
 }
 
-export default BloodOnTheClocktowerInteractions
+export default BOTC

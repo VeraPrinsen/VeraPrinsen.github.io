@@ -1,19 +1,13 @@
+html, body {
+  height: 100%;
+  background-image: url('images/background.webp');
+  background-size: cover;
+}
+
 .main {
   height: 95vh;
   width: 100vw;
 
   display: flex;
   flex-direction: row;
-
-  font-family: "Nanum Gothic";
-
-  .character-list {
-    width: 30%;
-    border: 3px solid black;
-    overflow: auto;
-  }
-
-  .interactions {
-    width: 70%;
-  }
 }

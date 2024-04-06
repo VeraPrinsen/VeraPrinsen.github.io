@@ -3,6 +3,7 @@ import {loadCharacters} from "./functions/loadCharacters";
 import {loadInteractions} from "./functions/loadInteractions";
 import CharacterSelector from "./components/characters/characterSelector/CharacterSelector";
 import './BOTC.scss'
+import Interactions from "./components/interactions/Interactions";
 
 const BOTC = () => {
     const [allCharacters, setAllCharacters] = useState([])
@@ -60,6 +61,7 @@ const BOTC = () => {
                 onCharacterAdd={handleCharacterAdd}
                 onCharacterDelete={handleCharacterDelete}
             />
+            <Interactions selectedCharacterNames={selectedCharacters} />
         </div>
     )
 }

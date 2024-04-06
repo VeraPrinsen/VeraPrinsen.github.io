@@ -1,0 +1,19 @@
+.interactions {
+  margin: 2rem;
+  width: 70%;
+  background-color: var(--dark-purple);
+
+  display: flex;
+  flex-direction: column;
+
+  .selected-characters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: var(--parchment);
+    font-family: "Brush Script MT", "cursive";
+    font-size: 3rem;
+  }
+}

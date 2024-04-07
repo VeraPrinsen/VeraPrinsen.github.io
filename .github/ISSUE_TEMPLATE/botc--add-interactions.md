@@ -8,6 +8,6 @@ assignees: ''
 ---
 
 New interactions for:
-_Character1_ & _Character2_
+Character1 & Character2
 
 Include the json file (in zip format) with the interactions:

@@ -2,7 +2,8 @@
   {
     "name": "Washerwoman",
     "edition": "Trouble Brewing",
-    "type": "Townsfolk"
+    "type": "Townsfolk",
+    "thumbnail": "washerwoman.png"
   },
   {
     "name": "Librarian",

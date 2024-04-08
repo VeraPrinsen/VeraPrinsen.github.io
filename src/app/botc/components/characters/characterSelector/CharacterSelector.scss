@@ -30,6 +30,11 @@
     .character {
       height: 1.5rem;
       padding: 0.5rem;
+
+      img {
+        height: 1.5rem;
+        width: auto;
+      }
     }
 
     .selectable {

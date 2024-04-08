@@ -13,6 +13,7 @@ const SelectableCharacter = ({ character, selected = false, onCharacterAdd, onCh
     return <div
         className={classNames}
         onClick={handleCharacterClick}>
+        {character.thumbnail && <img src={require("./../../../../images/characters/" + character.thumbnail)} alt={character.name} />}
         {character.name}
     </div>
 }

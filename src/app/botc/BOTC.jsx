@@ -43,7 +43,7 @@ const BOTC = () => {
             loadInteractions(selectedCharacters[0], selectedCharacters[1])
                 .then(data => {
                     if (data.length === 0) {
-                        setInteractions(["There is not data"])
+                        setInteractions(["There are no known interactions between these characters (The tool is not complete, so we're still adding interactions)."])
                     } else {
                         setInteractions(data)
                     }

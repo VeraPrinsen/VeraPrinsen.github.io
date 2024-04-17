@@ -1,14 +1,8 @@
 [
   {
-    "character1": "Chef",
-    "character2": "Saint",
-    "jinx": false,
-    "interaction": "Test 1 2 3"
-  },
-  {
-    "character1": "Empath",
-    "character2": "Recluse",
-    "jinx": true,
-    "interaction": "Test 4 5 6"
+    "character1": "",
+    "character2": "",
+    "interaction": "",
+    "advice": [""]
   }
 ]

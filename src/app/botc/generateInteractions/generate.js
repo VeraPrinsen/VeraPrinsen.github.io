@@ -1,7 +1,6 @@
-import { promisify } from "../functions/promisify"
 const fs = require('fs')
-const readFileAsync = promisify(fs.readFile)
-const writeFileAsync = promisify(fs.writeFile)
+const readFileAsync = fs.readFileSync
+const writeFileAsync = fs.writeFileSync
 const sourcePath = "new_interactions.json"
 
 async function generate() {
@@ -41,12 +40,25 @@ const addInteractionToFile = async (data) => {
         console.error(typeof character2)
         return
     }
-    const characters = [character1, character2]
+    let characters = [character1, character2]
     characters.sort()
+    characters = characters.map(character => character.replace(" ", ""))
 
     const jinx = data["jinx"]
-    if (typeof jinx !== "boolean") {
+    if (jinx && typeof jinx !== "boolean") {
         console.error("ERROR, jinx is not a boolean")
+        return
+    }
+
+    const advice = data["advice"]
+    if (advice && !Array.isArray(advice)) {
+        console.error("ERROR, advice is not an array")
+        return
+    }
+
+    const source = data["source"]
+    if (source && typeof source !== "string") {
+        console.error("ERROR, source is not a string")
         return
     }
 
@@ -59,7 +71,7 @@ const addInteractionToFile = async (data) => {
     console.log("INFO: Add interaction for " + characters.join(" & "))
 
     // Open the data of the file, or create a new file
-    const filePath = "interactions/" + characters.join("_") + ".json"
+    const filePath = "../storage/interactions/" + characters.join("_") + ".json"
     let interactionFileContent
     try {
         console.log("INFO: Try to open the file for " + characters.join(" & "))
@@ -82,7 +94,7 @@ const addInteractionToFile = async (data) => {
 
     // Add content to interaction file
     const interactionJson = JSON.parse(interactionFileContent)
-    interactionJson.push({ jinx, interaction })
+    interactionJson.push({ interaction, advice, jinx, source })
     await writeFileAsync(filePath, JSON.stringify(interactionJson, null, 4), "utf8")
     console.log("INFO: Interaction has been added to the file")
 }

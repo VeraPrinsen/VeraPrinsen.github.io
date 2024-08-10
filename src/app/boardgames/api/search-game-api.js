@@ -19,6 +19,6 @@ export function search(searchTerm) {
 }
 
 export function searchBoardGames(ids) {
-    return get(`https://boardgamegeek.com/xmlapi2/thing?id=${ids.join(',')}`)
+    return get(`https://boardgamegeek.com/xmlapi2/thing?id=${ids.slice(0,19).join(',')}`)
         .then(xml => xmlToBoardgamesList(xml.children[0]))
 }

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[743],{743:function(e){e.exports=JSON.parse('[{"interaction":"When the Slayer shoots the Recluse, the Recluse can register as the Demon and die.","advice":["The Recluse is an Outsider and should not be helping good by confirming the Slayer this way."]}]')}}]);

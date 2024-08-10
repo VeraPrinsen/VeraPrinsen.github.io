@@ -1,0 +1,56 @@
+.game-info-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+
+  .filtering {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 95%;
+    margin: 10px;
+
+    .input {
+      margin-bottom: 10px;
+
+      input {
+        width: 25px;
+      }
+    }
+  }
+
+  .filtered-game-container {
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    padding: 5px;
+    overflow: scroll;
+
+    .filtered-game {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 5px;
+      border-bottom: 1px solid black;
+
+      .name {
+        display: flex;
+        width: 40%;
+        font-weight: bold;
+        align-items: center;
+      }
+
+      .players {
+        display: flex;
+        width: 30%;
+        align-items: center;
+      }
+
+      .time {
+        display: flex;
+        width: 30%;
+        align-items: center;
+      }
+    }
+  }
+}

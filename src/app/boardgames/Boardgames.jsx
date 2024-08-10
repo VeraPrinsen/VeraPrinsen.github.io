@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './stylesheets/Boardgames.scss'
 import GamesSearch from './components/GamesSearch'
 import SelectedGames from './components/SelectedGames'
-import GamesAnalytics from './components/GamesAnalytics'
+import GameFiltering from './components/GameFiltering'
 import Hub from '../navigation/components/Hub'
 import Header from './components/Header'
 import {SELECTED_GAMES} from './util/constants'
@@ -47,7 +47,7 @@ const Boardgames = () => {
                         removeGame={removeGame}
                         showImages={showImages}
                     />
-                    <GamesAnalytics selectedGames={selectedGames} />
+                    <GameFiltering selectedGames={selectedGames} />
                 </div>
             </div>
         </>

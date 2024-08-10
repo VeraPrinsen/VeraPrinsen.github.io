@@ -55,6 +55,10 @@ const xmlGameToObject = xmlGame => {
         description: xmlGame.getElementsByTagName('description').length > 0 ? xmlGame.getElementsByTagName('description')[0].textContent : '',
         yearPublished: xmlGame.getElementsByTagName('yearpublished').length > 0 ? parseInt(xmlGame.getElementsByTagName('yearpublished')[0].getAttribute('value')) : null,
         thumbnail: xmlGame.getElementsByTagName('thumbnail').length > 0 ? xmlGame.getElementsByTagName('thumbnail')[0].textContent : '',
-        image: xmlGame.getElementsByTagName('image').length > 0 ? xmlGame.getElementsByTagName('image')[0].textContent : ''
+        image: xmlGame.getElementsByTagName('image').length > 0 ? xmlGame.getElementsByTagName('image')[0].textContent : '',
+        minPlayers: xmlGame.getElementsByTagName('minplayers').length > 0 ? parseInt(xmlGame.getElementsByTagName('minplayers')[0].getAttribute('value')) : null,
+        maxPlayers: xmlGame.getElementsByTagName('maxplayers').length > 0 ? parseInt(xmlGame.getElementsByTagName('maxplayers')[0].getAttribute('value')) : null,
+        minPlayTime: xmlGame.getElementsByTagName('minplaytime').length > 0 ? parseInt(xmlGame.getElementsByTagName('minplaytime')[0].getAttribute('value')) : null,
+        maxPlayTime: xmlGame.getElementsByTagName('maxplaytime').length > 0 ? parseInt(xmlGame.getElementsByTagName('maxplaytime')[0].getAttribute('value')) : null
     }
 }

@@ -1,7 +1,4 @@
 export const amountOfAliveNeighbours = (grid, row, column) => {
-    if (row === 2 && column === 2) {
-        debugger
-    }
     let neighbours = 0
     // take into account borders
     for (let i = row-1; i <= row+1; i++) {

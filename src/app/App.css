@@ -1,3 +1,7 @@
+html, body {
+  background-image: none;
+}
+
 :root {
   --raspberry-rose: #B8336A;
   --space-cadet: #1B264F;

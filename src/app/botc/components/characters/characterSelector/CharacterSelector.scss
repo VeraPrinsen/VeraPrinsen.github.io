@@ -13,15 +13,17 @@ h4 {
   align-items: center;
 
   .filter {
-    width: 90%;
-    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
 
+    width: 90%;
     color: white;
   }
 
   .search-bar {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 90%;
-    border: 1px solid black;
 
     .search-input {
       width: 90%;
@@ -30,7 +32,6 @@ h4 {
 
   .character-list {
     width: 90%;
-    border: 1px solid black;
     overflow: auto;
     background-color: var(--parchment);
 
@@ -65,7 +66,5 @@ h4 {
 
   .actions {
     height: 5%;
-    width: 90%;
-    border: 1px solid black;
-  }
+    width: 90%;}
 }

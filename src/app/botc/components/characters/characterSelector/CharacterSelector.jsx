@@ -6,7 +6,8 @@ const CharacterSelector = ({
 	                           characters,
 	                           selectedCharacters,
 	                           onCharacterAdd,
-	                           onCharacterDelete
+	                           onCharacterDelete,
+														 onClear
                            }) => {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [filterOptions, toggleFilterOptions] = useState({
@@ -82,7 +83,9 @@ const CharacterSelector = ({
 			<div className="search-bar"><input className='search-input' onChange={handleSearchTermChange}/></div>
 			<CharacterList characters={filteredCharacters} selectedCharacters={selectedCharacters}
 			               onCharacterAdd={onCharacterAdd} onCharacterDelete={onCharacterDelete}/>
-			<div className="actions"></div>
+			<div className="actions">
+				<input type="button" value="Clear" onClick={onClear} />
+			</div>
 		</div>
 	)
 }

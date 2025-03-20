@@ -65,6 +65,13 @@ h4 {
   }
 
   .actions {
-    height: 5%;
-    width: 90%;}
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+
+    input {
+      margin: 1rem;
+    }
+  }
 }

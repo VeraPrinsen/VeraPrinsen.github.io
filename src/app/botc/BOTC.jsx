@@ -36,6 +36,12 @@ const BOTC = () => {
         })
     }
 
+    // Clicking the clear button, clears the selected characters
+    // eslint-disable-next-line no-unused-vars
+    const handleClear = () => {
+        setSelectedCharacters([])
+    }
+
     // Based on the characters selected, load the interactions
     // eslint-disable-next-line no-unused-vars
     useEffect(() => {
@@ -60,6 +66,7 @@ const BOTC = () => {
                 selectedCharacters={selectedCharacters}
                 onCharacterAdd={handleCharacterAdd}
                 onCharacterDelete={handleCharacterDelete}
+                onClear={handleClear}
             />
             <Interactions
                 selectedCharacterNames={selectedCharacters}

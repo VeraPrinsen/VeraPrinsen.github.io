@@ -1,3 +1,7 @@
+h4 {
+  margin: 0.3rem;
+}
+
 .character-selector {
   margin: 2rem;
   width: 20%;
@@ -9,7 +13,6 @@
   align-items: center;
 
   .filter {
-    height: 20%;
     width: 90%;
     border: 1px solid black;
 
@@ -17,7 +20,6 @@
   }
 
   .search-bar {
-    height: 5%;
     width: 90%;
     border: 1px solid black;
 
@@ -27,7 +29,6 @@
   }
 
   .character-list {
-    height: 70%;
     width: 90%;
     border: 1px solid black;
     overflow: auto;
@@ -36,6 +37,12 @@
     .character {
       height: 1.5rem;
       padding: 0.5rem;
+
+      .additional-info {
+        font-size: 0.8rem;
+        color: grey;
+        font-style: italic;
+      }
     }
 
     .selectable {

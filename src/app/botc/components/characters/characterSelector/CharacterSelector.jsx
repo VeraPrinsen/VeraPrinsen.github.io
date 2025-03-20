@@ -41,6 +41,7 @@ const CharacterSelector = ({
 	return (
 		<div className="character-selector">
 			<div className="filter">
+				<h4>Script</h4>
 				<div><input type="checkbox" checked={filterOptions["Trouble Brewing"]}
 				            onChange={() => handleToggleFilterOptions("Trouble Brewing")}/> Trouble Brewing
 				</div>
@@ -55,6 +56,23 @@ const CharacterSelector = ({
 				</div>
 				<div><input type="checkbox" checked={filterOptions["Unreleased Experimental"]}
 				            onChange={() => handleToggleFilterOptions("Unreleased Experimental")}/> Unreleased Experimental
+				</div>
+
+				<h4>Type</h4>
+				<div><input type="checkbox" checked={filterOptions["Townsfolk"]}
+				            onChange={() => handleToggleFilterOptions("Townsfolk")}/> Townsfolk
+				</div>
+				<div><input type="checkbox" checked={filterOptions["Outsider"]}
+				            onChange={() => handleToggleFilterOptions("Outsider")}/> Outsider
+				</div>
+				<div><input type="checkbox" checked={filterOptions["Minion"]}
+				            onChange={() => handleToggleFilterOptions("Minion")}/> Minion
+				</div>
+				<div><input type="checkbox" checked={filterOptions["Demon"]}
+				            onChange={() => handleToggleFilterOptions("Demon")}/> Demon
+				</div>
+				<div><input type="checkbox" checked={filterOptions["Fabled"]}
+				            onChange={() => handleToggleFilterOptions("Fabled")}/> Fabled
 				</div>
 			</div>
 			<div className="search-bar"><input className='search-input' onChange={handleSearchTermChange}/></div>

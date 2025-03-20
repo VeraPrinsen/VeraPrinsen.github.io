@@ -1,3 +1,11 @@
+const scriptShort = {
+    "Trouble Brewing": "TB",
+    "Sects & Violets": "SnV",
+    "Bad Moon Rising": "BMR",
+    "Kickstarter Experimental": "Experimental",
+    "Unreleased Experimental": "Experimental"
+}
+
 const SelectableCharacter = ({ character, selected = false, onCharacterAdd, onCharacterDelete }) => {
     const handleCharacterClick = () => {
         if (selected) {
@@ -13,7 +21,7 @@ const SelectableCharacter = ({ character, selected = false, onCharacterAdd, onCh
     return <div
         className={classNames}
         onClick={handleCharacterClick}>
-        {character.name}
+        {character.name} <span className="additional-info">({character.type} - {scriptShort[character.edition]})</span>
     </div>
 }
 

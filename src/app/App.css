@@ -40,10 +40,6 @@ html, body {
   --hover-blue: #91ACBA;
 }
 
-body {
-  overflow: hidden;
-}
-
 .main-frame {
   background-color: var(--background);
   min-height: 100vh;

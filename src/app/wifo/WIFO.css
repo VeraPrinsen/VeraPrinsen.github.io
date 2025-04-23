@@ -12,22 +12,32 @@ code {
     monospace;
 }
 
-
 /* WIFO Container takes full screen */
 .app-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.hub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5rem;
+    width: 100%;
+    z-index: 10;
     display: flex;
 }
 
 /* Fixed settings header */
 .settings-header {
     position: fixed;
-    top: 0;
+    top: 5rem;
     left: 0;
     width: 100%;
-    height: 64px; /* or whatever height you need */
+    height: 4rem; /* or whatever height you need */
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
     display: flex;
@@ -46,7 +56,7 @@ code {
 /* Scrollable container for the image, placed below header */
 .image-scroll-container {
     position: absolute;
-    top: 64px; /* Same as header height */
+    top: 9rem; /* Same as header height */
 }
 
 /* Large image */

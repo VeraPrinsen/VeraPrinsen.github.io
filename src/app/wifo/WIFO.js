@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import './WIFO.css'
 import { loadResources } from "./util/loadResources";
+import Hub from "../navigation/components/Hub";
 
 const imagePath = "./wifo/images/"
 
@@ -83,135 +84,138 @@ const WIFO = () => {
   })
 
   return (
-    <div className="app-container" style={{ justifyContent: isBigMap ? "flex-start" : "center" }}>
-      <div className="settings-header">
-        <div className="settings-box">
-          <input type="search" placeholder="Search..." value={filterText} onChange={handleFilterTextChange} />
-        </div>
-        <div className="settings-box">
-          <img src={imagePath + "Bloom.png"} alt="Bloom" className="setting-icon"
-               style={{opacity: selectedSeason === "bloom" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("bloom")}/>
-          <img src={imagePath + "Storm.png"} alt="Storm" className="setting-icon"
-               style={{opacity: selectedSeason === "storm" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("storm")}/>
-          <img src={imagePath + "Bask.png"} alt="Bask" className="setting-icon"
-               style={{opacity: selectedSeason === "bask" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("bask")}/>
-          <img src={imagePath + "Harvest.png"} alt="Harvest" className="setting-icon"
-               style={{opacity: selectedSeason === "harvest" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("harvest")}/>
-          <img src={imagePath + "Reverie.png"} alt="Reverie" className="setting-icon"
-               style={{opacity: selectedSeason === "reverie" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("reverie")}/>
-          <img src={imagePath + "Frost.png"} alt="Frost" className="setting-icon"
-               style={{opacity: selectedSeason === "frost" ? 1 : 0.3}}
-               onClick={() => handleSeasonToggle("frost")}/>
-        </div>
-        <div className="settings-box">
-          <div className="setting-option"><input type="checkbox" checked={resourceSettings.herb}
-                                                 onClick={() => handleResourceToggle("herb")}/> Herbs
+    <>
+      <Hub title="Witch of Fern Island Resources" />
+      <div className="app-container" style={{ justifyContent: isBigMap ? "flex-start" : "center" }}>
+        <div className="settings-header">
+          <div className="settings-box">
+            <input type="search" placeholder="Search..." value={filterText} onChange={handleFilterTextChange} />
           </div>
-          <div className="setting-option"><input type="checkbox" checked={resourceSettings.mushroom}
-                                                 onClick={() => handleResourceToggle("mushroom")}/> Mushrooms
+          <div className="settings-box">
+            <img src={imagePath + "Bloom.png"} alt="Bloom" className="setting-icon"
+                 style={{opacity: selectedSeason === "bloom" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("bloom")}/>
+            <img src={imagePath + "Storm.png"} alt="Storm" className="setting-icon"
+                 style={{opacity: selectedSeason === "storm" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("storm")}/>
+            <img src={imagePath + "Bask.png"} alt="Bask" className="setting-icon"
+                 style={{opacity: selectedSeason === "bask" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("bask")}/>
+            <img src={imagePath + "Harvest.png"} alt="Harvest" className="setting-icon"
+                 style={{opacity: selectedSeason === "harvest" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("harvest")}/>
+            <img src={imagePath + "Reverie.png"} alt="Reverie" className="setting-icon"
+                 style={{opacity: selectedSeason === "reverie" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("reverie")}/>
+            <img src={imagePath + "Frost.png"} alt="Frost" className="setting-icon"
+                 style={{opacity: selectedSeason === "frost" ? 1 : 0.3}}
+                 onClick={() => handleSeasonToggle("frost")}/>
           </div>
-          <div className="setting-option"><input type="checkbox" checked={resourceSettings.oreTimber}
-                                                 onClick={() => handleResourceToggle("oreTimber")}/> Ore & Timber
+          <div className="settings-box">
+            <div className="setting-option"><input type="checkbox" checked={resourceSettings.herb}
+                                                   onClick={() => handleResourceToggle("herb")}/> Herbs
+            </div>
+            <div className="setting-option"><input type="checkbox" checked={resourceSettings.mushroom}
+                                                   onClick={() => handleResourceToggle("mushroom")}/> Mushrooms
+            </div>
+            <div className="setting-option"><input type="checkbox" checked={resourceSettings.oreTimber}
+                                                   onClick={() => handleResourceToggle("oreTimber")}/> Ore & Timber
+            </div>
           </div>
-        </div>
-        <div className="settings-box">
-          <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
-               style={{opacity: selectedMoon === "newMoon" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("newMoon")}/>
-          <img src={imagePath + "WaxingCrescent.png"} alt="Waxing Crescent" className="setting-icon"
-               style={{opacity: selectedMoon === "waxingCrescent" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("waxingCrescent")}/>
-          <img src={imagePath + "FirstQuarter.png"} alt="First Quarter" className="setting-icon"
-               style={{opacity: selectedMoon === "firstQuarter" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("firstQuarter")}/>
-          <img src={imagePath + "WaxingGibbous.png"} alt="Waxing Gibbous" className="setting-icon"
-               style={{opacity: selectedMoon === "waxingGibbous" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("waxingGibbous")}/>
-          <img src={imagePath + "FullMoon.png"} alt="Full Moon" className="setting-icon"
-               style={{opacity: selectedMoon === "fullMoon" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("fullMoon")}/>
-          <img src={imagePath + "WaningGibbous.png"} alt="Waning Gibbous" className="setting-icon"
-               style={{opacity: selectedMoon === "waningGibbous" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("waningGibbous")}/>
-          <img src={imagePath + "LastQuarter.png"} alt="Last Quarter" className="setting-icon"
-               style={{opacity: selectedMoon === "lastQuarter" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("lastQuarter")}/>
-          <img src={imagePath + "WaningCrescent.png"} alt="Waning Crescent" className="setting-icon"
-               style={{opacity: selectedMoon === "waningCrescent" ? 1 : 0.3}}
-               onClick={() => handleMoonToggle("waningCrescent")}/>
-        </div>
-        <div className="settings-box">
-          <div className="setting-option">
-            <input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map
+          <div className="settings-box">
+            <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
+                 style={{opacity: selectedMoon === "newMoon" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("newMoon")}/>
+            <img src={imagePath + "WaxingCrescent.png"} alt="Waxing Crescent" className="setting-icon"
+                 style={{opacity: selectedMoon === "waxingCrescent" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("waxingCrescent")}/>
+            <img src={imagePath + "FirstQuarter.png"} alt="First Quarter" className="setting-icon"
+                 style={{opacity: selectedMoon === "firstQuarter" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("firstQuarter")}/>
+            <img src={imagePath + "WaxingGibbous.png"} alt="Waxing Gibbous" className="setting-icon"
+                 style={{opacity: selectedMoon === "waxingGibbous" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("waxingGibbous")}/>
+            <img src={imagePath + "FullMoon.png"} alt="Full Moon" className="setting-icon"
+                 style={{opacity: selectedMoon === "fullMoon" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("fullMoon")}/>
+            <img src={imagePath + "WaningGibbous.png"} alt="Waning Gibbous" className="setting-icon"
+                 style={{opacity: selectedMoon === "waningGibbous" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("waningGibbous")}/>
+            <img src={imagePath + "LastQuarter.png"} alt="Last Quarter" className="setting-icon"
+                 style={{opacity: selectedMoon === "lastQuarter" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("lastQuarter")}/>
+            <img src={imagePath + "WaningCrescent.png"} alt="Waning Crescent" className="setting-icon"
+                 style={{opacity: selectedMoon === "waningCrescent" ? 1 : 0.3}}
+                 onClick={() => handleMoonToggle("waningCrescent")}/>
           </div>
-          <div className="setting-option">
-            <input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position on click
+          <div className="settings-box">
+            <div className="setting-option">
+              <input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map
+            </div>
+            <div className="setting-option">
+              <input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position on click
+            </div>
           </div>
-        </div>
 
+        </div>
+        <div
+          className="image-scroll-container"
+          style={{
+            height: isBigMap ? "2880px" : "800px",
+            width: isBigMap ? "2808px" : "780px",
+        }}
+        >
+          <img
+            src={imagePath + "Full_Island_Light_Map.png"}
+            ref={imageRef}
+            alt="Big Visual"
+            onClick={handleMouseMove}
+            className={isBigMap ? "map large" : "map small"}
+          />
+
+          {/*Click on map to show position in percentage*/}
+          {showDevTools && position.x !== null && position.y !== null && (
+            <div
+              style={{
+                position: 'absolute',
+                top: position.y + 1 + "%",
+                left: position.x + 1 + "%",
+                backgroundColor: 'rgba(0,0,0,0.6)',
+                color: 'white',
+                pointerEvents: 'none',
+              }}
+            >
+              top: {position.y}%<br/>
+              left: {position.x}%
+            </div>
+          )}
+
+          {/*Show general mushroom icon*/}
+          {/*<img*/}
+          {/*  src="./images/mushroom-icon.png"*/}
+          {/*  className="img-icon"*/}
+          {/*  style={{top: "14.9%", left: "29.7%", height: isBigMap ? "30px" : "20px"}}*/}
+          {/*/>*/}
+
+          {/*Show real mushroom icons*/}
+          {filteredData.map(resource => {
+            const amount = resource.top.length
+            const image = imagePath + resource.image
+            const returnImg = []
+            for (let i = 0; i < amount; i++) {
+              returnImg.push(<img
+                src={image}
+                alt={resource.name}
+                className="img-icon"
+                style={{top: resource.top[i] + "%", left: resource.left[i] + "%", height: isBigMap ? "30px" : "20px"}}
+                title={resource.name}
+              />)
+            }
+            return returnImg
+          })}
+        </div>
       </div>
-      <div
-        className="image-scroll-container"
-        style={{
-          height: isBigMap ? "2880px" : "800px",
-          width: isBigMap ? "2808px" : "780px",
-      }}
-      >
-        <img
-          src={imagePath + "Full_Island_Light_Map.png"}
-          ref={imageRef}
-          alt="Big Visual"
-          onClick={handleMouseMove}
-          className={isBigMap ? "map large" : "map small"}
-        />
-
-        {/*Click on map to show position in percentage*/}
-        {showDevTools && position.x !== null && position.y !== null && (
-          <div
-            style={{
-              position: 'absolute',
-              top: position.y + 1 + "%",
-              left: position.x + 1 + "%",
-              backgroundColor: 'rgba(0,0,0,0.6)',
-              color: 'white',
-              pointerEvents: 'none',
-            }}
-          >
-            top: {position.y}%<br/>
-            left: {position.x}%
-          </div>
-        )}
-
-        {/*Show general mushroom icon*/}
-        {/*<img*/}
-        {/*  src="./images/mushroom-icon.png"*/}
-        {/*  className="img-icon"*/}
-        {/*  style={{top: "14.9%", left: "29.7%", height: isBigMap ? "30px" : "20px"}}*/}
-        {/*/>*/}
-
-        {/*Show real mushroom icons*/}
-        {filteredData.map(resource => {
-          const amount = resource.top.length
-          const image = imagePath + resource.image
-          const returnImg = []
-          for (let i = 0; i < amount; i++) {
-            returnImg.push(<img
-              src={image}
-              alt={resource.name}
-              className="img-icon"
-              style={{top: resource.top[i] + "%", left: resource.left[i] + "%", height: isBigMap ? "30px" : "20px"}}
-              title={resource.name}
-            />)
-          }
-          return returnImg
-        })}
-      </div>
-    </div>
+    </>
   );
 }
 

@@ -738,13 +738,22 @@
     "left": [37, 32.2, 45.6, 82.5, 77.1, 52.8, 72.2, 75.9, 81]
   },
   {
+    "name": "Wood",
+    "type": "oreLumber",
+    "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
+    "moonPhase": "",
+    "image": "Wood.png",
+    "top": [55.4, 29.5, 38.1, 44.3, 66.2, 77.1, 84],
+    "left": [54, 59.3, 62, 60.9, 67, 49.4, 75.1]
+  },
+  {
     "name": "Hardwood",
     "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Hardwood.png",
-    "top": [],
-    "left": []
+    "top": [56.2, 25.5, 27.9, 66.9, 10.2, 19.8, 67, 76.7, 79.6],
+    "left": [53.2, 49.9, 54.9, 42.8, 28.9, 43.2, 66.1, 68.7, 67.6]
   },
   {
     "name": "Softwood",
@@ -752,8 +761,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Softwood.png",
-    "top": [],
-    "left": []
+    "top": [44, 55.4, 29.3, 33.8, 8.5, 14.7, 25.5, 66.2, 76, 80.2],
+    "left": [45.8, 53.2, 61.3, 62, 39, 22.9, 29, 66.1, 56.6, 72.9]
   },
   {
     "name": "Ironwood",
@@ -761,8 +770,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Ironwood.png",
-    "top": [],
-    "left": []
+    "top": [56.2, 51.7, 73.5, 13.7, 15.8, 67, 76.2],
+    "left": [54, 26.3, 16.8, 25.8, 24.7, 67, 69.5]
   },
   {
     "name": "Grimwood",
@@ -770,8 +779,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Grimwood.png",
-    "top": [],
-    "left": []
+    "top": [55, 74, 16.2, 84],
+    "left": [42.1, 17.2, 54.3, 78.8]
   },
   {
     "name": "Spiritwood",
@@ -779,8 +788,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Spiritwood.png",
-    "top": [],
-    "left": []
+    "top": [67.7, 73.5, 14.8, 78.6],
+    "left": [13.4, 34.3, 41.8, 73]
   },
   {
     "name": "Driftwood",

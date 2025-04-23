@@ -7,7 +7,12 @@ assignees: ''
 
 ---
 
-New interactions for:
-Character1 & Character2
+Request to add new interactions to the list. Please provide the following information:
 
-Include the json file (in zip format) with the interactions:
+```
+{
+  "character1": "",
+  "character2": "",
+  "interaction": ""
+}
+```

@@ -50,12 +50,6 @@ const addInteractionToFile = async (data) => {
         return
     }
 
-    const advice = data["advice"]
-    if (advice && !Array.isArray(advice)) {
-        console.error("ERROR, advice is not an array")
-        return
-    }
-
     const source = data["source"]
     if (source && typeof source !== "string") {
         console.error("ERROR, source is not a string")
@@ -94,7 +88,7 @@ const addInteractionToFile = async (data) => {
 
     // Add content to interaction file
     const interactionJson = JSON.parse(interactionFileContent)
-    interactionJson.push({ interaction, advice, jinx, source })
+    interactionJson.push({ interaction, jinx, source })
     await writeFileAsync(filePath, JSON.stringify(interactionJson, null, 4), "utf8")
     console.log("INFO: Interaction has been added to the file")
 }

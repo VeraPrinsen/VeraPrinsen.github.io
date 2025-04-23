@@ -5,6 +5,7 @@ import Homepage from './navigation/components/Homepage'
 import Boardgames from './boardgames/Boardgames'
 import GameOfLife from './gameOfLife/GameOfLife'
 import BOTC from './botc/BOTC'
+import WIFO from "./wifo/WIFO";
 
 export const REACHABLE_PAGES = [
     {
@@ -16,6 +17,11 @@ export const REACHABLE_PAGES = [
         title: 'Game of Life',
         path: '/game-of-life',
         element: <GameOfLife />
+    },
+    {
+        title: 'Witch of Fern Island Resources',
+        path: '/witch-of-fern-island',
+        element: <WIFO />
     }
 ]
 

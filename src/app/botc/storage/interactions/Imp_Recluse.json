@@ -1,8 +1,5 @@
 [
     {
-        "interaction": "When the Imp kills itself in the night, the Recluse can register as a Minion and therefore can become the Imp.",
-        "advice": [
-            "You can do this if the evil team has informed you about this play."
-        ]
+        "interaction": "When the Imp kills itself in the night, the Recluse can register as a Minion and therefore can become the Imp."
     }
 ]

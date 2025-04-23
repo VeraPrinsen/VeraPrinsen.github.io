@@ -80,7 +80,7 @@ const CharacterSelector = ({
 					</div>
 				</div>
 			</div>
-			<div className="search-bar"><input className='search-input' onChange={handleSearchTermChange}/></div>
+			<div className="search-bar"><input type="search" className='search-input' onChange={handleSearchTermChange}/></div>
 			<CharacterList characters={filteredCharacters} selectedCharacters={selectedCharacters}
 			               onCharacterAdd={onCharacterAdd} onCharacterDelete={onCharacterDelete}/>
 			<div className="actions">

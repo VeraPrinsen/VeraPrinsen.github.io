@@ -30,7 +30,7 @@ const WIFO = () => {
     herb: true,
     mushroom: true,
     flower: true,
-    oreTimber: true,
+    oreLumber: true,
   })
   const [resourceData, setResourceData] = useState([])
 
@@ -113,18 +113,18 @@ const WIFO = () => {
                  onClick={() => handleSeasonToggle("frost")}/>
           </div>
           <div className="settings-box">
-            <div className="setting-option"><input type="checkbox" checked={resourceSettings.herb}
-                                                   onClick={() => handleResourceToggle("herb")}/> Herbs
-            </div>
-            <div className="setting-option"><input type="checkbox" checked={resourceSettings.mushroom}
-                                                   onClick={() => handleResourceToggle("mushroom")}/> Mushrooms
-            </div>
-            <div className="setting-option"><input type="checkbox" checked={resourceSettings.flower}
-                                                   onClick={() => handleResourceToggle("flower")}/> Flowers
-            </div>
-            <div className="setting-option"><input type="checkbox" checked={resourceSettings.oreTimber}
-                                                   onClick={() => handleResourceToggle("oreTimber")}/> Ore & Timber
-            </div>
+            <img src={imagePath + "Herb.png"} alt="Herb" className="setting-icon"
+                 style={{opacity: resourceSettings.herb ? 1 : 0.3}}
+                 onClick={() => handleResourceToggle("herb")}/>
+            <img src={imagePath + "Mushroom.png"} alt="Mushroom" className="setting-icon"
+                 style={{opacity: resourceSettings.mushroom ? 1 : 0.3}}
+                 onClick={() => handleResourceToggle("mushroom")}/>
+            <img src={imagePath + "Flower.png"} alt="Flower" className="setting-icon"
+                 style={{opacity: resourceSettings.flower ? 1 : 0.3}}
+                 onClick={() => handleResourceToggle("flower")}/>
+            <img src={imagePath + "Lumber.png"} alt="Ore&Lumber" className="setting-icon"
+                 style={{opacity: resourceSettings.oreLumber ? 1 : 0.3}}
+                 onClick={() => handleResourceToggle("oreLumber")}/>
           </div>
           <div className="settings-box">
             <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
@@ -154,10 +154,8 @@ const WIFO = () => {
           </div>
           <div className="settings-box">
             <div className="setting-option">
-              <input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map
-            </div>
-            <div className="setting-option">
-              <input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position on click
+              <div><input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map</div>
+              <div><input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position on click</div>
             </div>
           </div>
 

@@ -29,6 +29,7 @@ const WIFO = () => {
   const [resourceSettings, setResourceSettings] = useState({
     herb: true,
     mushroom: true,
+    flower: true,
     oreTimber: true,
   })
   const [resourceData, setResourceData] = useState([])
@@ -118,6 +119,9 @@ const WIFO = () => {
             <div className="setting-option"><input type="checkbox" checked={resourceSettings.mushroom}
                                                    onClick={() => handleResourceToggle("mushroom")}/> Mushrooms
             </div>
+            <div className="setting-option"><input type="checkbox" checked={resourceSettings.flower}
+                                                   onClick={() => handleResourceToggle("flower")}/> Flowers
+            </div>
             <div className="setting-option"><input type="checkbox" checked={resourceSettings.oreTimber}
                                                    onClick={() => handleResourceToggle("oreTimber")}/> Ore & Timber
             </div>
@@ -183,6 +187,7 @@ const WIFO = () => {
                 backgroundColor: 'rgba(0,0,0,0.6)',
                 color: 'white',
                 pointerEvents: 'none',
+                zIndex: 20,
               }}
             >
               top: {position.y}%<br/>

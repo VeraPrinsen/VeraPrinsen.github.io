@@ -491,8 +491,8 @@
     "seasons": ["bask", "harvest", "reverie"],
     "moonPhase": "newMoon",
     "image": "Aster.png",
-    "top": [],
-    "left": []
+    "top": [48.7],
+    "left": [67.9]
   },
   {
     "name": "Calendula",
@@ -500,8 +500,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie"],
     "moonPhase": "firstQuarter",
     "image": "Calendula.png",
-    "top": [],
-    "left": []
+    "top": [35.1, 31.9, 25.4, 9.7],
+    "left": [39.0, 40.1, 31.9, 34]
   },
   {
     "name": "Chamomile",
@@ -509,8 +509,8 @@
     "seasons": ["bloom", "storm", "bask"],
     "moonPhase": "waningCrescent",
     "image": "Chamomile.png",
-    "top": [],
-    "left": []
+    "top": [8.5, 15.9, 17.3, 25.2, 26.8, 28.9, 33.2, 48.5],
+    "left": [37.2, 56.9, 58.7, 53.6, 57.6, 58.6, 46.7, 79]
   },
   {
     "name": "Cornflower",
@@ -518,8 +518,8 @@
     "seasons": ["bloom", "storm"],
     "moonPhase": "newMoon",
     "image": "Cornflower.png",
-    "top": [],
-    "left": []
+    "top": [44.9, 50.4, 54.3, 58.2, 62.7, 63.6, 61.8, 58.8, 59, 68.8],
+    "left": [56.7, 47.1, 57.8, 55.7, 54.1, 57.2, 66.2, 70.9, 76.5, 60.7]
   },
   {
     "name": "Cosmos",
@@ -527,8 +527,8 @@
     "seasons": ["bask", "harvest", "reverie"],
     "moonPhase": "newMoon",
     "image": "Cosmos.png",
-    "top": [],
-    "left": []
+    "top": [48.7],
+    "left": [68.7]
   },
   {
     "name": "Crocus",
@@ -536,8 +536,8 @@
     "seasons": ["bloom", "storm", "frost"],
     "moonPhase": "waningCrescent",
     "image": "Crocus.png",
-    "top": [],
-    "left": []
+    "top": [64.8, 68.4, 66.1, 82.1],
+    "left": [74.8, 77.2, 82.2, 72.8]
   },
   {
     "name": "Dahlia",
@@ -545,8 +545,8 @@
     "seasons": ["storm", "bask", "harvest"],
     "moonPhase": "waxingCrescent",
     "image": "Dahlia.png",
-    "top": [],
-    "left": []
+    "top": [11.8, 18.4],
+    "left": [42.6, 26.2]
   },
   {
     "name": "Heather",
@@ -554,8 +554,8 @@
     "seasons": ["harvest", "reverie"],
     "moonPhase": "waxingGibbous",
     "image": "Heather.png",
-    "top": [],
-    "left": []
+    "top": [58.1, 62, 60.6, 84.1],
+    "left": [60.7, 62, 67.5, 77.9]
   },
   {
     "name": "Hyacinth",
@@ -563,8 +563,8 @@
     "seasons": ["bloom", "storm"],
     "moonPhase": "lastQuarter",
     "image": "Hyacinth.png",
-    "top": [],
-    "left": []
+    "top": [38.1, 62.3],
+    "left": [41.3, 62.3]
   },
   {
     "name": "Lily",
@@ -572,8 +572,8 @@
     "seasons": ["bask"],
     "moonPhase": "waxingCrescent",
     "image": "Lily.png",
-    "top": [],
-    "left": []
+    "top": [14.8, 20.1],
+    "left": [41.7, 36.4]
   },
   {
     "name": "Lobelia",
@@ -581,8 +581,8 @@
     "seasons": ["storm", "bask", "harvest", "reverie"],
     "moonPhase": "waxingCrescent",
     "image": "Lobelia.png",
-    "top": [],
-    "left": []
+    "top": [21.5, 27.1, 30.8, 41.3, 42.1, 84.5],
+    "left": [56.5, 52.4, 54.4, 52, 49.5, 73.5]
   },
   {
     "name": "Lupins",
@@ -590,8 +590,8 @@
     "seasons": ["bloom", "reverie", "frost"],
     "moonPhase": "fullMoon",
     "image": "Lupins.png",
-    "top": [],
-    "left": []
+    "top": [73.7, 71.1],
+    "left": [33.8, 30.3]
   },
   {
     "name": "Pansy",
@@ -599,8 +599,8 @@
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "waningCrescent",
     "image": "Pansy.png",
-    "top": [],
-    "left": []
+    "top": [23.4, 36.9, 44.7, 47.3, 52.3, 60.5, 68.7],
+    "left": [30.3, 66.9, 59.6, 57.9, 74.8, 65.3, 82.8]
   },
   {
     "name": "Pelargonia",
@@ -608,8 +608,8 @@
     "seasons": ["bloom", "storm", "bask"],
     "moonPhase": "lastQuarter",
     "image": "Pelargonia.png",
-    "top": [],
-    "left": []
+    "top": [49.4],
+    "left": [67.9]
   },
   {
     "name": "Poppy",
@@ -617,8 +617,8 @@
     "seasons": ["bloom", "storm"],
     "moonPhase": "fullMoon",
     "image": "Poppy.png",
-    "top": [],
-    "left": []
+    "top": [48.9, 53, 51.2, 49.2],
+    "left": [47.9, 48.4, 55.4, 58.2]
   },
   {
     "name": "Rose",
@@ -626,8 +626,8 @@
     "seasons": ["storm", "bask"],
     "moonPhase": "waningGibbous",
     "image": "Rose.png",
-    "top": [],
-    "left": []
+    "top": [49.5],
+    "left": [68.8]
   },
   {
     "name": "Surfinia",
@@ -635,8 +635,8 @@
     "seasons": ["storm", "bask", "reverie"],
     "moonPhase": "waningGibbous",
     "image": "Surfinia.png",
-    "top": [],
-    "left": []
+    "top": [49],
+    "left": [69.6]
   },
   {
     "name": "Tagetes",
@@ -644,8 +644,8 @@
     "seasons": ["bask", "harvest"],
     "moonPhase": "waxingGibbous",
     "image": "Tagetes.png",
-    "top": [],
-    "left": []
+    "top": [69.6, 11.6, 15.7],
+    "left": [61.8, 30.9, 46.8]
   },
   {
     "name": "Tulip",
@@ -653,8 +653,8 @@
     "seasons": ["bloom", "storm", "bask"],
     "moonPhase": "waningCrescent",
     "image": "Tulip.png",
-    "top": [],
-    "left": []
+    "top": [40.1, 57.7, 76.2, 83.6],
+    "left": [69.7, 73, 59.8, 75.6]
   },
   {
     "name": "Copper",

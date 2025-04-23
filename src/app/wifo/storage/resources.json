@@ -658,7 +658,7 @@
   },
   {
     "name": "Copper",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Copper.png",
@@ -667,7 +667,7 @@
   },
   {
     "name": "Iron",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Iron.png",
@@ -676,7 +676,7 @@
   },
   {
     "name": "Silver",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Silver.png",
@@ -685,7 +685,7 @@
   },
   {
     "name": "Gold",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Gold.png",
@@ -694,7 +694,7 @@
   },
   {
     "name": "Titanium",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Titanium.png",
@@ -703,7 +703,7 @@
   },
   {
     "name": "Platinum",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Platinum.png",
@@ -712,7 +712,7 @@
   },
   {
     "name": "Coal",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Coal.png",
@@ -721,7 +721,7 @@
   },
   {
     "name": "Sulfur",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Sulfur.png",
@@ -730,7 +730,7 @@
   },
   {
     "name": "Mineral",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Mineral.png",
@@ -739,7 +739,7 @@
   },
   {
     "name": "Hardwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Hardwood.png",
@@ -748,7 +748,7 @@
   },
   {
     "name": "Softwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Softwood.png",
@@ -757,7 +757,7 @@
   },
   {
     "name": "Ironwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Ironwood.png",
@@ -766,7 +766,7 @@
   },
   {
     "name": "Grimwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Grimwood.png",
@@ -775,7 +775,7 @@
   },
   {
     "name": "Spiritwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Spiritwood.png",
@@ -784,7 +784,7 @@
   },
   {
     "name": "Driftwood",
-    "type": "oreTimber",
+    "type": "oreLumber",
     "seasons": ["bloom", "storm", "bask", "harvest", "reverie", "frost"],
     "moonPhase": "",
     "image": "Driftwood.png",

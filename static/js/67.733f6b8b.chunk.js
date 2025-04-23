@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[67],{67:function(e){e.exports=JSON.parse('[{"interaction":"When the Imp kills itself in the night, the Recluse can register as a Minion and therefore can become the Imp."}]')}}]);

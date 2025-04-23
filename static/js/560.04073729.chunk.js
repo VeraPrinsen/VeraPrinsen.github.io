@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[560],{560:function(e){e.exports=JSON.parse('[{"interaction":"Ravenkeeper is still poisoned when death from the Pukka triggers. Thus are poisoned when receiving their info.","advice":[""]}]')}}]);

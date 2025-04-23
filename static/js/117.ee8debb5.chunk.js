@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[117],{53:function(e){e.exports=JSON.parse('[{"interaction":"The Monk is hecka\' strong against the Pukka. With the Pukka, the Monk has two players each night that they can pick to prevent them from dying, rather than just one."}]')}}]);

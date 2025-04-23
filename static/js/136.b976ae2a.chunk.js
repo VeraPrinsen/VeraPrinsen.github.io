@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkveraprinsen_github_io=self.webpackChunkveraprinsen_github_io||[]).push([[136],{136:function(e){e.exports=JSON.parse('[{"interaction":"Slayer does not state to choose a living player, so a Slayer can pick dead players to try and kill a \'dead\' Zombuul.","advice":[""]}]')}}]);

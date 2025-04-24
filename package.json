@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "npm run deploy -- -m \"Deploy React app to GitHub Pages\""
+    "github-deploy": "npm run deploy -- -m \"Deploy React app to GitHub Pages\""
   },
   "browserslist": {
     "production": [

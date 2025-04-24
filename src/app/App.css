@@ -2,6 +2,10 @@ html, body {
   background-image: none;
 }
 
+.body {
+  overflow: hidden;
+}
+
 :root {
   --raspberry-rose: #B8336A;
   --space-cadet: #1B264F;

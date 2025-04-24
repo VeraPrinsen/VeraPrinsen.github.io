@@ -1,6 +1,5 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import PaymentRequest from './gripjes/PaymentRequest'
 import Homepage from './navigation/components/Homepage'
 import Boardgames from './boardgames/Boardgames'
 import GameOfLife from './gameOfLife/GameOfLife'
@@ -36,7 +35,6 @@ const App = () => {
                 {REACHABLE_PAGES.map(page => <Route exact path={page.path} element={page.element} key={page.title} />)}
 
                 {/*'Invisible' pages*/}
-                <Route path='/gripjes' element={<PaymentRequest />} />
                 <Route path='/botc-interactions' element={<BOTC />} />
             </Routes>
         </div>

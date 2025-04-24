@@ -13,14 +13,14 @@ export const REACHABLE_PAGES = [
         element: <Boardgames />
     },
     {
-        title: 'Game of Life',
-        path: '/game-of-life',
-        element: <GameOfLife />
-    },
-    {
         title: 'Witch of Fern Island Resources',
         path: '/witch-of-fern-island',
         element: <WIFO />
+    },
+    {
+        title: 'Game of Life',
+        path: '/game-of-life',
+        element: <GameOfLife />
     }
 ]
 

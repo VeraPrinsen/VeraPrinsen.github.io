@@ -1,73 +1,23 @@
-# Getting Started with Create React Boardgames
+# VeraPrinsen.github.io
+I created these Github Pages to be able to access my nerdy resources from anywhere.
 
-This project was bootstrapped with [Create React Boardgames](https://github.com/facebook/create-react-app).
+## Applications
+### [Boardgames](https://veraprinsen.github.io/#/boardgames)
+I like to keep track of the boardgames I own. Something I missed on BoardGameGeek was a way to filter on your games based on the number of players and the time you have to play a game. So I though, why not create this myself? This application uses the BGG APIs to get information about the games. Local storage keeps track of the games you've selected previously.
 
-## Available Scripts
+### [Witch of Fern Island](https://veraprinsen.github.io/#/witch-of-fern-island)
+The videogame 'Witch of Fern Island' is a game I like a lot. At some point the resources on the wiki and fandom pages were not enough for me. So I created my own custom resources map, in which you can filter on the current season and moon phase you are currently playing in.
 
+### [Game of Life](https://veraprinsen.github.io/#/game-of-life)
+In 2017, I had just finished my study that had nothing to do with software development, but I knew I liked programming from the little bits we had to do during our study and wanted to do more with this. I managed to get into a program that would learn me software development in 1.5 years, but to get in we had to do some tests, one of which was to code the [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). It wasn't so much about the result, but more about how you got there and how you worked together with another candidate. At the end we just finished the first draft of the code just as the time was up, so we didn't get to test it. I managed to get into the program, but was still wondering if the code would work. So immediately after I got home, I tried it again, until it worked. So this is basically one of the firsts application I've created and am very proud of it and the story behind it. 
+
+## Running the app locally
 In the project directory, you can run:
 
-### `npm start`
+`yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React Boardgames documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web Boardgames
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### Redeploy the app to Github Pages
-`npm run deploy -- -m "Deploy React app to GitHub Pages"`

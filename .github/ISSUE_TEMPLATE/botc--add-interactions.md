@@ -1,8 +1,8 @@
 ---
-name: 'BOTC: New Interactions'
-about: Submit this issue if you want to add new interactions to the list
-title: 'BOTC: Request new interactions'
-labels: 'botc-interactions'
+name: 'Blood on the Clocktower'
+about: Submit this issue if you have a suggestion for the Blood on the Clocktower app
+title: 'Blood on the Clocktower: '
+labels: 'BloodOnTheClocktower'
 assignees: ''
 
 ---

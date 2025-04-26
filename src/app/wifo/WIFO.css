@@ -24,42 +24,62 @@ code {
     position: fixed;
     top: 0;
     left: 0;
-    height: 5rem;
-    width: 100%;
     z-index: 10;
-    display: flex;
 }
 
-/* Fixed settings header */
 .settings-header {
     position: fixed;
-    top: 5rem;
+    top: 4rem;
     left: 0;
     width: 100%;
-    height: 4rem; /* or whatever height you need */
+    height: 12rem;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 16px;
+}
+
+.settings-header-top {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.setting-header-bottom {
+    display: flex;
 }
 
 .settings-box {
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    padding: 0.5rem 1rem;
 }
 
-/* Scrollable container for the image, placed below header */
-.image-scroll-container {
+.setting-option {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-scroll-container-small {
     position: absolute;
-    top: 9rem; /* Same as header height */
+    top: 16rem; /* Same as hub + header height */
+    width: 100vw;
+    height: auto;
 }
 
-/* Large image */
+.image-scroll-container-large {
+    position: absolute;
+    top: 16rem; /* Same as hub + header height */
+    height: 2880px;
+    width: 2808px;
+}
+
 .map {
     position: relative;
     display: block;
@@ -72,18 +92,80 @@ code {
 }
 
 .small {
-    width: 780px;
-    height: 800px;
+    width: 100vw;
+    height: auto;
 }
 
 .img-icon {
+    height: 0.5rem;
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.img-icon-large {
+    height: 2rem;
     position: absolute;
     cursor: pointer;
     transform: translate(-50%, -50%);
 }
 
 .setting-icon {
-    height: 40px;
+    height: 2rem;
     cursor: pointer;
-    margin: 0 10px;
+    margin: 0 0.2rem;
+}
+
+.search-input {
+    height: 1.3rem;
+}
+
+.search-input::placeholder {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .settings-header {
+        top: 5rem;
+        height: 9rem;
+    }
+
+    .settings-header-top {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .image-scroll-container-small {
+        top: 14rem; /* Same as hub + header height */
+        height: 800px;
+        width: 780px;
+    }
+
+    .small {
+        width: 780px;
+        height: 800px;
+    }
+
+    .setting-icon {
+        height: 2.5rem;
+        margin: 0 0.4rem;
+    }
+
+    .search-input {
+        height: 1.5rem;
+    }
+
+    .search-input::placeholder {
+        font-size: 1rem;
+    }
+
+    .img-icon {
+        height: 1rem;
+    }
 }

@@ -7,11 +7,24 @@ import Hub from "../navigation/components/Hub";
 const imagePath = "./wifo/images/"
 
 const WIFO = () => {
+  const [filterText, setFilterText] = useState("")
+  const [selectedSeason, setSelectedSeason] = useState("none")
+  const [resourceSettings, setResourceSettings] = useState({
+    herb: true,
+    mushroom: true,
+    flower: true,
+    oreLumber: true,
+  })
+  const [selectedMoon, setSelectedMoon] = useState("none")
+  const [isBigMap, setIsBigMap] = useState(false)
+  const [showDevTools, setShowDevTools] = useState(false)
+  const [resourceData, setResourceData] = useState([])
+
+  // Code to track mouse position when clicking
   const [position, setPosition] = useState({ x: null, y: null })
   const imageRef = useRef(null)
-  const [showDevTools, setShowDevTools] = useState(false)
 
-  const handleMouseMove = (e) => {
+  const handleMouseClick = (e) => {
     const rect = imageRef.current.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
@@ -22,24 +35,13 @@ const WIFO = () => {
     setPosition({ x: xPercent.toFixed(1), y: yPercent.toFixed(1) });
   }
 
-  const [isBigMap, setIsBigMap] = useState(false)
-  const [filterText, setFilterText] = useState("")
-  const [selectedSeason, setSelectedSeason] = useState("none")
-  const [selectedMoon, setSelectedMoon] = useState("none")
-  const [resourceSettings, setResourceSettings] = useState({
-    herb: true,
-    mushroom: true,
-    flower: true,
-    oreLumber: true,
-  })
-  const [resourceData, setResourceData] = useState([])
-
-  // Load all characters when loading the page
+  // Load all data when loading the page
   useEffect(() => {
     loadResources()
       .then(data => setResourceData(data))
   }, [])
 
+  // Handlers
   const handleMapToggle = () => {
     setIsBigMap(!isBigMap)
   }
@@ -75,6 +77,7 @@ const WIFO = () => {
     }))
   }
 
+  // Filter data based on the selected options
   const filteredData = resourceData.filter(resource => {
     const nameMatch = resource.name.toLowerCase().includes(filterText.toLowerCase())
     const seasonSelected = selectedSeason !== "none" ? resource.seasons.includes(selectedSeason) : true
@@ -89,89 +92,90 @@ const WIFO = () => {
       <Hub title="Witch of Fern Island Resources" />
       <div className="app-container" style={{ justifyContent: isBigMap ? "flex-start" : "center" }}>
         <div className="settings-header">
-          <div className="settings-box">
-            <input type="search" placeholder="Search..." value={filterText} onChange={handleFilterTextChange} />
-          </div>
-          <div className="settings-box">
-            <img src={imagePath + "Bloom.png"} alt="Bloom" className="setting-icon"
-                 style={{opacity: selectedSeason === "bloom" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("bloom")}/>
-            <img src={imagePath + "Storm.png"} alt="Storm" className="setting-icon"
-                 style={{opacity: selectedSeason === "storm" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("storm")}/>
-            <img src={imagePath + "Bask.png"} alt="Bask" className="setting-icon"
-                 style={{opacity: selectedSeason === "bask" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("bask")}/>
-            <img src={imagePath + "Harvest.png"} alt="Harvest" className="setting-icon"
-                 style={{opacity: selectedSeason === "harvest" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("harvest")}/>
-            <img src={imagePath + "Reverie.png"} alt="Reverie" className="setting-icon"
-                 style={{opacity: selectedSeason === "reverie" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("reverie")}/>
-            <img src={imagePath + "Frost.png"} alt="Frost" className="setting-icon"
-                 style={{opacity: selectedSeason === "frost" || selectedSeason === "none" ? 1 : 0.3}}
-                 onClick={() => handleSeasonToggle("frost")}/>
-          </div>
-          <div className="settings-box">
-            <img src={imagePath + "Herb.png"} alt="Herb" className="setting-icon"
-                 style={{opacity: resourceSettings.herb ? 1 : 0.3}}
-                 onClick={() => handleResourceToggle("herb")}/>
-            <img src={imagePath + "Mushroom.png"} alt="Mushroom" className="setting-icon"
-                 style={{opacity: resourceSettings.mushroom ? 1 : 0.3}}
-                 onClick={() => handleResourceToggle("mushroom")}/>
-            <img src={imagePath + "Flower.png"} alt="Flower" className="setting-icon"
-                 style={{opacity: resourceSettings.flower ? 1 : 0.3}}
-                 onClick={() => handleResourceToggle("flower")}/>
-            <img src={imagePath + "Lumber.png"} alt="Ore&Lumber" className="setting-icon"
-                 style={{opacity: resourceSettings.oreLumber ? 1 : 0.3}}
-                 onClick={() => handleResourceToggle("oreLumber")}/>
-          </div>
-          <div className="settings-box">
-            <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
-                 style={{opacity: selectedMoon === "newMoon" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("newMoon")}/>
-            <img src={imagePath + "WaxingCrescent.png"} alt="Waxing Crescent" className="setting-icon"
-                 style={{opacity: selectedMoon === "waxingCrescent" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("waxingCrescent")}/>
-            <img src={imagePath + "FirstQuarter.png"} alt="First Quarter" className="setting-icon"
-                 style={{opacity: selectedMoon === "firstQuarter" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("firstQuarter")}/>
-            <img src={imagePath + "WaxingGibbous.png"} alt="Waxing Gibbous" className="setting-icon"
-                 style={{opacity: selectedMoon === "waxingGibbous" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("waxingGibbous")}/>
-            <img src={imagePath + "FullMoon.png"} alt="Full Moon" className="setting-icon"
-                 style={{opacity: selectedMoon === "fullMoon" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("fullMoon")}/>
-            <img src={imagePath + "WaningGibbous.png"} alt="Waning Gibbous" className="setting-icon"
-                 style={{opacity: selectedMoon === "waningGibbous" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("waningGibbous")}/>
-            <img src={imagePath + "LastQuarter.png"} alt="Last Quarter" className="setting-icon"
-                 style={{opacity: selectedMoon === "lastQuarter" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("lastQuarter")}/>
-            <img src={imagePath + "WaningCrescent.png"} alt="Waning Crescent" className="setting-icon"
-                 style={{opacity: selectedMoon === "waningCrescent" || selectedMoon === "none" ? 1 : 0.3}}
-                 onClick={() => handleMoonToggle("waningCrescent")}/>
-          </div>
-          <div className="settings-box">
-            <div className="setting-option">
-              <div><input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map</div>
-              <div><input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position on click</div>
+          <div className="settings-header-top">
+            <div className="settings-box">
+              <img src={imagePath + "Bloom.png"} alt="Bloom" className="setting-icon"
+                   style={{opacity: selectedSeason === "bloom" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("bloom")}/>
+              <img src={imagePath + "Storm.png"} alt="Storm" className="setting-icon"
+                   style={{opacity: selectedSeason === "storm" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("storm")}/>
+              <img src={imagePath + "Bask.png"} alt="Bask" className="setting-icon"
+                   style={{opacity: selectedSeason === "bask" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("bask")}/>
+              <img src={imagePath + "Harvest.png"} alt="Harvest" className="setting-icon"
+                   style={{opacity: selectedSeason === "harvest" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("harvest")}/>
+              <img src={imagePath + "Reverie.png"} alt="Reverie" className="setting-icon"
+                   style={{opacity: selectedSeason === "reverie" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("reverie")}/>
+              <img src={imagePath + "Frost.png"} alt="Frost" className="setting-icon"
+                   style={{opacity: selectedSeason === "frost" || selectedSeason === "none" ? 1 : 0.3}}
+                   onClick={() => handleSeasonToggle("frost")}/>
+            </div>
+            <div className="settings-box">
+              <img src={imagePath + "Herb.png"} alt="Herb" className="setting-icon"
+                   style={{opacity: resourceSettings.herb ? 1 : 0.3}}
+                   onClick={() => handleResourceToggle("herb")}/>
+              <img src={imagePath + "Mushroom.png"} alt="Mushroom" className="setting-icon"
+                   style={{opacity: resourceSettings.mushroom ? 1 : 0.3}}
+                   onClick={() => handleResourceToggle("mushroom")}/>
+              <img src={imagePath + "Flower.png"} alt="Flower" className="setting-icon"
+                   style={{opacity: resourceSettings.flower ? 1 : 0.3}}
+                   onClick={() => handleResourceToggle("flower")}/>
+              <img src={imagePath + "Lumber.png"} alt="Ore&Lumber" className="setting-icon"
+                   style={{opacity: resourceSettings.oreLumber ? 1 : 0.3}}
+                   onClick={() => handleResourceToggle("oreLumber")}/>
+            </div>
+            <div className="settings-box">
+              <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
+                   style={{opacity: selectedMoon === "newMoon" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("newMoon")}/>
+              <img src={imagePath + "WaxingCrescent.png"} alt="Waxing Crescent" className="setting-icon"
+                   style={{opacity: selectedMoon === "waxingCrescent" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("waxingCrescent")}/>
+              <img src={imagePath + "FirstQuarter.png"} alt="First Quarter" className="setting-icon"
+                   style={{opacity: selectedMoon === "firstQuarter" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("firstQuarter")}/>
+              <img src={imagePath + "WaxingGibbous.png"} alt="Waxing Gibbous" className="setting-icon"
+                   style={{opacity: selectedMoon === "waxingGibbous" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("waxingGibbous")}/>
+              <img src={imagePath + "FullMoon.png"} alt="Full Moon" className="setting-icon"
+                   style={{opacity: selectedMoon === "fullMoon" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("fullMoon")}/>
+              <img src={imagePath + "WaningGibbous.png"} alt="Waning Gibbous" className="setting-icon"
+                   style={{opacity: selectedMoon === "waningGibbous" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("waningGibbous")}/>
+              <img src={imagePath + "LastQuarter.png"} alt="Last Quarter" className="setting-icon"
+                   style={{opacity: selectedMoon === "lastQuarter" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("lastQuarter")}/>
+              <img src={imagePath + "WaningCrescent.png"} alt="Waning Crescent" className="setting-icon"
+                   style={{opacity: selectedMoon === "waningCrescent" || selectedMoon === "none" ? 1 : 0.3}}
+                   onClick={() => handleMoonToggle("waningCrescent")}/>
             </div>
           </div>
-
+          <div className="settings-header-bottom">
+            <div className="settings-box">
+              <div className="setting-option">
+                <input className="search-input" type="search" placeholder="Search..." value={filterText}
+                       onChange={handleFilterTextChange}/>
+                <div className="hide-on-mobile">
+                  <div><input type="checkbox" checked={isBigMap} onClick={handleMapToggle}/> Big Map</div>
+                  <div><input type="checkbox" checked={showDevTools} onClick={handleDevToolsToggle}/> Show map position
+                    on
+                    click
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          className="image-scroll-container"
-          style={{
-            height: isBigMap ? "2880px" : "800px",
-            width: isBigMap ? "2808px" : "780px",
-        }}
-        >
+        <div className={isBigMap ? " image-scroll-container-large" : " image-scroll-container-small"}>
           <img
             src={imagePath + "Full_Island_Light_Map.png"}
             ref={imageRef}
             alt="Big Visual"
-            onClick={handleMouseMove}
+            onClick={handleMouseClick}
             className={isBigMap ? "map large" : "map small"}
           />
 
@@ -209,8 +213,8 @@ const WIFO = () => {
               returnImg.push(<img
                 src={image}
                 alt={resource.name}
-                className="img-icon"
-                style={{top: resource.top[i] + "%", left: resource.left[i] + "%", height: isBigMap ? "30px" : "20px"}}
+                className={isBigMap ? "img-icon-large" : "img-icon"}
+                style={{top: resource.top[i] + "%", left: resource.left[i] + "%"}}
                 title={resource.name}
               />)
             }

@@ -14,6 +14,7 @@ const WIFO = () => {
     mushroom: true,
     flower: true,
     oreLumber: true,
+    magicalChest: true,
   })
   const [selectedMoon, setSelectedMoon] = useState("none")
   const [isBigMap, setIsBigMap] = useState(false)
@@ -80,7 +81,7 @@ const WIFO = () => {
   // Filter data based on the selected options
   const filteredData = resourceData.filter(resource => {
     const nameMatch = resource.name.toLowerCase().includes(filterText.toLowerCase())
-    const seasonSelected = selectedSeason !== "none" ? resource.seasons.includes(selectedSeason) : true
+    const seasonSelected = resource.seasons.length === 0 ? true : (selectedSeason !== "none" ? resource.seasons.includes(selectedSeason) : true)
     const moonSelected = resource.moonPhase === "" ? true : (selectedMoon !== "none" ? resource.moonPhase === selectedMoon : true)
     const resourceSelected = resourceSettings[resource.type]
 
@@ -96,22 +97,22 @@ const WIFO = () => {
             <div className="settings-box">
               <img src={imagePath + "Bloom.png"} alt="Bloom" className="setting-icon"
                    style={{opacity: selectedSeason === "bloom" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("bloom")}/>
+                   onClick={() => handleSeasonToggle("bloom")} />
               <img src={imagePath + "Storm.png"} alt="Storm" className="setting-icon"
                    style={{opacity: selectedSeason === "storm" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("storm")}/>
+                   onClick={() => handleSeasonToggle("storm")} />
               <img src={imagePath + "Bask.png"} alt="Bask" className="setting-icon"
                    style={{opacity: selectedSeason === "bask" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("bask")}/>
+                   onClick={() => handleSeasonToggle("bask")} />
               <img src={imagePath + "Harvest.png"} alt="Harvest" className="setting-icon"
                    style={{opacity: selectedSeason === "harvest" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("harvest")}/>
+                   onClick={() => handleSeasonToggle("harvest")} />
               <img src={imagePath + "Reverie.png"} alt="Reverie" className="setting-icon"
                    style={{opacity: selectedSeason === "reverie" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("reverie")}/>
+                   onClick={() => handleSeasonToggle("reverie")} />
               <img src={imagePath + "Frost.png"} alt="Frost" className="setting-icon"
                    style={{opacity: selectedSeason === "frost" || selectedSeason === "none" ? 1 : 0.3}}
-                   onClick={() => handleSeasonToggle("frost")}/>
+                   onClick={() => handleSeasonToggle("frost")} />
             </div>
             <div className="settings-box">
               <img src={imagePath + "Herb.png"} alt="Herb" className="setting-icon"
@@ -126,32 +127,35 @@ const WIFO = () => {
               <img src={imagePath + "Lumber.png"} alt="Ore&Lumber" className="setting-icon"
                    style={{opacity: resourceSettings.oreLumber ? 1 : 0.3}}
                    onClick={() => handleResourceToggle("oreLumber")}/>
+              <img src={imagePath + "MagicalChest.png"} alt="Magical Chest" className="setting-icon"
+                   style={{opacity: resourceSettings.magicalChest ? 1 : 0.3}}
+                   onClick={() => handleResourceToggle("magicalChest")}/>
             </div>
             <div className="settings-box">
               <img src={imagePath + "NewMoon.png"} alt="New Moon" className="setting-icon"
                    style={{opacity: selectedMoon === "newMoon" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("newMoon")}/>
+                   onClick={() => handleMoonToggle("newMoon")} />
               <img src={imagePath + "WaxingCrescent.png"} alt="Waxing Crescent" className="setting-icon"
                    style={{opacity: selectedMoon === "waxingCrescent" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("waxingCrescent")}/>
+                   onClick={() => handleMoonToggle("waxingCrescent")} />
               <img src={imagePath + "FirstQuarter.png"} alt="First Quarter" className="setting-icon"
                    style={{opacity: selectedMoon === "firstQuarter" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("firstQuarter")}/>
+                   onClick={() => handleMoonToggle("firstQuarter")} />
               <img src={imagePath + "WaxingGibbous.png"} alt="Waxing Gibbous" className="setting-icon"
                    style={{opacity: selectedMoon === "waxingGibbous" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("waxingGibbous")}/>
+                   onClick={() => handleMoonToggle("waxingGibbous")} />
               <img src={imagePath + "FullMoon.png"} alt="Full Moon" className="setting-icon"
                    style={{opacity: selectedMoon === "fullMoon" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("fullMoon")}/>
+                   onClick={() => handleMoonToggle("fullMoon")} />
               <img src={imagePath + "WaningGibbous.png"} alt="Waning Gibbous" className="setting-icon"
                    style={{opacity: selectedMoon === "waningGibbous" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("waningGibbous")}/>
+                   onClick={() => handleMoonToggle("waningGibbous")} />
               <img src={imagePath + "LastQuarter.png"} alt="Last Quarter" className="setting-icon"
                    style={{opacity: selectedMoon === "lastQuarter" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("lastQuarter")}/>
+                   onClick={() => handleMoonToggle("lastQuarter")} />
               <img src={imagePath + "WaningCrescent.png"} alt="Waning Crescent" className="setting-icon"
                    style={{opacity: selectedMoon === "waningCrescent" || selectedMoon === "none" ? 1 : 0.3}}
-                   onClick={() => handleMoonToggle("waningCrescent")}/>
+                   onClick={() => handleMoonToggle("waningCrescent")} />
             </div>
           </div>
           <div className="settings-header-bottom">

@@ -8,7 +8,10 @@ import './Arcs.scss'
 const Arcs = () => {
 	const [gameState, setGameState] = useState(localStorage.getItem(ARCS_STATE) ? JSON.parse(localStorage.getItem(ARCS_STATE)) : JSON.stringify(EMPTY_GAME_STATE))
 
+	console.log(gameState)
+
 	const handleGameStateChange = (object) => {
+		console.log("STATE IS CHANGED")
 		setGameState(prevState => {
 			const newState = { ...prevState, ...object }
 			localStorage.setItem(ARCS_STATE, JSON.stringify(newState))
@@ -16,14 +19,6 @@ const Arcs = () => {
 		})
 	}
 
-	{/*
-				Button to reset the game
-				Setup: Normal setup + Target planet for Lars
-				Play - Draw card, roll assault die
-					Flame: Declare ambition of card
-					Double hit: Focus Target planet to other planet (randomly)
-
-			*/}
 	return (
 		<>
 			<Hub title="Arcs - Lars" />

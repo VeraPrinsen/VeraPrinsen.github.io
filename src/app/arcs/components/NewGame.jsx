@@ -20,10 +20,8 @@ const NewGame = ({ handleGameStateChange }) => {
 		gameState.nPlayers = nPlayers
 		gameState.nLars = nLars
 
-		// Determine which player number the Lars are
+		// Determine which player number the Lars are and what their target planet is
 		const playersArray = shuffleArray(Array.from({length: nPlayers}, (_, i) => i + 1))
-
-		// Determine the target planet for each Lars
 		const mapInfo = MAPS[selectedMap]
 		const outOfPlayLocations = mapInfo.outOfPlay
 
@@ -32,17 +30,17 @@ const NewGame = ({ handleGameStateChange }) => {
 			outOfPlayLocations.push(mapInfo.larsStarport[playersArray[i]])
 		}
 
-		console.log(outOfPlayLocations)
 		const inPlayLocations = shuffleArray(LOCATIONS.filter(location => !outOfPlayLocations.includes(location)))
 
 		for (let i = 1; i <= nLars; i++) {
-			gameState[`lars${i}`].targetPlanet = inPlayLocations[i]
+			gameState[`lars${i}`].targetPlanet = inPlayLocations[i].slice(0,1)
+			gameState[`lars${i}`].targetPlanetID = inPlayLocations[i].slice(2,3)
 		}
 
 		handleGameStateChange(gameState)
 	}
 
-	const maps = Object.keys(MAPS).filter(map => map.startsWith(nPlayers))
+	const maps = Object.keys(MAPS).filter(map => map.startsWith(nPlayers.toString()))
 
 	return (
 		<div className="new-game-container">
@@ -70,12 +68,12 @@ const NewGame = ({ handleGameStateChange }) => {
 
 			{selectedMap && (
 				<div className="start-game">
-					<ToggleButton value={"Start Game"} onClick={handleStartGame} selected/>
+					<ToggleButton value={"Start Game"} onClick={handleStartGame} />
 				</div>
 			)}
 
 			<div className="start-game">
-				<ToggleButton value={"Remove State"} onClick={() => localStorage.removeItem(ARCS_STATE)} selected/>
+				<ToggleButton value={"Remove State"} onClick={() => localStorage.removeItem(ARCS_STATE)} />
 			</div>
 		</div>
 	)

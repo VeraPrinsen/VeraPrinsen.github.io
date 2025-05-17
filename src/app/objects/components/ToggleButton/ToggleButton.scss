@@ -1,0 +1,22 @@
+.toggle-button {
+  height: 2rem;
+  width: 2rem;
+  margin: 0 0.2rem 0 0.2rem;
+  border: 1px solid black;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-selected {
+  background-color: lightgray;
+  color: black;
+}
+
+.selected {
+  background-color: #404040;
+  color: white;
+  font-weight: bold;
+}

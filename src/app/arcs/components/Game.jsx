@@ -19,9 +19,8 @@ const Game = ({ gameState, handleGameStateChange }) => {
 					<ToggleButton value={"Lars 2"} selected={selectedLars === 2} onClick={() => setSelectedLars(2)} />
 				</div>
 			)}
-			<div className="lars-info">
-				<div>{`Player ${gameState[`lars${selectedLars}`].playerNumber} --- Target planet: ${gameState[`lars${selectedLars}`].targetPlanet}`}</div>
-			</div>
+			<div>{`Player ${gameState[`lars${selectedLars}`].playerNumber}`}</div>
+			<div>{`Target planet: ${gameState[`lars${selectedLars}`].targetPlanet}`}</div>
 		</div>
 	)
 }

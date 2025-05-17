@@ -25,10 +25,17 @@ const NewGame = ({ handleGameStateChange }) => {
 
 		// Determine the target planet for each Lars
 		const mapInfo = MAPS[selectedMap]
-		const inPlayLocations = shuffleArray(LOCATIONS.filter(location => !mapInfo.outOfPlay.includes(location)))
+		const outOfPlayLocations = mapInfo.outOfPlay
 
 		for (let i = 1; i <= nLars; i++) {
 			gameState[`lars${i}`].playerNumber = playersArray[i]
+			outOfPlayLocations.push(mapInfo.larsStarport[playersArray[i]])
+		}
+
+		console.log(outOfPlayLocations)
+		const inPlayLocations = shuffleArray(LOCATIONS.filter(location => !outOfPlayLocations.includes(location)))
+
+		for (let i = 1; i <= nLars; i++) {
 			gameState[`lars${i}`].targetPlanet = inPlayLocations[i]
 		}
 

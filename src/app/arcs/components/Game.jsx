@@ -29,6 +29,7 @@ const Game = ({ gameState, handleGameStateChange }) => {
 		<div className="game-container">
 			<ToggleButton value={"Reset Game"} onClick={handleResetGame} />
 			<div className="datetime">Game started on {gameState.dateTimeStarted}</div>
+			<div className="map-info">{`Map: ${gameState.nPlayers} players, ${gameState.map.slice(1, gameState.map.length)}`}</div>
 			{gameState.nLars === 2 && (
 				<div className="lars-selection">
 					<ToggleButton value={"Lars 1"} selected={selectedLars === 1} onClick={() => setSelectedLars(1)} />

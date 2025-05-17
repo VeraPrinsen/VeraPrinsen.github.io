@@ -1,0 +1,2 @@
+export const ARCS_STATE = "arcsState"
+export const MAPS = ["2Homelands", "2Frontiers", "2Mix Up 1", "2Mix Up 2", "3Homelands", "3Frontiers", "3Core Conflict", "3Mix Up", "4Frontiers", "4Mix Up 1", "4Mix Up 2", "4Mix Up 3"]

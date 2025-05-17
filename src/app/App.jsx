@@ -5,6 +5,7 @@ import Boardgames from './boardgames/Boardgames'
 import GameOfLife from './gameOfLife/GameOfLife'
 import BOTC from './botc/BOTC'
 import WIFO from "./wifo/WIFO";
+import Arcs from "./arcs/Arcs";
 
 export const REACHABLE_PAGES = [
     {
@@ -16,6 +17,11 @@ export const REACHABLE_PAGES = [
         title: 'Witch of Fern Island Resources',
         path: '/witch-of-fern-island',
         element: <WIFO />
+    },
+    {
+        title: 'Arcs - Lars',
+        path: '/arcs',
+        element: <Arcs />
     },
     {
         title: 'Game of Life',

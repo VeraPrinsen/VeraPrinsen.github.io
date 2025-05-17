@@ -100,14 +100,14 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		switch (randomNumber(1, 6)) {
 			case 1:
 			case 2:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}}`
+				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}`
 				break
 			case 3:
 			case 4:
-				main = `Add 2 agents to court card ${map.courtCards[state.targetPlanet]}}`
+				main = `Add 2 agents to court card ${map.courtCards[state.targetPlanet]}`
 				break
 			case 5:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}}`
+				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}`
 				rival = `Add 1 agent to each court card with rival agents`
 				break
 		}

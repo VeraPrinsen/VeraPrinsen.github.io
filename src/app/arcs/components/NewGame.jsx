@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ToggleButton from "../../objects/components/ToggleButton/ToggleButton";
-import { MAPS } from "../util/constants";
+import { ARCS_STATE, EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
+import { shuffleArray } from "../../util/shuffleArray";
 
 const NewGame = ({ handleGameStateChange }) => {
 	const [nPlayers, setNPlayers] = useState(2)
@@ -13,16 +14,28 @@ const NewGame = ({ handleGameStateChange }) => {
 	}
 
 	const handleStartGame = () => {
-		const gameState = {
-			dateTimeStarted: new Date().toLocaleString(),
-			map: selectedMap,
-			nPlayers: nPlayers,
-			nLars: nLars,
+		const gameState = JSON.parse(JSON.stringify(EMPTY_GAME_STATE))
+		gameState.dateTimeStarted = new Date().toLocaleString()
+		gameState.map = selectedMap
+		gameState.nPlayers = nPlayers
+		gameState.nLars = nLars
+
+		// Determine which player number the Lars are
+		const playersArray = shuffleArray(Array.from({length: nPlayers}, (_, i) => i + 1))
+
+		// Determine the target planet for each Lars
+		const mapInfo = MAPS[selectedMap]
+		const inPlayLocations = shuffleArray(LOCATIONS.filter(location => !mapInfo.outOfPlay.includes(location)))
+
+		for (let i = 1; i <= nLars; i++) {
+			gameState[`lars${i}`].playerNumber = playersArray[i]
+			gameState[`lars${i}`].targetPlanet = inPlayLocations[i]
 		}
+
 		handleGameStateChange(gameState)
 	}
 
-	const maps = MAPS.filter(map => map.startsWith(nPlayers))
+	const maps = Object.keys(MAPS).filter(map => map.startsWith(nPlayers))
 
 	return (
 		<div className="new-game-container">
@@ -43,7 +56,8 @@ const NewGame = ({ handleGameStateChange }) => {
 			<div className="map-selection">
 				<span>Map {nPlayers} players</span>
 				{maps.map((map, index) => (
-					<ToggleButton key={index} value={map.slice(1, map.length)} selected={selectedMap === map} onClick={() => setSelectedMap(map)}/>
+					<ToggleButton key={index} value={map.slice(1, map.length)} selected={selectedMap === map}
+					              onClick={() => setSelectedMap(map)}/>
 				))}
 			</div>
 
@@ -52,6 +66,10 @@ const NewGame = ({ handleGameStateChange }) => {
 					<ToggleButton value={"Start Game"} onClick={handleStartGame} selected/>
 				</div>
 			)}
+
+			<div className="start-game">
+				<ToggleButton value={"Remove State"} onClick={() => localStorage.removeItem(ARCS_STATE)} selected/>
+			</div>
 		</div>
 	)
 }

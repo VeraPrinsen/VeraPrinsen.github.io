@@ -2,16 +2,11 @@ import Hub from "../navigation/components/Hub"
 import { useState } from "react"
 import NewGame from "./components/NewGame"
 import Game from "./components/Game";
-import { ARCS_STATE } from "./util/constants";
+import { ARCS_STATE, EMPTY_GAME_STATE } from "./util/constants";
 import './Arcs.scss'
 
 const Arcs = () => {
-	const [gameState, setGameState] = useState(localStorage.getItem(ARCS_STATE) ? JSON.parse(localStorage.getItem(ARCS_STATE)) : {
-		dateTimeStarted: null,
-		map: null,
-		nPlayers: null,
-		nLars: null,
-	})
+	const [gameState, setGameState] = useState(localStorage.getItem(ARCS_STATE) ? JSON.parse(localStorage.getItem(ARCS_STATE)) : JSON.stringify(EMPTY_GAME_STATE))
 
 	const handleGameStateChange = (object) => {
 		setGameState(prevState => {

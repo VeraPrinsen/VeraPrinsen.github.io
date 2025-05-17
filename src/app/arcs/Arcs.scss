@@ -79,4 +79,16 @@
   .datetime {
     font-size: 0.7rem;
   }
+
+  .lars-selection {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .lars-info {
+    display: flex;
+    flex-direction: column;
+
+
+  }
 }

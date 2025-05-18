@@ -66,6 +66,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const handleSuitButton = (value) => {
+		setCopyLeadCard(false)
 		setCardSuit(value)
 		setShowInstructions(true)
 		setDoneButton(true)
@@ -184,6 +185,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 				{playFollowCard !== true && <ToggleButton value="Play lead card" onClick={handlePlayLeadCard} selected={playLeadCard} />}
 				{playLeadCard !== true && <ToggleButton value="Play follow card" onClick={handlePlayFollowCard} selected={playFollowCard} />}
 			</div>
+			{copyLeadCard && <ListItemWithInfo item="Copy lead card" />}
 			{(playLeadCard || playFollowCard) && (
 				<div className="suits">
 					{(cardSuit === null || cardSuit === "Aggression") && <ToggleButton value="Aggression" onClick={() => handleSuitButton("Aggression")} selected={cardSuit === "Aggression"} />}
@@ -196,7 +198,6 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 				<>
 					<div className="lars-instructions">
 						{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card" />}
-						{copyLeadCard && <ListItemWithInfo item="Copy lead card" info="Play card face down" />}
 						{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available if Lars can lead next turn." />}
 						{showSuitInstructions()}
 						{moveFocus && <ListItemWithInfo item="At the end of the turn, Focus of the Target Planet will be moved automatically." />}

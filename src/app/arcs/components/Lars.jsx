@@ -20,32 +20,24 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	const fDeclareAmbition = () => {
 		if (randomNumber(1, 2) === 1) {
 			setDeclareAmbition(true)
-		} else {
-			setDeclareAmbition(false)
 		}
 	}
 
 	const fMoveFocus = () => {
 		if (randomNumber(1, 3) === 1) {
 			setMoveFocus(true)
-		} else {
-			setMoveFocus(false)
 		}
 	}
 
 	const fCopyLeadCard = () => {
 		if (randomNumber(1, 2) === 1) {
 			setCopyLeadCard(true)
-		} else {
-			setCopyLeadCard(false)
 		}
 	}
 
 	const fSeizeInitiative = () => {
 		if (randomNumber(1, 6) === 1) {
 			setSeizeInitiative(true)
-		} else {
-			setSeizeInitiative(false)
 		}
 	}
 
@@ -86,10 +78,10 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 
 		setPlayLeadCard(false)
 		setPlayFollowCard(false)
-		setCardSuit(null)
-		setDeclareAmbition(null)
-		setCopyLeadCard(null)
-		setMoveFocus(null)
+		setCardSuit(false)
+		setDeclareAmbition(false)
+		setCopyLeadCard(false)
+		setMoveFocus(false)
 		setShowInstructions(false)
 		setDoneButton(false)
 	}

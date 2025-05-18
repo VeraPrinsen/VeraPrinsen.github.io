@@ -123,7 +123,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const showBuildInstructions = () => {
-		const city = `Priority: Planets with symbol ${state.targetPlanetID} > Different planet resource than other cities > Most fresh loyal ships`
+		const city = `Priority: Planets with symbol ${ID[state.targetPlanetID]} > Different planet resource than other cities > Most fresh loyal ships`
 
 		return [
 			<ListItemWithInfo item="Build 1 city where Lars has control" info={city} />,
@@ -145,7 +145,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	const showBattleInstructions = () => {
 		return [
 			<ListItemWithInfo item="In each system with rival ships. battle once with only skirmish dice." info="Defender: Rival with most power. Maximise the number of damaged ships." />,
-			<ListItemWithInfo item={`In the Gate of Cluster ${state.targetPlanet} and all ${state.targetPlanetID} planets, battle once. See info.`} info="Defender: Rival with most power. If defender has city and no ships: roll up to 2 raid dice per defender city, remainder skirmish dice, defender chooses what gets stolen, don't provoke outrage. Otherwise: Round half (up) assault dice, remainder skirmish dice." />
+			<ListItemWithInfo item={`In the Gate of Cluster ${state.targetPlanet} and all ${ID[state.targetPlanetID]} planets, battle once. See info.`} info="Defender: Rival with most power. If defender has city and no ships: roll up to 2 raid dice per defender city, remainder skirmish dice, defender chooses what gets stolen, don't provoke outrage. Otherwise: Round half (up) assault dice, remainder skirmish dice." />
 		]
 	}
 

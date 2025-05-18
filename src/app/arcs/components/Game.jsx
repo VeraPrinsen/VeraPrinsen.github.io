@@ -1,5 +1,5 @@
 import ToggleButton from "../../objects/components/ToggleButton/ToggleButton";
-import { EMPTY_GAME_STATE, MAPS } from "../util/constants";
+import { EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
 import { useState } from "react";
 import Lars from "./Lars";
 import { randomNumber } from "../../util/randomNumber";
@@ -16,11 +16,11 @@ const Game = ({ gameState, handleGameStateChange }) => {
 	const handleMoveFocus = (nLars) => {
 		const larsState = JSON.parse(JSON.stringify(gameState[`lars${nLars}`]))
 
-		const nextPossibleClusters = Object.keys(MAPS[gameState.map].courtCards).filter(planet => planet !== larsState.targetPlanet)
-		const randomPlanetNumber = randomNumber(1, nextPossibleClusters.length)
+		const nextPossibleLocations = LOCATIONS.filter(location => !MAPS[gameState.map].outOfPlay.includes(location) && !Object.values(MAPS[gameState.map].larsStarport).includes(location) && location !== larsState.targetPlanet + "-" + larsState.targetPlanetID)
+		const randomPlanetNumber = randomNumber(1, nextPossibleLocations.length)
 
-		larsState.targetPlanet = nextPossibleClusters[randomPlanetNumber].toString()
-		larsState.targetPlanetID = randomNumber(1,3).toString()
+		larsState.targetPlanet = nextPossibleLocations[randomPlanetNumber].slice(0,1)
+		larsState.targetPlanetID = nextPossibleLocations[randomPlanetNumber].slice(2,3)
 
 		handleGameStateChange({
 			[`lars${nLars}`]: larsState

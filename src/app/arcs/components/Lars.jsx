@@ -17,6 +17,9 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 
 	const [doneButton, setDoneButton] = useState(false);
 
+	console.log(playLeadCard)
+	console.log(playFollowCard)
+
 	const fDeclareAmbition = () => {
 		if (randomNumber(1, 2) === 1) {
 			setDeclareAmbition(true)
@@ -49,8 +52,6 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		setPlayLeadCard(true)
 		fDeclareAmbition()
 		fMoveFocus()
-
-		setDoneButton(true)
 	}
 
 	const handlePlayFollowCard = () => {
@@ -62,13 +63,12 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		fMoveFocus()
 		fCopyLeadCard()
 		fSeizeInitiative()
-
-		setDoneButton(true)
 	}
 
 	const handleSuitButton = (value) => {
 		setCardSuit(value)
 		setShowInstructions(true)
+		setDoneButton(true)
 	}
 
 	const handleDoneButton = () => {
@@ -78,7 +78,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 
 		setPlayLeadCard(false)
 		setPlayFollowCard(false)
-		setCardSuit(false)
+		setCardSuit(null)
 		setDeclareAmbition(false)
 		setCopyLeadCard(false)
 		setMoveFocus(false)

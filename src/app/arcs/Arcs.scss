@@ -40,6 +40,10 @@
   padding-bottom: 0.5rem;
 }
 
+.info-block {
+  width: 90%;
+}
+
 .datetime {
   font-size: 0.7rem;
   margin-bottom: 0.2rem;
@@ -92,5 +96,9 @@ ul {
 @media (min-width: 1024px) {
   .arcs-main-app {
     margin-top: 5.5rem;
+  }
+
+  .info-block {
+    width: 70%;
   }
 }

@@ -1,4 +1,4 @@
-import CustomButton from "../../objects/components/ToggleButton/CustomButton";
+import CustomButton from "../../objects/components/CustomButton/CustomButton";
 import { randomNumber } from "../../util/randomNumber";
 import { useState } from "react";
 import ListItemWithInfo from "./ListItemWithInfo";

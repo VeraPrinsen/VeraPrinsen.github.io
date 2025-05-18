@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CustomButton from "../../objects/components/ToggleButton/CustomButton";
+import CustomButton from "../../objects/components/CustomButton/CustomButton";
 import { ARCS_STATE, EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
 import { shuffleArray } from "../../util/shuffleArray";
 import { getOutOfPlayLocations } from "../util/helpers";

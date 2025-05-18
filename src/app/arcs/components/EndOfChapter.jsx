@@ -1,8 +1,8 @@
-import CustomButton from "../../objects/components/ToggleButton/CustomButton";
+import CustomButton from "../../objects/components/CustomButton/CustomButton";
 
 const EndOfChapter = ({ handleConfirmEndOfChapter }) => {
 	return (
-		<div className="align-vertically center-align">
+		<div className="align-vertically center-align info-block">
 			<h1>End of Chapter Rules</h1>
 
 			<ul>

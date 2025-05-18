@@ -1,8 +1,8 @@
-import CustomButton from "../../objects/components/ToggleButton/CustomButton";
+import CustomButton from "../../objects/components/CustomButton/CustomButton";
 
 const AppInfo = ({ handleCloseAppInfo }) => {
 	return (
-		<div className="align-vertically center-align">
+		<div className="align-vertically center-align info-block">
 			<div className="align-vertically block left-align">
 				<details>
 					<summary>Source of the Lars bot</summary>

@@ -1,4 +1,4 @@
-import CustomButton from "../../objects/components/ToggleButton/CustomButton";
+import CustomButton from "../../objects/components/CustomButton/CustomButton";
 import { EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
 import { useState } from "react";
 import Lars from "./Lars";

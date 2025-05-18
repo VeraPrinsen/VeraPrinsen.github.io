@@ -71,6 +71,10 @@
   justify-content: center;
   align-items: center;
 
+  h1 {
+    text-align: center;
+  }
+
   .toggle-button {
     width: 10rem;
     margin: 0.5rem;
@@ -86,7 +90,7 @@
     margin-bottom: 1rem;
   }
 
-  .lars-selection {
+  .sideways-buttons {
     display: flex;
     flex-direction: row;
   }

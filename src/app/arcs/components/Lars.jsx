@@ -205,7 +205,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 						{copyLeadCard && <ListItemWithInfo item="Copy lead card" info="Play card face down" />}
 						{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available if Lars can lead next turn." />}
 						{showSuitInstructions()}
-						{moveFocus && <ListItemWithInfo item="At the end of the turn, Focus will be moved." />}
+						{moveFocus && <ListItemWithInfo item="At the end of the turn, Focus of the Target Planet will be moved automatically." />}
 					</div>
 					{doneButton && <ToggleButton value="Done" onClick={handleDoneButton} />}
 				</>

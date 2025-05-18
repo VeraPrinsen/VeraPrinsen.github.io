@@ -90,19 +90,25 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 
 	// Helper functions that generate (randomly generated) instructions for a specific Action
 	const showInfluenceInstructions = () => {
+		let targetCourtCard = map.courtCards[state.targetPlanet]
+		if (targetCourtCard === 5) {
+			// In a 4 player game, the target court card can be 5, but there are 4 cards. Just choose a random card
+			targetCourtCard = randomNumber(1, 4)
+		}
+
 		let main;
 		let rival;
 		switch (randomNumber(1, 6)) {
 			case 1:
 			case 2:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}.`
+				main = `Add 1 agent to court card ${targetCourtCard}.`
 				break
 			case 3:
 			case 4:
-				main = `Add 2 agents to court card ${map.courtCards[state.targetPlanet]}.`
+				main = `Add 2 agents to court card ${targetCourtCard}.`
 				break
 			case 5:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}.`
+				main = `Add 1 agent to court card ${targetCourtCard}.`
 				rival = `Add 1 agent to each court card with rival agents.`
 				break
 		}
@@ -198,8 +204,8 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 			)}
 			{showInstructions && (
 				<div className="align-vertically center-align">
-					{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card." />}
-					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="If Lars can lead next turn and initiative has not yet been seized, play an extra card and give Lars the first player marker." />}
+					{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card. 4 player game: If card is a 1, ignore. If the card is a 7  roll a dice to determine the ambition (reroll on 1)." />}
+					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="If Lars can lead next turn and initiative has not yet been seized, play an extra card and give Lars the first player marker. 4 player game: If the card is a 7, don't play the extra card and don't gain 2 Resource Power." />}
 					{showSuitInstructions()}
 					{moveFocus && <ListItemWithInfo item="At the end of the turn, the Target Planet will be moved automatically." />}
 					<div className="center-align">

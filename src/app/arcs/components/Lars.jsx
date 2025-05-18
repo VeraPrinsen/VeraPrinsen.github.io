@@ -113,7 +113,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	const showRepairInstructions = () => {
 		const main = `Repair all loyal buildings`
 		const focus = `Repair 1 loyal ship in the Gate of Cluster ${state.targetPlanet}`
-		const id = `Repair 1 loyal ship on each planet of symbol ${state.targetPlanetID}`
+		const id = `Repair 1 loyal ship on each planet of symbol ${ID[state.targetPlanetID]}`
 
 		return [
 			<ListItemWithInfo item={main} />,
@@ -166,9 +166,11 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 			case "Mobilisation":
 				returnDivs.push(showInfluenceInstructions())
 				returnDivs.push(showMoveInstructions())
+				break;
 			case "Construction":
 				returnDivs.push(showRepairInstructions())
 				returnDivs.push(showBuildInstructions())
+				break;
 		}
 
 		return returnDivs

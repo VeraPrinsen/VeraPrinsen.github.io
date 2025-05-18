@@ -1,4 +1,4 @@
-import ToggleButton from "../../objects/components/ToggleButton/ToggleButton";
+import Button from "../../objects/components/ToggleButton/Button";
 import { randomNumber } from "../../util/randomNumber";
 import { useState } from "react";
 import ListItemWithInfo from "./ListItemWithInfo";
@@ -8,18 +8,13 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	const [playLeadCard, setPlayLeadCard] = useState(false);
 	const [playFollowCard, setPlayFollowCard] = useState(false);
 	const [cardSuit, setCardSuit] = useState(null);
-
 	const [showInstructions, setShowInstructions] = useState(false);
-	const [declareAmbition, setDeclareAmbition] = useState(null);
-	const [copyLeadCard, setCopyLeadCard] = useState(null);
-	const [seizeInitiative, setSeizeInitiative] = useState(null);
-	const [moveFocus, setMoveFocus] = useState(null);
+	const [declareAmbition, setDeclareAmbition] = useState(false);
+	const [copyLeadCard, setCopyLeadCard] = useState(false);
+	const [seizeInitiative, setSeizeInitiative] = useState(false);
+	const [moveFocus, setMoveFocus] = useState(false);
 
-	const [doneButton, setDoneButton] = useState(false);
-
-	console.log(playLeadCard)
-	console.log(playFollowCard)
-
+	// Functions that randomly decide if certain actions should be taken
 	const fDeclareAmbition = () => {
 		if (randomNumber(1, 2) === 1) {
 			setDeclareAmbition(true)
@@ -44,7 +39,9 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		}
 	}
 
+	// Functions that handle the button clicks
 	const handlePlayLeadCard = () => {
+		// If the lead card is already played, do nothing
 		if (playLeadCard) {
 			return
 		}
@@ -55,6 +52,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const handlePlayFollowCard = () => {
+		// If the follow card is already played, do nothing
 		if (playFollowCard) {
 			return
 		}
@@ -69,14 +67,18 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		setCopyLeadCard(false)
 		setCardSuit(value)
 		setShowInstructions(true)
-		setDoneButton(true)
 	}
 
 	const handleDoneButton = () => {
+		// If the target planet must be moved, call the handleMoveFocus function for this Lars
 		if (moveFocus) {
 			handleMoveFocus(nLars)
 		}
 
+		resetTurn()
+	}
+
+	const resetTurn = () => {
 		setPlayLeadCard(false)
 		setPlayFollowCard(false)
 		setCardSuit(null)
@@ -84,24 +86,24 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 		setCopyLeadCard(false)
 		setMoveFocus(false)
 		setShowInstructions(false)
-		setDoneButton(false)
 	}
 
+	// Helper functions that generate (randomly generated) instructions for a specific Action
 	const showInfluenceInstructions = () => {
 		let main;
 		let rival;
 		switch (randomNumber(1, 6)) {
 			case 1:
 			case 2:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}`
+				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}.`
 				break
 			case 3:
 			case 4:
-				main = `Add 2 agents to court card ${map.courtCards[state.targetPlanet]}`
+				main = `Add 2 agents to court card ${map.courtCards[state.targetPlanet]}.`
 				break
 			case 5:
-				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}`
-				rival = `Add 1 agent to each court card with rival agents`
+				main = `Add 1 agent to court card ${map.courtCards[state.targetPlanet]}.`
+				rival = `Add 1 agent to each court card with rival agents.`
 				break
 		}
 
@@ -112,9 +114,9 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const showRepairInstructions = () => {
-		const main = `Repair all loyal buildings`
-		const focus = `Repair 1 loyal ship in the Gate of Cluster ${state.targetPlanet}`
-		const id = `Repair 1 loyal ship on each planet of symbol ${ID[state.targetPlanetID]}`
+		const main = `Repair all loyal buildings.`
+		const focus = `Repair 1 loyal ship in the Gate of Cluster ${state.targetPlanet}.`
+		const id = `Repair 1 loyal ship on each planet of symbol ${ID[state.targetPlanetID]}.`
 
 		return [
 			<ListItemWithInfo item={main} />,
@@ -124,28 +126,28 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const showBuildInstructions = () => {
-		const city = `Priority: Planets with symbol ${ID[state.targetPlanetID]} > Different planet resource than other cities > Most fresh loyal ships`
+		const cityInfo = `Priority: Planets with symbol ${ID[state.targetPlanetID]} > Different planet resource than other cities > Most fresh loyal ships.`
 
 		return [
-			<ListItemWithInfo item="Build 1 city where Lars has control" info={city} />,
-			<ListItemWithInfo item="Build 3 ships at starport" />,
-			<ListItemWithInfo item="If nothing was build, repair all loyal ships and buildings" />
+			<ListItemWithInfo item="Build 1 city where Lars has control." info={cityInfo} />,
+			<ListItemWithInfo item="Build 3 ships at starport." />,
+			<ListItemWithInfo item="If nothing was build, repair all loyal ships and buildings." />
 		]
 	}
 
 	const showMoveInstructions = () => {
-		const move = `It wants to control all systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > Planets with empty building slots > Planets with rival cities > Planets with rival starports > Planets with rival ships > The Gate (?). If it cannot catapult to the system, it will first move ships to systems on the way to control.`
+		const moveInfo = `It wants to control systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > Planets with empty building slots > Planets with rival cities > Planets with rival starports > Planets with rival ships > The Gate. If it cannot catapult to the system, it will first move ships to systems on the way to control.`
 
 		return [
-			<ListItemWithInfo item="Remove fresh loyal ships from systems with no rival ships (leave 1 behind if there are buildings)" />,
-			<ListItemWithInfo item="Place removed ships on planet with owned starport" />,
-			<ListItemWithInfo item="Catapult move ships from starport until there are none left" info={move} />
+			<ListItemWithInfo item="Remove fresh loyal ships from systems with no rival ships (leave 1 behind if there are buildings)." />,
+			<ListItemWithInfo item="Place removed ships on planet with owned starport." />,
+			<ListItemWithInfo item="Catapult move ships from starport until there are none left." info={moveInfo} />
 		]
 	}
 
 	const showBattleInstructions = () => {
 		return [
-			<ListItemWithInfo item="In each system with rival ships. battle once with only skirmish dice." info="Defender: Rival with most power. Maximise the number of damaged ships." />,
+			<ListItemWithInfo item="In each system with rival ships. battle once with only skirmish dice." info="Defender: Rival with most power. Maximise the number of damaged ships (also for Lars)." />,
 			<ListItemWithInfo item={`In the Gate of Cluster ${state.targetPlanet} and all ${ID[state.targetPlanetID]} planets, battle once. See info.`} info="Defender: Rival with most power. If defender has city and no ships: roll up to 2 raid dice per defender city, remainder skirmish dice, defender chooses what gets stolen, don't provoke outrage. Otherwise: Round half (up) assault dice, remainder skirmish dice." />
 		]
 	}
@@ -155,14 +157,14 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 
 		switch (cardSuit) {
 			case "Aggression":
-				returnDivs.push(<ListItemWithInfo item="Secure all cards in court where Lars has more agents" />)
+				returnDivs.push(<ListItemWithInfo item="Secure all cards in court where Lars has more agents." />)
 				returnDivs.push(showMoveInstructions())
 				returnDivs.push(showBattleInstructions())
 				break;
 			case "Administration":
 				returnDivs.push(showInfluenceInstructions())
 				returnDivs.push(showRepairInstructions())
-		returnDivs.push(<ListItemWithInfo item="Tax all valid cities" info="Owned and controlled rival cities" />)
+		returnDivs.push(<ListItemWithInfo item="Tax all valid cities" info="Owned and controlled rival cities." />)
 				break
 			case "Mobilisation":
 				returnDivs.push(showInfluenceInstructions())
@@ -178,32 +180,33 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	return (
-		<div className="lars-container">
-			<div>{`Player ${state.playerNumber}`}</div>
-			<div>{`Target planet: Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}`}</div>
-			<div className="play-card">
-				{playFollowCard !== true && <ToggleButton value="Play lead card" onClick={handlePlayLeadCard} selected={playLeadCard} />}
-				{playLeadCard !== true && <ToggleButton value="Play follow card" onClick={handlePlayFollowCard} selected={playFollowCard} />}
+		<div className="align-vertically center-align">
+			<div className="center-align bold">{`Player ${state.playerNumber}`}</div>
+			<div className="center-align">{`Target planet: Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}`}</div>
+			<div className="align-horizontally center-align">
+				{playFollowCard !== true && <Button value="Play lead card" size="large" onClick={handlePlayLeadCard} selected={playLeadCard} />}
+				{playLeadCard !== true && <Button value="Play follow card" size="large" onClick={handlePlayFollowCard} selected={playFollowCard} />}
 			</div>
-			{copyLeadCard && <ListItemWithInfo item="Copy lead card" />}
+			{copyLeadCard && <div className="center-align block">Copy lead card</div>}
 			{(playLeadCard || playFollowCard) && (
-				<div className="suits">
-					{(cardSuit === null || cardSuit === "Aggression") && <ToggleButton value="Aggression" onClick={() => handleSuitButton("Aggression")} selected={cardSuit === "Aggression"} />}
-					{(cardSuit === null || cardSuit === "Administration") && <ToggleButton value="Administration" onClick={() => handleSuitButton("Administration")} selected={cardSuit === "Administration"} />}
-					{(cardSuit === null || cardSuit === "Mobilisation") && <ToggleButton value="Mobilisation" onClick={() => handleSuitButton("Mobilisation")} selected={cardSuit === "Mobilisation"} />}
-					{(cardSuit === null || cardSuit === "Construction") && <ToggleButton value="Construction" onClick={() => handleSuitButton("Construction")} selected={cardSuit === "Construction"} />}
+				<div className="align-horizontally center-align">
+					{(cardSuit === null || cardSuit === "Aggression") && <Button value="Aggression" size="large" onClick={() => handleSuitButton("Aggression")} selected={cardSuit === "Aggression"} />}
+					{(cardSuit === null || cardSuit === "Administration") && <Button value="Administration" size="large" onClick={() => handleSuitButton("Administration")} selected={cardSuit === "Administration"} />}
+					{(cardSuit === null || cardSuit === "Mobilisation") && <Button value="Mobilisation" size="large" onClick={() => handleSuitButton("Mobilisation")} selected={cardSuit === "Mobilisation"} />}
+					{(cardSuit === null || cardSuit === "Construction") && <Button value="Construction" size="large" onClick={() => handleSuitButton("Construction")} selected={cardSuit === "Construction"} />}
 				</div>
 			)}
 			{showInstructions && (
-				<>
-					<div className="lars-instructions">
-						{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card" />}
-						{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available if Lars can lead next turn." />}
-						{showSuitInstructions()}
-						{moveFocus && <ListItemWithInfo item="At the end of the turn, Focus of the Target Planet will be moved automatically." />}
+				<div className="align-vertically center-align">
+					{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card." />}
+					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available and if Lars can lead next turn." />}
+					{showSuitInstructions()}
+					{moveFocus && <ListItemWithInfo item="At the end of the turn, the Target Planet will be moved automatically." />}
+					<div>
+						<Button value="Cancel" onClick={resetTurn} />
+						<Button value="Done" onClick={handleDoneButton} />
 					</div>
-					{doneButton && <ToggleButton value="Done" onClick={handleDoneButton} />}
-				</>
+				</div>
 			)}
 		</div>
 	)

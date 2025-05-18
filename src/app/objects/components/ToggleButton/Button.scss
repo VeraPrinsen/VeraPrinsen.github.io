@@ -1,7 +1,5 @@
-.toggle-button {
+.custom-button {
   height: 2rem;
-  width: 2rem;
-  margin: 0 0.2rem 0 0.2rem;
   border: 1px solid black;
   cursor: pointer;
 
@@ -10,13 +8,29 @@
   align-items: center;
 }
 
-.not-selected {
-  background-color: lightgray;
-  color: black;
+.primary-not-selected {
+  background-color: #602d60;
+  color: white;
+  font-weight: bold;
 }
 
-.selected {
+.selection-not-selected {
+  background-color: lightgray;
+}
+
+.selection-selected {
   background-color: #404040;
   color: white;
   font-weight: bold;
 }
+
+.small {
+  width: 2rem;
+}
+
+.large {
+  width: 9rem;
+}
+
+
+

@@ -6,12 +6,11 @@ import { ARCS_STATE, EMPTY_GAME_STATE } from "./util/constants";
 import './Arcs.scss'
 
 const Arcs = () => {
+	// Checks if there is a game state in local storage and sets it to the gameState state variable. If not, it sets the gameState to the empty game state.
 	const [gameState, setGameState] = useState(localStorage.getItem(ARCS_STATE) ? JSON.parse(localStorage.getItem(ARCS_STATE)) : JSON.stringify(EMPTY_GAME_STATE))
 
-	console.log(gameState)
-
+	// Sets the game state in local storage and updates the gameState state variable.
 	const handleGameStateChange = (object) => {
-		console.log("STATE IS CHANGED")
 		setGameState(prevState => {
 			const newState = { ...prevState, ...object }
 			localStorage.setItem(ARCS_STATE, JSON.stringify(newState))
@@ -23,8 +22,8 @@ const Arcs = () => {
 		<>
 			<Hub title="Arcs - Lars" />
 			<div className="arcs-main-app">
-				{!gameState.map && <NewGame handleGameStateChange={handleGameStateChange} />}
-				{gameState.map && <Game gameState={gameState} handleGameStateChange={handleGameStateChange} />}
+				{!gameState.dateTimeStarted && <NewGame handleGameStateChange={handleGameStateChange} />}
+				{gameState.dateTimeStarted && <Game gameState={gameState} handleGameStateChange={handleGameStateChange} />}
 			</div>
 		</>
 	)

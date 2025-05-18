@@ -1,4 +1,4 @@
-import Button from "../../objects/components/ToggleButton/Button";
+import CustomButton from "../../objects/components/ToggleButton/CustomButton";
 
 const EndOfChapter = ({ handleConfirmEndOfChapter }) => {
 	return (
@@ -14,7 +14,7 @@ const EndOfChapter = ({ handleConfirmEndOfChapter }) => {
 				<li>The Target Planet will be moved automatically after clicking the "Confirm" button.</li>
 			</ul>
 
-			<Button value="Confirm End of Chapter" type="primary" onClick={handleConfirmEndOfChapter}/>
+			<CustomButton value="Confirm End of Chapter" type="primary" onClick={handleConfirmEndOfChapter}/>
 		</div>
 	)
 }

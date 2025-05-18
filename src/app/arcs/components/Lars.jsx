@@ -1,4 +1,4 @@
-import Button from "../../objects/components/ToggleButton/Button";
+import CustomButton from "../../objects/components/ToggleButton/CustomButton";
 import { randomNumber } from "../../util/randomNumber";
 import { useState } from "react";
 import ListItemWithInfo from "./ListItemWithInfo";
@@ -184,16 +184,16 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 			<div className="center-align bold">{`Player ${state.playerNumber}`}</div>
 			<div className="center-align">{`Target planet: Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}`}</div>
 			<div className="align-horizontally center-align">
-				{playFollowCard !== true && <Button value="Play lead card" size="large" onClick={handlePlayLeadCard} selected={playLeadCard} />}
-				{playLeadCard !== true && <Button value="Play follow card" size="large" onClick={handlePlayFollowCard} selected={playFollowCard} />}
+				{playFollowCard !== true && <CustomButton value="Play lead card" size="large" onClick={handlePlayLeadCard} selected={playLeadCard} />}
+				{playLeadCard !== true && <CustomButton value="Play follow card" size="large" onClick={handlePlayFollowCard} selected={playFollowCard} />}
 			</div>
 			{copyLeadCard && <div className="center-align block">Copy lead card</div>}
 			{(playLeadCard || playFollowCard) && (
 				<div className="align-horizontally center-align">
-					{(cardSuit === null || cardSuit === "Aggression") && <Button value="Aggression" size="large" onClick={() => handleSuitButton("Aggression")} selected={cardSuit === "Aggression"} />}
-					{(cardSuit === null || cardSuit === "Administration") && <Button value="Administration" size="large" onClick={() => handleSuitButton("Administration")} selected={cardSuit === "Administration"} />}
-					{(cardSuit === null || cardSuit === "Mobilisation") && <Button value="Mobilisation" size="large" onClick={() => handleSuitButton("Mobilisation")} selected={cardSuit === "Mobilisation"} />}
-					{(cardSuit === null || cardSuit === "Construction") && <Button value="Construction" size="large" onClick={() => handleSuitButton("Construction")} selected={cardSuit === "Construction"} />}
+					{(cardSuit === null || cardSuit === "Aggression") && <CustomButton value="Aggression" size="large" onClick={() => handleSuitButton("Aggression")} selected={cardSuit === "Aggression"} />}
+					{(cardSuit === null || cardSuit === "Administration") && <CustomButton value="Administration" size="large" onClick={() => handleSuitButton("Administration")} selected={cardSuit === "Administration"} />}
+					{(cardSuit === null || cardSuit === "Mobilisation") && <CustomButton value="Mobilisation" size="large" onClick={() => handleSuitButton("Mobilisation")} selected={cardSuit === "Mobilisation"} />}
+					{(cardSuit === null || cardSuit === "Construction") && <CustomButton value="Construction" size="large" onClick={() => handleSuitButton("Construction")} selected={cardSuit === "Construction"} />}
 				</div>
 			)}
 			{showInstructions && (
@@ -203,8 +203,8 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 					{showSuitInstructions()}
 					{moveFocus && <ListItemWithInfo item="At the end of the turn, the Target Planet will be moved automatically." />}
 					<div className="center-align">
-						<Button value="Cancel" size="large" onClick={resetTurn} />
-						<Button value="Done" size="large" onClick={handleDoneButton} />
+						<CustomButton value="Cancel" size="large" onClick={resetTurn} />
+						<CustomButton value="Done" size="large" onClick={handleDoneButton} />
 					</div>
 				</div>
 			)}

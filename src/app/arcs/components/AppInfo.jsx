@@ -1,4 +1,4 @@
-import Button from "../../objects/components/ToggleButton/Button";
+import CustomButton from "../../objects/components/ToggleButton/CustomButton";
 
 const AppInfo = ({ handleCloseAppInfo }) => {
 	return (
@@ -57,7 +57,7 @@ const AppInfo = ({ handleCloseAppInfo }) => {
 					</ul>
 				</details>
 			</div>
-			<Button value="Close Info" size="large" type="primary" onClick={handleCloseAppInfo}/>
+			<CustomButton value="Close Info" size="large" type="primary" onClick={handleCloseAppInfo}/>
 		</div>
 	)
 }

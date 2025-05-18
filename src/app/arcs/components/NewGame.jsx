@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../../objects/components/ToggleButton/Button";
+import CustomButton from "../../objects/components/ToggleButton/CustomButton";
 import { ARCS_STATE, EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
 import { shuffleArray } from "../../util/shuffleArray";
 import { getOutOfPlayLocations } from "../util/helpers";
@@ -45,33 +45,33 @@ const NewGame = ({ handleGameStateChange }) => {
 
 	return (
 		<div className="align-vertically center-align">
-			{!infoSelected && <Button value="Info" size="large" type="primary" onClick={() => setInfoSelected(true)} />}
+			{!infoSelected && <CustomButton value="Info" size="large" type="primary" onClick={() => setInfoSelected(true)} />}
 			{infoSelected && <AppInfo handleCloseAppInfo={() => setInfoSelected(false)} />}
 
 			<h1>New Game</h1>
 			<div className="align-horizontally center-align block">
 				<span># Players</span>
-				<Button value={2} size="small" selected={nPlayers === 2} onClick={() => handlePlayerClick(2)}/>
-				<Button value={3} size="small" selected={nPlayers === 3} onClick={() => handlePlayerClick(3)}/>
-				<Button value={4} size="small" selected={nPlayers === 4} onClick={() => handlePlayerClick(4)}/>
+				<CustomButton value={2} size="small" selected={nPlayers === 2} onClick={() => handlePlayerClick(2)}/>
+				<CustomButton value={3} size="small" selected={nPlayers === 3} onClick={() => handlePlayerClick(3)}/>
+				<CustomButton value={4} size="small" selected={nPlayers === 4} onClick={() => handlePlayerClick(4)}/>
 			</div>
 
 			<div className="align-horizontally center-align block">
 				<span># Lars</span>
-				<Button value={1} size="small" selected={nLars === 1} onClick={() => setNLars(1)}/>
-				<Button value={2} size="small" selected={nLars === 2} onClick={() => setNLars(2)}/>
+				<CustomButton value={1} size="small" selected={nLars === 1} onClick={() => setNLars(1)}/>
+				<CustomButton value={2} size="small" selected={nLars === 2} onClick={() => setNLars(2)}/>
 			</div>
 
 			<div className="align-vertically center-align block">
 				<span>Map for {nPlayers} players</span>
 				{maps.map((map, index) => (
-					<Button key={index} value={map.slice(1, map.length)} size="large" selected={selectedMap === map} onClick={() => setSelectedMap(map)}/>
+					<CustomButton key={index} value={map.slice(1, map.length)} size="large" selected={selectedMap === map} onClick={() => setSelectedMap(map)}/>
 				))}
 			</div>
 
-			{selectedMap && <Button value={"Start Game"} size="large" type="primary" onClick={handleStartGame} />}
+			{selectedMap && <CustomButton value={"Start Game"} size="large" type="primary" onClick={handleStartGame} />}
 
-			{/*DEV Button to be able to change the initial state*/}
+			{/*DEV CustomButton to be able to change the initial state*/}
 			{/*<div className="start-game">*/}
 			{/*	<ToggleButton value={"Remove State"} size="large" type="primary" onClick={() => localStorage.removeItem(ARCS_STATE)} />*/}
 			{/*</div>*/}

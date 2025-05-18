@@ -1,4 +1,4 @@
-import Button from "../../objects/components/ToggleButton/Button";
+import CustomButton from "../../objects/components/ToggleButton/CustomButton";
 import { EMPTY_GAME_STATE, LOCATIONS, MAPS } from "../util/constants";
 import { useState } from "react";
 import Lars from "./Lars";
@@ -40,19 +40,19 @@ const Game = ({ gameState, handleGameStateChange }) => {
 	return (
 		<div className="align-vertically center-align">
 			{infoSelected && <AppInfo handleCloseAppInfo={() => setInfoSelected(false)} />}
-			{!infoSelected && <Button value="Info" size="large" type="primary" onClick={() => setInfoSelected(true)} />}
+			{!infoSelected && <CustomButton value="Info" size="large" type="primary" onClick={() => setInfoSelected(true)} />}
 			<div className="align-horizontally center-align">
-				{!endOfChapterSelected && <Button value="End of Chapter" size="large" onClick={() => setEndOfChapterSelected(true)} />}
-				{endOfChapterSelected && <Button value="Cancel" size="large" onClick={() => setEndOfChapterSelected(false)} />}
-				<Button value="Reset Game" size="large" onClick={handleResetGame}/>
+				{!endOfChapterSelected && <CustomButton value="End of Chapter" size="large" onClick={() => setEndOfChapterSelected(true)} />}
+				{endOfChapterSelected && <CustomButton value="Cancel" size="large" onClick={() => setEndOfChapterSelected(false)} />}
+				<CustomButton value="Reset Game" size="large" onClick={handleResetGame}/>
 			</div>
 			{endOfChapterSelected && <EndOfChapter handleConfirmEndOfChapter={handleEndOfChapterDone} handleExitEndOfChapter={() => setEndOfChapterSelected(false)} />}
 			<div className="datetime center-align">Game started on {gameState.dateTimeStarted}</div>
 			<div className="map-info center-align">{`Map: ${gameState.nPlayers} players, ${gameState.map.slice(1, gameState.map.length)}`}</div>
 			{gameState.nLars === 2 && (
 				<div className="align-horizontally center-align">
-					<Button value={"Lars 1"} selected={selectedLars === 1} size="large" onClick={() => setSelectedLars(1)} />
-					<Button value={"Lars 2"} selected={selectedLars === 2} size="large" onClick={() => setSelectedLars(2)} />
+					<CustomButton value={"Lars 1"} selected={selectedLars === 1} size="large" onClick={() => setSelectedLars(1)} />
+					<CustomButton value={"Lars 2"} selected={selectedLars === 2} size="large" onClick={() => setSelectedLars(2)} />
 				</div>
 			)}
 			{selectedLars === 1 && (<Lars nLars={1} state={gameState.lars1} map={MAPS[gameState.map]} handleMoveFocus={handleMoveFocus} />)}

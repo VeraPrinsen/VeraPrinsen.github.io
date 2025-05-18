@@ -202,9 +202,9 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available and if Lars can lead next turn." />}
 					{showSuitInstructions()}
 					{moveFocus && <ListItemWithInfo item="At the end of the turn, the Target Planet will be moved automatically." />}
-					<div>
-						<Button value="Cancel" onClick={resetTurn} />
-						<Button value="Done" onClick={handleDoneButton} />
+					<div className="center-align">
+						<Button value="Cancel" size="large" onClick={resetTurn} />
+						<Button value="Done" size="large" onClick={handleDoneButton} />
 					</div>
 				</div>
 			)}

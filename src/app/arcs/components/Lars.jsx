@@ -142,7 +142,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const showMoveInstructions = () => {
-		const moveInfo = `It wants to control systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > ${ID[state.targetPlanetID]} planets with empty building slots > ${ID[state.targetPlanetID]} planets with rival cities > ${ID[state.targetPlanetID]} planets with rival starports > ${ID[state.targetPlanetID]} planets with rival ships > The Gate of Cluster ${ID[state.targetPlanet]}. If it cannot catapult to the system, it will first move ships to systems on the way to take away control.`
+		const moveInfo = `It wants to control systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > ${ID[state.targetPlanetID]} planets with empty building slots > ${ID[state.targetPlanetID]} planets with rival cities > ${ID[state.targetPlanetID]} planets with rival starports > ${ID[state.targetPlanetID]} planets with rival ships > The Gate of Cluster ${state.targetPlanet}. If it cannot catapult to the system, it will first move ships to systems on the way to take away control.`
 
 		return [
 			<ListItemWithInfo item="Remove fresh loyal ships from systems with no rival ships (leave 1 behind if there are buildings)." />,

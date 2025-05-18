@@ -14,7 +14,7 @@ const AppInfo = ({ handleCloseAppInfo }) => {
 						</li>
 						<li>
 							There is a difference: This app supports 2 and 4 player games, where the rules from Shipple do not
-							officially describe it. I've created the rules using the information in the thread on BGG.
+							officially describe it. I've created the rules using the information in the thread on BGG. It is still a work in progress though for now.
 						</li>
 					</ul>
 				</details>

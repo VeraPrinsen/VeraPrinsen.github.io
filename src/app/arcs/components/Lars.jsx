@@ -136,7 +136,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 	}
 
 	const showMoveInstructions = () => {
-		const moveInfo = `It wants to control systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > Planets with empty building slots > Planets with rival cities > Planets with rival starports > Planets with rival ships > The Gate. If it cannot catapult to the system, it will first move ships to systems on the way to control.`
+		const moveInfo = `It wants to control systems in this order: Target planet (Cluster ${state.targetPlanet} - ${ID[state.targetPlanetID]}) > ${ID[state.targetPlanetID]} planets with empty building slots > ${ID[state.targetPlanetID]} planets with rival cities > ${ID[state.targetPlanetID]} planets with rival starports > ${ID[state.targetPlanetID]} planets with rival ships > The Gate of Cluster ${ID[state.targetPlanet]}. If it cannot catapult to the system, it will first move ships to systems on the way to take away control.`
 
 		return [
 			<ListItemWithInfo item="Remove fresh loyal ships from systems with no rival ships (leave 1 behind if there are buildings)." />,
@@ -199,7 +199,7 @@ const Lars = ({ nLars, state, map, handleMoveFocus }) => {
 			{showInstructions && (
 				<div className="align-vertically center-align">
 					{declareAmbition && <ListItemWithInfo item="Declare ambition" info="Declare highest ambition to the corresponding card." />}
-					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="Take the first player marker if it is available and if Lars can lead next turn." />}
+					{seizeInitiative && <ListItemWithInfo item="Seize initiative. Increase Resource power by 2." info="If Lars can lead next turn and initiative has not yet been seized, play an extra card and give Lars the first player marker." />}
 					{showSuitInstructions()}
 					{moveFocus && <ListItemWithInfo item="At the end of the turn, the Target Planet will be moved automatically." />}
 					<div className="center-align">

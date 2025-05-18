@@ -41,13 +41,25 @@ const Game = ({ gameState, handleGameStateChange }) => {
 				<h1>Basic Rules</h1>
 
 				<ul>
-					<li>Use standard rules unless explicitly instructed otherwise</li>
-					<li>Lars ignores text on court cards</li>
-					<li>Lars does not build additional starports and its startport cannot be damaged</li>
-					<li>Deal action cards face down to each Lars</li>
+					<li>Use standard rules unless explicitly instructed otherwise.</li>
+					<li>Lars ignores text on court cards.</li>
+					<li>Lars does not build additional starports and its startport cannot be damaged.</li>
+					<li>Deal action cards face down to each Lars.</li>
 					<li>Lars will slide resources from the left on their board, discarding overflowing resources at the end of their turn. They get 1 Resource Power per discarded resource.</li>
-					<li>If you have to target a system, in tiebreakers it is first the system closest to the Target Planet and then the system closest to the Lars starport</li>
+					<li>If you have to target a system, in tiebreakers it is first the system closest to the Target Planet and then the system closest to the Lars starport.</li>
+					<li>If you have to target to Lead player, this is always a rival with the most power, prioritising non Lars rivals first.</li>
 					<li>Sometimes the app asks you to increase the Resource Power of Lars. Do this by placing cubes on it's play board. This comes into play in the End of Chapter Rules.</li>
+				</ul>
+
+				<h2>Vox Cards</h2>
+				<span>When securing a Vox card, there might be some conditions that need to be met before Lars can Secure that card.</span>
+				<ul>
+					<li>Mass uprising: Is always Secured; Is resolved in the Cluster of the Target Planet.</li>
+					<li>Populist demands: Lars must win an undeclared ambition; Is resolved on the ambition Lars is winning.</li>
+					<li>Outrage spreads: Is always Secured; Is resolved maximising discards for the Lead player.</li>
+					<li>Song of freedom: Lars must control a rival city; Is resolved prioritising the Lead player.</li>
+					<li>Guild struggle: At least 1 rival must have a guild card; Is resolved prioritising the Lead player.</li>
+					<li>Call to action: Is always Secured.</li>
 				</ul>
 
 				<ToggleButton value="Back" onClick={() => setBasicRulesSelected(false)} />
@@ -59,7 +71,7 @@ const Game = ({ gameState, handleGameStateChange }) => {
 				<h1>End of Chapter Rules</h1>
 
 				<ul>
-					<li>Score declared ambitions as normal, also taking Lars into account</li>
+					<li>Score declared ambitions as normal, also taking Lars into account.</li>
 					<li>Then, also score the undeclared ambitions only for the Lars bots, use the lowest ambition score token.</li>
 					<li>Then, score the Resource Power of each Lars and then discard them. If Lars is first, he does not score. If Lars is second, he gets 1 point per Resource Power. Otherwise, Lars get's 2 points per Resource Power.</li>
 					<li>The Focus of the Target Planet will be moved automatically after clicking the "Done" button.</li>

@@ -45,6 +45,7 @@ const Game = ({ gameState, handleGameStateChange }) => {
 					<li>Lars ignores text on court cards</li>
 					<li>Lars does not build additional starports and its startport cannot be damaged</li>
 					<li>Deal action cards face down to each Lars</li>
+					<li>Lars will slide resources from the left on their board, discarding overflowing resources at the end of their turn. They get 1 Resource Power per discarded resource.</li>
 					<li>If you have to target a system, in tiebreakers it is first the system closest to the Target Planet and then the system closest to the Lars starport</li>
 					<li>Sometimes the app asks you to increase the Resource Power of Lars. Do this by placing cubes on it's play board. This comes into play in the End of Chapter Rules.</li>
 				</ul>
